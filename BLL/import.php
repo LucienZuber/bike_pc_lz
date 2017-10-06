@@ -5,12 +5,13 @@
  * Date: 28.09.2017
  * Time: 09:18
  */
-
+require_once '../DAL/importRequest.php';
 class Import
 {
     const URI = "https://timetable.search.ch/api/route.en.json";
     const ACCEPTED_TRANSPORT_TYPE = array('post'); //the list of transport type that will be returned by the API
 
+    private $importRequest;
     private $region;
     private $query;
     private $listOfStops;
@@ -21,6 +22,7 @@ class Import
      */
     public function __construct($departure, $arrival, $region)
     {
+        $this->importRequest = new ImportRequest();
         $this->region = $region;
 
         $param = array (
@@ -38,6 +40,7 @@ class Import
     //Read the jsonObject
     public function read(){
         $data = json_decode(file_get_contents($this->query), true);
+        $this->addRegion();
 
         //we see every connection
         foreach ($data['connections'] as $connections){
@@ -62,9 +65,14 @@ class Import
         $this->listOfStops[$jsonObject['stopid']] = $jsonObject['name'];
     }
 
+    public function addRegion(){
+        $this->importRequest->insertRegion($this->region, 1);
+        var_dump($this->importRequest->getRegion(null, $this->region));
+    }
+
     public function readAddedStops(){
         foreach ($this->listOfStops as $key => $value){
-            echo "$key :  $value <br>";
+//            echo "$key : $value <br>";
         }
     }
 }
