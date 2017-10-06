@@ -10,9 +10,9 @@
 <body>
 <h1>Use this page to import new area</h1>
 <form action="#" method="get">
-    departure: <input type="text" name="departure" id="recherche">
-    arrival: <input type="text" name="arrival">
-    region: <input type="text" name="region">
+    departure: <input type="text" name="departure" id="recherche" required>
+    arrival: <input type="text" name="arrival" required>
+    region: <input type="text" name="region" required>
     <input type="submit" name="submit">
 </form>
 <script>

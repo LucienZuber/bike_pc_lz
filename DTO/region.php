@@ -10,7 +10,7 @@ class Region
 {
     private $_id;
     private $_name;
-    private $_totalBike;
+    const TOTAL_BIKE = 6;
     private $_adminId;
 
     /**
@@ -20,11 +20,10 @@ class Region
      * @param $_totalBike
      * @param $_adminId
      */
-    public function __construct($_id, $_name, $_totalBike, $_adminId)
+    public function __construct($_id, $_name, $_adminId)
     {
         $this->_id = $_id;
         $this->_name = $_name;
-        $this->_totalBike = $_totalBike;
         $this->_adminId = $_adminId;
     }
 
@@ -58,22 +57,6 @@ class Region
     public function setName($name)
     {
         $this->_name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotalBike()
-    {
-        return $this->_totalBike;
-    }
-
-    /**
-     * @param mixed $totalBike
-     */
-    public function setTotalBike($totalBike)
-    {
-        $this->_totalBike = $totalBike;
     }
 
     /**

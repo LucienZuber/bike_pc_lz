@@ -5,13 +5,18 @@
  * Date: 28.09.2017
  * Time: 09:18
  */
-require_once '../DAL/importRequest.php';
+require_once '../DAL/regionRequest.php';
+require_once '../DAL/stationRequest.php';
+require_once '../DTO/region.php';
+require_once '../DTO/station.php';
+
 class Import
 {
     const URI = "https://timetable.search.ch/api/route.en.json";
     const ACCEPTED_TRANSPORT_TYPE = array('post'); //the list of transport type that will be returned by the API
 
-    private $importRequest;
+    private $regionRequest;
+    private $stationRequest;
     private $region;
     private $query;
     private $listOfStops;
@@ -20,10 +25,12 @@ class Import
      * @param $region
      * @param $param
      */
-    public function __construct($departure, $arrival, $region)
+    public function __construct($departure, $arrival, $regionName)
     {
-        $this->importRequest = new ImportRequest();
-        $this->region = $region;
+        $this->regionRequest = new RegionRequest();
+        $this->stationRequest = new StationRequest();
+
+        $this->addRegion($regionName);
 
         $param = array (
             'from' => $departure,
@@ -40,8 +47,6 @@ class Import
     //Read the jsonObject
     public function read(){
         $data = json_decode(file_get_contents($this->query), true);
-        $this->addRegion();
-
         //we see every connection
         foreach ($data['connections'] as $connections){
             //we see every legs
@@ -58,20 +63,25 @@ class Import
                 }
             }
         }
-        $this->readAddedStops();
+        $this->readAddedStations();
     }
     //Read the id and the name of a JSonObject
     private function readIdName($jsonObject){
         $this->listOfStops[$jsonObject['stopid']] = $jsonObject['name'];
     }
 
-    public function addRegion(){
-        $this->importRequest->insertRegion($this->region, 1);
-        var_dump($this->importRequest->getRegion(null, $this->region));
+    public function addRegion($regionName){
+        $this->regionRequest->insertRegion($regionName, 1);
+        $this->region = $this->regionRequest->getRegion($regionName);
     }
 
-    public function readAddedStops(){
+    public function addStation($name){
+        $this->stationRequest->insertStation($name, (int)$this->region->getId());
+    }
+
+    public function readAddedStations(){
         foreach ($this->listOfStops as $key => $value){
+            $this->addStation($value);
 //            echo "$key : $value <br>";
         }
     }
