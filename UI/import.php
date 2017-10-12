@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <title>Import</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <script type="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../Scripts/autocomplete.js"></script>
 </head>
 <body>
-<h1>Use this page to import new area</h1>
+<h1>Utilisez cette page pour importer de nouvelles zones</h1>
 <form action="#" method="get">
-    departure: <input type="text" name="departure" id="recherche" required>
-    arrival: <input type="text" name="arrival" required>
-    region: <input type="text" name="region" required>
+    départ: <input type="text" name="departure" class="recherche" required>
+    arrivée: <input type="text" name="arrival" class="recherche" required>
+    région: <input type="text" name="region" required>
+    chauffeur: <input type="text" name="region" required>
     <input type="submit" name="submit">
 </form>
-<script>
-    var liste = [
-        "Draggable",
-        "Droppable",
-        "Resizable",
-        "Selectable",
-        "Sortable"
-    ];
-    console.log('TEST');
-    $('#recherche').autocomplete({source : liste});
-</script>
 <?php
 require_once '../BLL/import.php';
 
