@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 </head>
 <body>
 <?php include("menus.php");?>
@@ -54,7 +52,6 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
 <script src="../Scripts/autocomplete.js"></script>

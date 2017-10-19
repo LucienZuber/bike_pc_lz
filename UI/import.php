@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 </head>
 <body>
 <?php include("menus.php"); ?>
@@ -27,11 +25,11 @@
     <form class="col s12" action="#" method="get">
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="departure" class="recherche" required>
+                <input type="text" name="departure" class="autocomplete recherche" required>
                 <label for="departure">Départ</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="arrival" class="recherche" required>
+                <input type="text" name="arrival" class="autocomplete recherche" required>
                 <label for="arrival">Arrivée</label>
             </div>
         </div>
@@ -73,7 +71,6 @@ if(isset($_GET['submit'])){
 
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
 <script src="../Scripts/autocomplete.js"></script>
