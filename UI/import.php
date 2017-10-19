@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Import</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="../Scripts/autocomplete.js"></script>
 </head>
 <body>
+
 <h1>Utilisez cette page pour importer de nouvelles zones</h1>
 <form action="#" method="get">
     départ: <input type="text" name="departure" class="recherche" required>
