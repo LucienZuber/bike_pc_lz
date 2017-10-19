@@ -3,20 +3,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Add user</title>
+    <title>Connexion</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<?php include("menus.php"); ?>
+
+<?php include("menus.php");?>
 <main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text">Ajouter un nouvel utilisateur</h1>
+        <h1 class="header center deep-orange-text">Connectez-vous</h1>
         <br><br>
     </div>
 </div>
@@ -35,39 +36,24 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="mail" required>
-                <label for="mail">E-mail</label>
+
             </div>
             <div class="input-field col s6">
-                <input type="text" name="phone" required>
-                <label for="phone">Téléphone</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Choisissez</option>
-                    <option value="1">Administrateur</option>
-                    <option value="2">Chauffeur</option>
-                </select>
-                <label>Rôle</label>
-            </div>
-            <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
-                    <i class="material-icons right">person</i>
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Connexion
+                    <i class="material-icons right">check</i>
                 </button>
             </div>
         </div>
     </form>
 </div>
+
 </main>
 <?php include("footer.php"); ?>
 
-<!--Scripts-->
+<!--  Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
-<script src="../Scripts/select.js"></script>
 
 </body>
 </html>

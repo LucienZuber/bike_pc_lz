@@ -12,11 +12,11 @@
 </head>
 <body>
 <?php include("menus.php"); ?>
-
+<main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left orange-text">Importer de nouvelles zones</h1>
+        <h1 class="header left deep-orange-text">Importer de nouvelles zones</h1>
         <br><br>
     </div>
 </div>
@@ -47,7 +47,7 @@
                 <div class="input-field col s6">
                 </div>
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light" type="submit" name="submit">Valider
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
                     <i class="material-icons right">directions_subway</i>
                 </button>
             </div>
@@ -66,7 +66,7 @@ if(isset($_GET['submit'])){
 }
 
 ?>
-
+</main>
 <?php include("footer.php"); ?>
 
 <!--Scripts-->

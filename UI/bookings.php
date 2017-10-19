@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Home</title>
+    <title>Réservations</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,10 +12,11 @@
 </head>
 <body>
 <?php include("menus.php");?>
+<main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center orange-text">Réservations</h1>
+        <h1 class="header center deep-orange-text">Réservations</h1>
         <br><br>
 
         <table class="striped">
@@ -24,6 +25,7 @@
                 <th>Date</th>
                 <th>Trajet</th>
                 <th>Vélo(s)</th>
+                <th></th>
             </tr>
             </thead>
 
@@ -32,23 +34,26 @@
                 <td>4.11.2017</td>
                 <td>Zinal - Sierre</td>
                 <td>2</td>
+                <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
             </tr>
             <tr>
                 <td>15.11.2017</td>
                 <td>Ayer - Sierre</td>
                 <td>8</td>
+                <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
             </tr>
             <tr>
                 <td>20.11.2017</td>
                 <td>Sierre - St-Luc</td>
                 <td>1</td>
+                <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
             </tr>
             </tbody>
         </table>
         <br><br>
     </div>
 </div>
-
+</main>
 <?php include("footer.php"); ?>
 
 <!--  Scripts-->

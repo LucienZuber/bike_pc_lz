@@ -12,10 +12,11 @@
 </head>
 <body>
 <?php include("menus.php");?>
+<main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center orange-text">Effectuez rapidement une réservation</h1>
+        <h1 class="header center deep-orange-text">Effectuez rapidement une réservation</h1>
         <br><br>
     </div>
 </div>
@@ -39,7 +40,7 @@
                 <label for="icon_telephone">Date</label>
             </div>
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light" type="submit" name="submit">Rechercher
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Rechercher
                     <i class="material-icons right">search</i>
                 </button>
             </div>
@@ -47,7 +48,7 @@
     </form>
 </div>
 
-
+</main>
 <?php include("footer.php"); ?>
 
 <!--  Scripts-->
