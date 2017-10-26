@@ -2,15 +2,15 @@ $(document).ready(function() {
     $('.recherche').on("input",function (error) {
         var list = {};
         var input = $(this).val();
-        getDataFromApi(input, list);
-        $('input.autocompleteApi').change(function() {
+        getData(input, list);
+        $('input.recherche').change(function() {
             $(this).val(Object.keys(list)[0]);
         })
     })
     Materialize.updateTextFields();
 })
 
-function getDataFromApi(input, list) {
+function getData(input, list) {
     $.ajax({
         url: "https://timetable.search.ch/api/completion.en.json?nofavorites=0&term="+input,
         type: 'Get',
@@ -25,7 +25,7 @@ function getDataFromApi(input, list) {
                 data: list,
                 limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
                 onAutocomplete: function(val) {
-                    // Callback function when value is autcompleted.
+                    // Callback function when value is autocompleted.
                 },
                 minLength: 2, // The minimum length of the input for the autocomplete to start. Default: 1.
             });

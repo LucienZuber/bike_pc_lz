@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Import</title>
+    <title>Add a User</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,7 +16,7 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text">Importer de nouvelles zones</h1>
+        <h1 class="header left deep-orange-text">Ajouter un nouvel utilisateur</h1>
         <br><br>
     </div>
 </div>
@@ -25,47 +25,43 @@
     <form class="col s12" action="#" method="get">
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="departure" class="autocomplete recherche" required>
-                <label for="departure">Départ</label>
+                <input type="text" name="name"required>
+                <label for="name">Nom</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="arrival" class="autocomplete recherche" required>
-                <label for="arrival">Arrivée</label>
+                <input type="password" name="password" required>
+                <label for="password">Mot de passe</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" name="mail" required>
+                <label for="mail">E-mail</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" name="phone" required>
+                <label for="phone">Téléphone</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="region" required>
-                <label for="region">Région</label>
+                <select>
+                    <option value="" disabled selected>Choisissez</option>
+                    <option value="1">Administrateur</option>
+                    <option value="2">Chauffeur</option>
+                </select>
+                <label>Rôle</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="driver" required>
-                <label for="driver">Chauffeur</label>
-            </div>
-        </div>
-        <div class="row">
-                <div class="input-field col s6">
-                </div>
-            <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
-                    <i class="material-icons right">directions_subway</i>
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
+                    <i class="material-icons right">person</i>
                 </button>
             </div>
         </div>
     </form>
 </div>
-<?php
-require_once '../BLL/import.php';
 
-const ACCEPTED_TRANSPORT_TYPE = array('post');
 
-//once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
-if(isset($_GET['submit'])){
-    $import = new Import($_GET['departure'], $_GET['arrival'], $_GET['region']);
-    $import->read();
-}
-
-?>
 </main>
 <?php include("footer.php"); ?>
 
@@ -73,7 +69,7 @@ if(isset($_GET['submit'])){
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
-<script src="../Scripts/autocomplete.js"></script>
+<script src="../Scripts/select.js"></script>
 
 </body>
 </html>
