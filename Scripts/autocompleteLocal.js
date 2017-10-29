@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('.recherche').on("input",function (error) {
+    $('.rechercheLocal').on("input",function (error) {
         var list = {};
         var input = $(this).val();
         getData(input, list);
-        $('input.recherche').change(function() {
+        $('input.rechercheLocal').change(function() {
             $(this).val(Object.keys(list)[0]);
         })
     })
@@ -21,7 +21,7 @@ function getData(input, list) {
                 list[val.label] = null;
             });
 
-            $('input.recherche').autocomplete({
+            $('input.rechercheLocal').autocomplete({
                 data: list,
                 limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
                 onAutocomplete: function(val) {
@@ -29,7 +29,6 @@ function getData(input, list) {
                 },
                 minLength: 2, // The minimum length of the input for the autocomplete to start. Default: 1.
             });
-            console.log(stations);
         }
     })
 }

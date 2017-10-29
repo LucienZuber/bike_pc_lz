@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/init.js"></script>
+<!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
 </head>
 <body>
 <?php include("menus.php");?>
@@ -51,15 +57,53 @@
             </tbody>
         </table>
         <br><br>
+        <form class="col s12" action="#" method="get">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="departure" class="autocomplete rechercheLocal" required>
+                    <label for="departure">Départ</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="arrival" class="autocomplete rechercheLocal" required>
+                    <label for="arrival">Arrivée</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="date" required>
+                    <label for="region">Date</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="hour" required>
+                    <label for="driver">Hour</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                </div>
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
+                        <i class="material-icons right">directions_subway</i>
+                    </button>
+                </div>
+            </div>
+            <?php
+            require_once '../BLL/import.php';
+
+            const ACCEPTED_TRANSPORT_TYPE = array('post');
+
+            //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
+            if(isset($_GET['submit'])){
+                $import = new Import($_GET['departure'], $_GET['arrival'], $_GET['region']);
+                $import->read();
+            }
+
+            ?>
+        </form>
     </div>
 </div>
 </main>
 <?php include("footer.php"); ?>
-
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script src="../js/init.js"></script>
 
 </body>
 </html>

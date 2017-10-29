@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/init.js"></script>
+    <script src="../Scripts/autocompleteCFF.js"></script>
 </head>
 <body>
 <?php include("menus.php"); ?>
@@ -69,11 +75,7 @@ if(isset($_GET['submit'])){
 </main>
 <?php include("footer.php"); ?>
 
-<!--Scripts-->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script src="../js/init.js"></script>
-<script src="../Scripts/autocomplete.js"></script>
+
 
 </body>
 </html>

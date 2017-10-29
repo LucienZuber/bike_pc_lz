@@ -9,26 +9,38 @@
 class Booking
 {
     private $_id;
-    private $_user;
-    private $_departure;
-    private $_arrival;
+    private $_departureStation;
+    private $_arrivalStation;
     private $_nbrBike;
+    private $_nom;
+    private $_mail;
+    private $_phone;
+    private $_departureHour;
+    private $_arrivalHour;
 
     /**
-     * booking constructor.
+     * Booking constructor.
      * @param $_id
-     * @param $_user
-     * @param $_departure
-     * @param $_arrival
+     * @param $_departureStation
+     * @param $_arrivalStation
      * @param $_nbrBike
+     * @param $_nom
+     * @param $_mail
+     * @param $_phone
+     * @param $_departureHour
+     * @param $_arrivalHour
      */
-    public function __construct($_id, $_user, $_departure, $_arrival, $_nbrBike)
+    public function __construct($_id, $_departureStation, $_arrivalStation, $_nbrBike, $_nom, $_mail, $_phone, $_departureHour, $_arrivalHour)
     {
         $this->_id = $_id;
-        $this->_user = $_user;
-        $this->_departure = $_departure;
-        $this->_arrival = $_arrival;
+        $this->_departureStation = $_departureStation;
+        $this->_arrivalStation = $_arrivalStation;
         $this->_nbrBike = $_nbrBike;
+        $this->_nom = $_nom;
+        $this->_mail = $_mail;
+        $this->_phone = $_phone;
+        $this->_departureHour = $_departureHour;
+        $this->_arrivalHour = $_arrivalHour;
     }
 
     /**
@@ -50,49 +62,33 @@ class Booking
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getDepartureStation()
     {
-        return $this->_user;
+        return $this->_departureStation;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $departureStation
      */
-    public function setUser($user)
+    public function setDepartureStation($departureStation)
     {
-        $this->_user = $user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDeparture()
-    {
-        return $this->_departure;
-    }
-
-    /**
-     * @param mixed $departure
-     */
-    public function setDeparture($departure)
-    {
-        $this->_departure = $departure;
+        $this->_departureStation = $departureStation;
     }
 
     /**
      * @return mixed
      */
-    public function getArrival()
+    public function getArrivalStation()
     {
-        return $this->_arrival;
+        return $this->_arrivalStation;
     }
 
     /**
-     * @param mixed $arrival
+     * @param mixed $arrivalStation
      */
-    public function setArrival($arrival)
+    public function setArrivalStation($arrivalStation)
     {
-        $this->_arrival = $arrival;
+        $this->_arrivalStation = $arrivalStation;
     }
 
     /**
@@ -110,4 +106,85 @@ class Booking
     {
         $this->_nbrBike = $nbrBike;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->_nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom)
+    {
+        $this->_nom = $nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMail()
+    {
+        return $this->_mail;
+    }
+
+    /**
+     * @param mixed $mail
+     */
+    public function setMail($mail)
+    {
+        $this->_mail = $mail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->_phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->_phone = $phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDepartureHour()
+    {
+        return $this->_departureHour;
+    }
+
+    /**
+     * @param mixed $departureHour
+     */
+    public function setDepartureHour($departureHour)
+    {
+        $this->_departureHour = $departureHour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArrivalHour()
+    {
+        return $this->_arrivalHour;
+    }
+
+    /**
+     * @param mixed $arrivalHour
+     */
+    public function setArrivalHour($arrivalHour)
+    {
+        $this->_arrivalHour = $arrivalHour;
+    }
+
 }
