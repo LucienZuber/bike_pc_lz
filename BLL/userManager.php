@@ -25,8 +25,17 @@ class userManager
         $this->user = $this->userRequest->getUser($userName, $roleId);
     }
 
+    public function modifyUser($userId, $user){
+        $this->userRequest->modifyUser($userId, $user->getId(), $user->getName(), $user->getPassword(), $user->getMail(), $user->getPhone(), $user->getRoleId());
+
+    }
+
     public function deleteUser($userId){
         $this->userRequest->deleteUser($userId);
+    }
+
+    public function getAllUsers(){
+        return $this->userRequest->getAllUser();
     }
 
     public function readAddedUser()
