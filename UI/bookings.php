@@ -10,13 +10,6 @@
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <!--Scripts-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../js/materialize.js"></script>
-    <script src="../js/init.js"></script>
-    <script src="../Scripts/datepicker.js"></script>
-    <script src="../Scripts/timepicker.js"></script>
-    <!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
 </head>
 <body>
 <?php include("menus.php");?>
@@ -78,7 +71,7 @@
                 </div>
                 <div class="input-field col s6">
                     <input type="text" class="timepicker" name="hour" required>
-                    <label for="driver">Hour</label>
+                    <label for="driver">Time</label>
                 </div>
             </div>
             <div class="row">
@@ -107,6 +100,14 @@
 </div>
 </main>
 <?php include("footer.php"); ?>
+
+<!--Scripts-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/init.js"></script>
+<script src="../Scripts/datepicker.js"></script>
+<script src="../Scripts/timepicker.js"></script>
+<!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
 
 </body>
 </html>
