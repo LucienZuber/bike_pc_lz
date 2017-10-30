@@ -25,6 +25,10 @@ class userManager
         $this->user = $this->userRequest->getUser($userName, $roleId);
     }
 
+    public function deleteUser($userId){
+        $this->userRequest->deleteUser($userId);
+    }
+
     public function readAddedUser()
     {
         foreach ($this->listOfUser as $key => $value) {

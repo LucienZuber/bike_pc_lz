@@ -42,17 +42,80 @@ class userRequest
             }
         }
     }
-    public function getUser($userName, $roleId){
+    public function modifyUser($userId, $userName, $userPassword, $userMail, $userPhone, $roleId){
+        //The query for modifying an user
+        if(!empty($this->getUser($userId))) {
+            try {
+
+                $sth = $this->_dbh->prepare("UPDATE user SET name=:name, password=:password, mail=:mail, phone=:phone, role_id=:role_id WHERE _id = :user_id");
+                $sth->bindParam(':name', $userName);
+                $sth->bindParam(':password', $userPassword);
+                $sth->bindParam(':mail', $userMail);
+                $sth->bindParam(':phone', $userPhone);
+                $sth->bindParam(':role_id', $roleId);
+                $sth->bindParam(':user_id', $userId);
+                if ($sth->execute()) {
+                    echo "update réussi !";
+                } else {
+                    echo "update échouée !";
+                }
+            } catch (PDOException $e) {
+                die('Connection failed:' . $e->getMessage());
+            }
+        }
+    }
+
+    public function getUserById($userId){
         //The query for getting one user
+
+        $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE _id = $userId";
+
+        $result = $this->_dbh->query($query);
+        $returnedUser = "";
+        while ($row = $result->fetch()) {
+            $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
+        }
+        return $returnedUser;
+    }
+
+
+    public function getUserByName($userName, $roleId){
+        //The query for getting one user by name and role
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND role_id = $roleId";
 
         $result = $this->_dbh->query($query);
         $returnedUser = "";
-        var_dump($query);
         while ($row = $result->fetch()) {
-            $returnedUser= new userManager($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
+            $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
         }
         return $returnedUser;
+    }
+    public function deleteUser($userId){
+        //The query for removing a User
+        try{
+            $sth = $this->_dbh->prepare("DELETE FROM `user` WHERE _id = :userId");
+            $sth->bindParam(':userId', $userId);
+
+            if ($sth->execute()) {
+                echo "suppression réussi !";
+            } else {
+                echo "suppresion échouée !";
+            }
+        } catch (PDOException $e) {
+            die('Connection failed:' . $e->getMessage());
+        }
+    }
+    public function getAllUser(){
+        //The query for getting one user
+
+        $query = "SELECT _id, name, password, mail, phone, role_id FROM user";
+
+        $result = $this->_dbh->query($query);
+        $returnedUsers = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedUsers, new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']));
+        }
+        return $returnedUsers;
     }
 }
