@@ -24,7 +24,7 @@ class userRequest
     //INSERT USER
     public function insertUser($userName, $userPassword, $userMail, $userPhone, $roleId){
         //The query for inserting a new user
-        if(empty($this->getUser($userName, $roleId))) {
+        if(empty($this->getUserByName($userName, $roleId))) {
             try {
                 $sth = $this->_dbh->prepare("INSERT INTO user (name, password, mail, phone, role_id) VALUES (:name, :password, :mail, :phone, :role_id)");
                 $sth->bindParam(':name', $userName);
@@ -78,6 +78,18 @@ class userRequest
         return $returnedUser;
     }
 
+    public function getUsersByRole($userRole){
+        //The query for getting users by role
+
+        $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE role_id = $userRole";
+
+        $result = $this->_dbh->query($query);
+        $returnedUsers = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedUsers, new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']));
+        }
+        return $returnedUsers;
+    }
 
     public function getUserByName($userName, $roleId){
         //The query for getting one user by name and role

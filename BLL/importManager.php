@@ -25,12 +25,18 @@ class ImportManager
      * @param $region
      * @param $param
      */
-    public function __construct($departure, $arrival, $regionName)
+    public function __construct()
     {
         $this->regionRequest = new RegionRequest();
         $this->stationRequest = new StationRequest();
+        $this->listOfStops = array();
 
-        $this->addRegion($regionName);
+    }
+
+    //Read the jsonObject
+    public function read($departure, $arrival, $regionName, $adminId){
+
+        $this->addRegion($regionName, $adminId);
 
         $param = array (
             'from' => $departure,
@@ -41,11 +47,6 @@ class ImportManager
         //We build the query
 
         $this->query = self::URI.'?'.http_build_query($param);
-        $this->listOfStops = array();
-    }
-
-    //Read the jsonObject
-    public function read(){
         $data = json_decode(file_get_contents($this->query), true);
         //we see every connection
         foreach ($data['connections'] as $connections){
@@ -70,8 +71,8 @@ class ImportManager
         $this->listOfStops[$jsonObject['stopid']] = $jsonObject['name'];
     }
 
-    public function addRegion($regionName){
-        $this->regionRequest->insertRegion($regionName, 1);
+    public function addRegion($regionName, $adminId){
+        $this->regionRequest->insertRegion($regionName, $adminId);
         $this->region = $this->regionRequest->getRegion($regionName);
     }
 

@@ -14,7 +14,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
-<!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
+    <script src="../Scripts/datepicker.js"></script>
+    <script src="../Scripts/timepicker.js"></script>
+    <!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
 </head>
 <body>
 <?php include("menus.php");?>
@@ -70,11 +72,12 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" name="date" required>
-                    <label for="region">Date</label>
+                    <i class="material-icons prefix">date_range</i>
+                    <input type="text" class="datepicker" required>
+                    <label for="icon_telephone">Date</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="text" name="hour" required>
+                    <input type="text" class="timepicker" name="hour" required>
                     <label for="driver">Hour</label>
                 </div>
             </div>

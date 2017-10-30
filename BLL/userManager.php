@@ -22,7 +22,6 @@ class userManager
     public function addUser($userName, $userPassword, $userMail, $userPhone, $roleId)
     {
         $this->userRequest->insertUser($userName, $userPassword, $userMail, $userPhone, $roleId);
-        $this->user = $this->userRequest->getUser($userName, $roleId);
     }
 
     public function modifyUser($userId, $user){
@@ -32,6 +31,10 @@ class userManager
 
     public function deleteUser($userId){
         $this->userRequest->deleteUser($userId);
+    }
+
+    public function getAllUsersByRole($userRole){
+        return $this->userRequest->getUsersByRole($userRole);
     }
 
     public function getAllUsers(){

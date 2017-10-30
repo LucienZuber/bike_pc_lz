@@ -14,11 +14,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
+    <script src="../Scripts/select.js"></script>
     <script src="../Scripts/autocompleteCFF.js"></script>
 </head>
 <body>
-<?php include("menus.php"); ?>
-<main>
+<?php include("menus.php");?>
+
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
@@ -45,8 +46,19 @@
                 <label for="region">Région</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="driver" required>
-                <label for="driver">Chauffeur</label>
+                <select name="admin">
+                    <option value="" disabled selected>Choisissez</option>
+                    <?php
+                    require_once "../BLL/userManager.php";
+                    $userManager = new userManager();
+                    foreach ($userManager->getAllUsersByRole(1) as $row){
+                        $id = $row->getId();
+                        $name = $row->getName();
+                        echo "<option value=\"$id\">$name</option>";
+                    }
+                    ?>
+                </select>
+                <label>Admin</label>
             </div>
         </div>
         <div class="row">
@@ -67,8 +79,8 @@ const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
 if(isset($_GET['submit'])){
-    $import = new ImportManager($_GET['departure'], $_GET['arrival'], $_GET['region']);
-    $import->read();
+    $import = new ImportManager();
+    $import->read($_GET['departure'], $_GET['arrival'], $_GET['region'], $_GET['admin']);
 }
 
 ?>
