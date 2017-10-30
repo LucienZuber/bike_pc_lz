@@ -24,8 +24,7 @@ class userRequest
     //INSERT USER
     public function insertUser($userName, $userPassword, $userMail, $userPhone, $roleId){
         //The query for inserting a new user
-
-        if(empty($this->getUser($userName, $userPassword, $userMail, $userPhone, $roleId))) {
+        if(empty($this->getUser($userName, $roleId))) {
             try {
                 $sth = $this->_dbh->prepare("INSERT INTO user (name, password, mail, phone, role_id) VALUES (:name, :password, :mail, :phone, :role_id)");
                 $sth->bindParam(':name', $userName);
@@ -48,13 +47,11 @@ class userRequest
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND role_id = $roleId";
 
-        var_dump($query);
-
         $result = $this->_dbh->query($query);
         $returnedUser = "";
+        var_dump($query);
         while ($row = $result->fetch()) {
-            $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
-
+            $returnedUser= new userManager($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
         }
         return $returnedUser;
     }

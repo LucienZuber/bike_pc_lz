@@ -45,7 +45,7 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <select>
+                <select name="role">
                     <option value="" disabled selected>Choisissez</option>
                     <option value="1">Administrateur</option>
                     <option value="2">Chauffeur</option>
@@ -60,7 +60,19 @@
         </div>
     </form>
 </div>
+<?php
+require_once '../BLL/userManager.php';
 
+const ACCEPTED_TRANSPORT_TYPE = array('post');
+
+//once the client click on the submit button, we will add a new client.
+if(isset($_GET['submit'])){
+    $userManager = new userManager();
+    $userManager->addUser($_GET['name'], $_GET['password'], $_GET['mail'], $_GET['phone'], $_GET['role']);
+
+}
+
+?>
 
 </main>
 <?php include("footer.php"); ?>

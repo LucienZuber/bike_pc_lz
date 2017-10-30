@@ -45,13 +45,10 @@ class StationRequest
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name = '$stationName' AND region_id = $regionId";
 
-        var_dump($query);
-
         $result = $this->_dbh->query($query);
         $returnedStations = "";
         while ($row = $result->fetch()) {
             $returnedStations= new Station($row['_id'], $row['name'], $row['region_id']);
-
         }
         return $returnedStations;
     }

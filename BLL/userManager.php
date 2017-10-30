@@ -9,14 +9,19 @@
 require_once '../DAL/userRequest.php';
 require_once '../DTO/user.php';
 
-class user
+class userManager
 {
     private $userRequest;
     private $user;
 
+    public function __construct()
+    {
+        $this->userRequest = new userRequest();
+    }
+
     public function addUser($userName, $userPassword, $userMail, $userPhone, $roleId)
     {
-        $this->userRequest->insertUser($userName, $userPassword, $userMail, $userPhone, $roleId, 1);
+        $this->userRequest->insertUser($userName, $userPassword, $userMail, $userPhone, $roleId);
         $this->user = $this->userRequest->getUser($userName, $roleId);
     }
 
@@ -24,7 +29,7 @@ class user
     {
         foreach ($this->listOfUser as $key => $value) {
             $this->addUser($value);
-//            echo "$key : $value <br>";
+            echo "$key : $value <br>";
         }
     }
 }

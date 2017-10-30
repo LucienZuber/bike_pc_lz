@@ -9,7 +9,7 @@
 require_once '../DTO/station.php';
 require_once '../DAL/stationRequest.php';
 
-class Booking
+class BookingManager
 {
     
 }

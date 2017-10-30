@@ -61,13 +61,13 @@
     </form>
 </div>
 <?php
-require_once '../BLL/import.php';
+require_once '../BLL/importManager.php';
 
 const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
 if(isset($_GET['submit'])){
-    $import = new Import($_GET['departure'], $_GET['arrival'], $_GET['region']);
+    $import = new ImportManager($_GET['departure'], $_GET['arrival'], $_GET['region']);
     $import->read();
 }
 

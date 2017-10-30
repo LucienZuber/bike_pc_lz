@@ -10,7 +10,7 @@ require_once '../DAL/stationRequest.php';
 require_once '../DTO/region.php';
 require_once '../DTO/station.php';
 
-class Import
+class ImportManager
 {
     const URI = "https://timetable.search.ch/api/route.en.json";
     const ACCEPTED_TRANSPORT_TYPE = array('post'); //the list of transport type that will be returned by the API
