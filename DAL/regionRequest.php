@@ -43,7 +43,7 @@ class RegionRequest
         $query = "SELECT _id, name, admin_id FROM region WHERE name = '$regionName'";
 
         $result = $this->_dbh->query($query);
-        $returnedRegions = "";
+        $returnedRegions = null;
         while ($row = $result->fetch()) {
             $returnedRegions= new Region($row['_id'], $row['name'], $row['admin_id']);
         }

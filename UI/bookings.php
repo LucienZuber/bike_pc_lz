@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php include("menus.php");?>
@@ -66,12 +66,12 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">date_range</i>
-                    <input type="text" class="datepicker" required>
+                    <input type="text" class="datepicker" name ="date" required>
                     <label for="icon_telephone">Date</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="text" class="timepicker" name="hour" required>
-                    <label for="driver">Time</label>
+                    <input type="text" class="timepicker" name="time" required>
+                    <label for="fa fa-clock-o">Time</label>
                 </div>
             </div>
             <div class="row">
@@ -83,22 +83,66 @@
                     </button>
                 </div>
             </div>
-            <?php
-            require_once '../BLL/importManager.php';
-
-            const ACCEPTED_TRANSPORT_TYPE = array('post');
-
-            //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
-            if(isset($_GET['submit'])){
-                $import = new ImportManager($_GET['departure'], $_GET['arrival'], $_GET['region']);
-                $import->read();
-            }
-
-            ?>
         </form>
+        <?php
+        require_once '../BLL/bookingManager.php';
+
+        const ACCEPTED_TRANSPORT_TYPE = array('post');
+
+        //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
+        if(isset($_GET['submit'])){
+            $import = new BookingManager();
+            $date = $_GET['date'];
+            $date = date_create_from_format('j/m/Y', $date);
+            $date = date_format($date, "m/d/Y");
+            $trips = $import->displayTrips($_GET['departure'], $_GET['arrival'], $date, $_GET['time']);
+
+            echo "
+                <table class=\"striped\">
+                <thead>
+                <tr>
+                    <th>Départ</th>
+                    <th>Heure de départ</th>
+                    <th>Arrivée</th>
+                    <th>Heure d'arrivée</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+            ";
+
+            foreach ($trips as $trip) {
+                echo "
+                    <tr>
+                        <td>".$trip->getDepartureStation()->getName()."</td>
+                        <td>".$trip->getDepartureDateTime()."</td>
+                        <td>".$trip->getArrivalStation()->getName()."</td>
+                        <td>".$trip->getArrivalDateTime()."</td>
+                        <td><a class=\"btn-floating orange modal-trigger\" href=\"#makeABook\"><i class=\"material-icons\">add</i></a></td>
+                    </tr>
+                    ";
+                    }
+                    echo "
+                    </tbody>
+                    </table>
+                ";
+                }
+            ?>
+    </div>
+</div>
+<div id="makeABook" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
 </main>
+<script>$(document).ready(function() {
+        $('.modal').modal();
+    });</script>
 <?php include("footer.php"); ?>
 
 <!--Scripts-->

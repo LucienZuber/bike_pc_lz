@@ -71,7 +71,7 @@ class userRequest
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE _id = $userId";
 
         $result = $this->_dbh->query($query);
-        $returnedUser = "";
+        $returnedUser = null;
         while ($row = $result->fetch()) {
             $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
         }
@@ -97,7 +97,7 @@ class userRequest
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND role_id = $roleId";
 
         $result = $this->_dbh->query($query);
-        $returnedUser = "";
+        $returnedUser = null;
         while ($row = $result->fetch()) {
             $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
         }
