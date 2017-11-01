@@ -6,8 +6,11 @@
  * Time: 18:43
  */
 
+require_once '../DTO/booking.php';
 require_once '../DTO/station.php';
 require_once '../DAL/stationRequest.php';
+require_once '../DAL/bookingRequest.php';
+require_once '../Model/reservationDetails.php';
 require_once '../Model/Trips.php';
 
 class BookingManager
@@ -16,14 +19,15 @@ class BookingManager
     const ACCEPTED_TRANSPORT_TYPE = array('post'); //the list of transport type that will be returned by the API
 
     private $stationRequest;
+    private $bookingRequest;
 
     /**
      * BookingManager constructor.
-     * @param $stationRequest
      */
     public function __construct()
     {
         $this->stationRequest = new StationRequest();
+        $this->bookingRequest = new BookingRequest();
     }
 
     public function displayTrips($departure, $arrival, $date, $time){
@@ -68,6 +72,23 @@ class BookingManager
             array_push($listOfTrips, new Trips($from, $connections['departure'], $to, $connections['arrival']));
         }
         return $listOfTrips;
+    }
+
+    public function stationByName($stationName){
+        return $this->stationRequest->getStationByName($stationName);
+    }
+
+    public function addBooking($trip, $reservationDetail){
+        $this->bookingRequest->insertBooking(
+            $trip->getDepartureStation()->getId(),
+            $trip->getArrivalStation()->getId(),
+            $reservationDetail->getNumberBike(),
+            $reservationDetail->getName(),
+            $reservationDetail->getMail(),
+            $reservationDetail->getPhone(),
+            $trip->getDepartureDateTime(),
+            $trip->getArrivalDateTime()
+        );
     }
 
     public function checkIfStationExists($stationName){

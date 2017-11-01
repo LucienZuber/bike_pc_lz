@@ -1,34 +1,22 @@
-$(document).ready(function() {
-    $('.rechercheLocal').on("input",function (error) {
-        var list = {};
-        var input = $(this).val();
-        getData(input, list);
-        $('input.rechercheLocal').change(function() {
-            $(this).val(Object.keys(list)[0]);
-        })
-    })
-    Materialize.updateTextFields();
-})
-
-function getData(input, list) {
+function autocompletionFromDB(input, stations) {
     $.ajax({
-        url: "https://timetable.search.ch/api/completion.en.json?nofavorites=0&term="+input,
-        type: 'Get',
-        dataType: 'json',
-        success: function(result){
+        url: '/resabike/index/getStations',
+        data: {
+            'input': input
+        },
+        type: 'GET',
+        success: function (resultJSON) {
+            var result = JSON.parse(resultJSON);
 
-            $.each(result, function( id, val ) {
-                list[val.label] = null;
+            $.each(result, function (id, val) {
+                stations[val.name] = null;
             });
 
-            $('input.rechercheLocal').autocomplete({
-                data: list,
-                limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
-                onAutocomplete: function(val) {
-                    // Callback function when value is autocompleted.
-                },
-                minLength: 2, // The minimum length of the input for the autocomplete to start. Default: 1.
+            $('input.autocompleteDB').autocomplete({
+                data: stations,
+                limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
             });
         }
-    })
+    });
 }
