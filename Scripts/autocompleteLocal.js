@@ -1,22 +1,34 @@
-function autocompletionFromDB(input, stations) {
-    $.ajax({
-        url: '/resabike/index/getStations',
-        data: {
-            'input': input
-        },
-        type: 'GET',
-        success: function (resultJSON) {
-            var result = JSON.parse(resultJSON);
+$(document).ready(function() {
+    $('.recherche').on("input",function (error) {
+        var list = {};
+        var input = $(this).val();
+        getData(input, list);
+        $('input.recherche').change(function() {
+            $(this).val(Object.keys(list)[0]);
+        })
+    })
+    Materialize.updateTextFields();
+})
 
-            $.each(result, function (id, val) {
-                stations[val.name] = null;
+function getData(input, list) {
+    $.ajax({
+        url: '/bike_pc_lz/UI/index/getStation',
+        type: 'Get',
+        dataType: 'json',
+        success: function(result){
+
+            $.each(result, function( id, val ) {
+                list[val.label] = null;
             });
 
-            $('input.autocompleteDB').autocomplete({
-                data: stations,
-                limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+            $('input.recherche').autocomplete({
+                data: list,
+                limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
+                onAutocomplete: function(val) {
+                    // Callback function when value is autocompleted.
+                },
+                minLength: 2, // The minimum length of the input for the autocomplete to start. Default: 1.
             });
         }
-    });
+    })
 }

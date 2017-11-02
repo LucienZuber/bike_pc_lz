@@ -47,7 +47,17 @@
         </div>
     </form>
 </div>
+<?php
+    require_once "../BLL/stationManager.php";
 
+    function getStation($stationName){
+        $stationManager = new StationManager();
+
+        $stations = $stationManager->getStationLikeName($stationName);
+
+        return $stations;
+    }
+?>
 </main>
 <?php include("footer.php"); ?>
 

@@ -179,12 +179,7 @@
 <script src="../js/init.js"></script>
 <script src="../Scripts/datepicker.js"></script>
 <script src="../Scripts/timepicker.js"></script>
-<!--    <script src="../Scripts/autocompleteLocal.js"></script>-->
-<script>
-    $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-</script>
+<script src="../Scripts/autocompleteLocal.js"></script>
+<script src="../Scripts/modalInstantiate.js"></script>
 </body>
 </html>
