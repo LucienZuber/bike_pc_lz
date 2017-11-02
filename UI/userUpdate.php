@@ -81,7 +81,7 @@
                                 ?>
                                 >
                                 <?php echo $role->getName()?></option>
-                                <?php 
+                                <?php
                             }
                             ?>
                         </select>
