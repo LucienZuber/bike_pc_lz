@@ -54,7 +54,7 @@
                         <td><?php echo $user->getName()?></td>
                         <td><?php echo $role->getName()?></td>
                         <td>
-                            <a class="btn-floating orange" href="userDelete.php?userId=<?php echo $user->getId();?>"><i class="material-icons">create</i></a>
+                            <a class="btn-floating orange" href="userUpdate.php?userId=<?php echo $user->getId();?>"><i class="material-icons">create</i></a>
                             <a class="btn-floating orange" href="userDelete.php?userId=<?php echo $user->getId();?>"><i class="material-icons">remove</i></a>
                         </td>
                     </tr>

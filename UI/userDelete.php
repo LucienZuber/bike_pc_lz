@@ -9,5 +9,4 @@ require_once "../BLL/userManager.php";
 
 $userManager = new UserManager();
 $userManager->deleteUser($_GET['userId']);
-echo "utilisateur supprimé";
 ?>

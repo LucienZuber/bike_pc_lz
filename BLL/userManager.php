@@ -36,6 +36,10 @@ class UserManager
         return $this->userRequest->getUsersByRole($userRole);
     }
 
+    public function getUsersById($id){
+        return $this->userRequest->getUserById($id);
+    }
+
     public function getAllUsers(){
         return $this->userRequest->getAllUser();
     }
