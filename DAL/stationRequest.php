@@ -67,7 +67,7 @@ class StationRequest
     public function getStationLikeName($stationName){
         //The query for getting one station
         $stationName = str_replace("'", "\'", $stationName);
-        $query = "SELECT _id, name, region_id FROM station WHERE name LIKE '$stationName'";
+        $query = "SELECT _id, name, region_id FROM station WHERE name LIKE '$stationName%'";
 
         $result = $this->_dbh->query($query);
         $returnedStations = array();

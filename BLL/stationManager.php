@@ -11,14 +11,21 @@ require_once '../DTO/station.php';
 
 class StationManager
 {
-    private $stationManagere;
+    private $stationRequest;
+
     public function __construct()
     {
-        $this->stationManagere = new StationManager();
+        $this->stationRequest = new StationRequest();
     }
-    public function getStationLikeName($stationName){
-        $stations = $this->stationManagere->getStationLikeName($stationName);
 
-        return json_encode($stations);
-        }
+    public function getStationLikeName($stationName)
+    {
+        $stations = $this->stationRequest->getStationLikeName($stationName);
+
+        $returnedValue = json_encode($stations);
+
+        echo($returnedValue);
+
+        return $returnedValue;
+    }
 }

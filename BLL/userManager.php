@@ -6,17 +6,16 @@
  * Time: 17:32
  */
 
-require_once '../DAL/userRequest.php';
-require_once '../DTO/user.php';
+require_once ('../DAL/userRequest.php');
+require_once ('../DTO/user.php');
 
-class userManager
+class UserManager
 {
     private $userRequest;
-    private $user;
 
     public function __construct()
     {
-        $this->userRequest = new userRequest();
+        $this->userRequest = new UserRequest();
     }
 
     public function addUser($userName, $userPassword, $userMail, $userPhone, $roleId)
@@ -24,8 +23,8 @@ class userManager
         $this->userRequest->insertUser($userName, $userPassword, $userMail, $userPhone, $roleId);
     }
 
-    public function modifyUser($userId, $user){
-        $this->userRequest->modifyUser($userId, $user->getId(), $user->getName(), $user->getPassword(), $user->getMail(), $user->getPhone(), $user->getRoleId());
+    public function modifyUser($user){
+        $this->userRequest->modifyUser($user->getId(), $user->getName(), $user->getPassword(), $user->getMail(), $user->getPhone(), $user->getRoleId());
 
     }
 
@@ -49,3 +48,4 @@ class userManager
         }
     }
 }
+?>

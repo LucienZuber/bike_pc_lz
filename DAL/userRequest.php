@@ -9,7 +9,7 @@
 require_once 'mySQLConnection.php';
 require_once '../DTO/user.php';
 
-class userRequest
+class UserRequest
 {
     private $_dbh;
     public function __construct()

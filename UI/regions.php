@@ -1,9 +1,9 @@
 /**
- * Created by PhpStorm.
- * User: lucien
- * Date: 01.11.2017
- * Time: 10:24
- */
+* Created by PhpStorm.
+* User: lucien
+* Date: 01.11.2017
+* Time: 10:24
+*/
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,7 +37,6 @@
                     <th></th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <tr>
                     <td>4.11.2017</td>

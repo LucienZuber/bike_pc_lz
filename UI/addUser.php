@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
-    <script src="../Scripts/select.js"></script>
+    <script src="../js/select.js"></script>
 </head>
 <body>
 <?php include("menus.php"); ?>
@@ -53,8 +53,16 @@
             <div class="input-field col s6">
                 <select name="role">
                     <option value="" disabled selected>Choisissez</option>
-                    <option value="1">Administrateur</option>
-                    <option value="2">Chauffeur</option>
+                    <?php
+                    require_once "../BLL/roleManager.php";
+                    $roleManager = new RoleManager();
+                    $roles = $roleManager->getAllRole();
+                    foreach ($roles as $role){
+                        ?>
+                        <option value="<?php echo $role->getId(); ?>"><?php echo $role->getName()?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
                 <label>Rôle</label>
             </div>
@@ -73,7 +81,7 @@ const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will add a new client.
 if(isset($_GET['submit'])){
-    $userManager = new userManager();
+    $userManager = new UserManager();
     $userManager->addUser($_GET['name'], $_GET['password'], $_GET['mail'], $_GET['phone'], $_GET['role']);
 
 }

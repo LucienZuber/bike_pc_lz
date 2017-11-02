@@ -6,11 +6,11 @@
  * Time: 16:08
  */
 
-class Station
+class Station implements JsonSerializable
 {
     private $_id;
     private $_name;
-    private $regionId;
+    private $_regionId;
 
     /**
      * station constructor.
@@ -18,11 +18,19 @@ class Station
      * @param $_name
      * @param $regionId
      */
-    public function __construct($_id, $_name, $regionId)
+    public function __construct($_id, $name, $regionId)
     {
         $this->_id = $_id;
-        $this->_name = $_name;
-        $this->regionId = $regionId;
+        $this->_name = $name;
+        $this->_regionId = $regionId;
+    }
+
+    public function jsonSerialize() {
+        return [
+            '_id' => $this->getId(),
+            'name' => $this->getName(),
+            'regionId' => $this->getRegionId()
+        ];
     }
 
     /**
@@ -62,7 +70,7 @@ class Station
      */
     public function getRegionId()
     {
-        return $this->regionId;
+        return $this->_regionId;
     }
 
     /**
@@ -70,6 +78,6 @@ class Station
      */
     public function setRegionId($regionId)
     {
-        $this->regionId = $regionId;
+        $this->_regionId = $regionId;
     }
 }

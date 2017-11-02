@@ -47,17 +47,6 @@
         </div>
     </form>
 </div>
-<?php
-    require_once "../BLL/stationManager.php";
-
-    function getStation($stationName){
-        $stationManager = new StationManager();
-
-        $stations = $stationManager->getStationLikeName($stationName);
-
-        return $stations;
-    }
-?>
 </main>
 <?php include("footer.php"); ?>
 
@@ -65,8 +54,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
-<script src="../Scripts/autocompleteCFF.js"></script>
-<script src="../Scripts/datepicker.js"></script>
+<script src="../js/autocompleteCFF.js"></script>
+<script src="../js/datepicker.js"></script>
 
 </body>
 </html>

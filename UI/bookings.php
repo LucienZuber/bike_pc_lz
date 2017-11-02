@@ -29,11 +29,11 @@
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" name="departure" class="autocomplete recherche" required>
+                    <input type="text" name="departure" class="rechercheDB" required>
                     <label for="departure">Départ</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="text" name="arrival" class="autocomplete recherche" required>
+                    <input type="text" name="arrival" class="rechercheDB" required>
                     <label for="arrival">Arrivée</label>
                 </div>
             </div>
@@ -177,9 +177,9 @@
 <script src="../js/materialize.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 <script src="../js/init.js"></script>
-<script src="../Scripts/datepicker.js"></script>
-<script src="../Scripts/timepicker.js"></script>
-<script src="../Scripts/autocompleteLocal.js"></script>
-<script src="../Scripts/modalInstantiate.js"></script>
+<script src="../js/datepicker.js"></script>
+<script src="../js/timepicker.js"></script>
+<script src="../js/autocompleteLocal.js"></script>
+<script src="../js/modalInstantiate.js"></script>
 </body>
 </html>

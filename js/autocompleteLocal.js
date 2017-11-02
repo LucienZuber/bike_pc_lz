@@ -1,28 +1,29 @@
 $(document).ready(function() {
-    $('.recherche').on("input",function (error) {
-        var list = {};
+    $('.rechercheDB').on("input",function (error) {
+        var stations = {};
         var input = $(this).val();
-        getData(input, list);
-        $('input.recherche').change(function() {
-            $(this).val(Object.keys(list)[0]);
+        getData(input, stations);
+        $('input.rechercheDB').change(function() {
+            $(this).val(Object.keys(stations)[0]);
         })
     })
     Materialize.updateTextFields();
 })
 
-function getData(input, list) {
+function getData(input, stations) {
     $.ajax({
-        url: '/bike_pc_lz/UI/index/getStation',
-        type: 'Get',
+        url: '/bike_pc_lz/UI/getStation.php?input='+input,
+        type: 'GET',
         dataType: 'json',
         success: function(result){
-
+            console.log(result);
+            //var result = JSON.parse(result)
             $.each(result, function( id, val ) {
-                list[val.label] = null;
+                stations[val.name] = null;
             });
 
-            $('input.recherche').autocomplete({
-                data: list,
+            $('input.rechercheDB').autocomplete({
+                data: stations,
                 limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
                 onAutocomplete: function(val) {
                     // Callback function when value is autocompleted.
