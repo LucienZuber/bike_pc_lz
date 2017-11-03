@@ -101,6 +101,22 @@
     if(isset($_POST['submit'])){
         $user = new User($_GET['userId'], $_POST['name'], $_POST['password'], $_POST['mail'], $_POST['phone'], $_POST['roleId']);
         $userManager->modifyUser($user);
+        $listOfRolesAssignedToRegion = array('admin', 'driver');
+        $region = $_POST['region'];
+        switch($roleManager->getRoleById($user->getRoleId())->getName()){
+            case 'admin':
+                $region = $regionManager->getRegionById($_POST['region']);
+                $region->setAdminId($user->getId());
+                break;
+            case 'driver':
+                $region = $regionManager->getRegionById($_POST['region']);
+                $driverManager = new DriverManager();
+                $driverManager->addDriver($user->getId(), $region->getId());
+                break;
+            default:
+
+                break;
+        }
     }
     ?>
 </main>

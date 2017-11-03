@@ -55,7 +55,7 @@
         <div class="row">
             <div class="input-field col s6">
                 <select class = "roleUser" name="role" required>
-                    <option value="">Choisissez</option>
+                    <option value="" disabled selected>Choisissez</option>
                     <?php
                     require_once "../BLL/roleManager.php";
                     $roleManager = new RoleManager();
@@ -69,9 +69,21 @@
                 </select>
                 <label>Rôle</label>
             </div>
-            <div class="input-field col s6 dependOnRegion" >
-                    <input type="text" name="region" value= "">
-                    <label for="region">Région</label>
+            <div class="input-field col s6">
+                <select class = "dependOnRegion" name="region">
+                    <option value="" disabled selected>Choisissez</option>
+                    <?php
+                    require_once "../BLL/regionManager.php.php";
+                    $regionManager = new RegionManager();
+                    $regions = $regionManager->getAllRegion();
+                    foreach ($regions as $region){
+                        ?>
+                        <option value="<?php echo $region->getId(); ?>"><?php echo $region->getName()?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                <label>Region</label>
             </div>
             <div class="input-field col s6">
             </div>
@@ -85,7 +97,6 @@
 </div>
 <?php
 require_once '../BLL/userManager.php';
-require_once '../BLL/regionManager.php';
 require_once '../BLL/driverManager.php';
 const ACCEPTED_TRANSPORT_TYPE = array('post');
 
