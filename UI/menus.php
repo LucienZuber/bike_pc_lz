@@ -2,7 +2,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Resabike</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="importRegion.php">Importations</a></li>
-            <li><a href="addUser.php">Ajouter un utilisateur</a></li>
+            <li><a href="userAdd.php">Ajouter un utilisateur</a></li>
             <li><a href="bookings.php">Réserver</a></li>
             <li><a href="bookingList.php">Réservations</a></li>
             <li><a href="regions.php">Gestion de zones</a></li>
@@ -12,7 +12,7 @@
 
         <ul id="nav-mobile" class="side-nav">
             <li><a href="importRegion.php">Importations</a></li>
-            <li><a href="addUser.php">Ajouter un utilisateur</a></li>
+            <li><a href="userAdd.php">Ajouter un utilisateur</a></li>
             <li><a href="bookings.php">Réserver</a></li>
             <li><a href="bookingList.php">Réservations</a></li>
             <li><a href="regions.php">Gestion de zones</a></li>

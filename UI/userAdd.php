@@ -11,10 +11,13 @@
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <!--Scripts-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/select.js"></script>
+    <script src="../js/displayUserRegion.js"></script>
 </head>
 <body>
 <?php include("menus.php"); ?>
@@ -28,7 +31,7 @@
 </div>
 
 <div class="row">
-    <form class="col s12" action="#" method="get">
+    <form class="col s12" action="#" method="post">
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="name"required>
@@ -51,8 +54,8 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <select name="role">
-                    <option value="" disabled selected>Choisissez</option>
+                <select class = "roleUser" name="role" required>
+                    <option value="">Choisissez</option>
                     <?php
                     require_once "../BLL/roleManager.php";
                     $roleManager = new RoleManager();
@@ -66,6 +69,12 @@
                 </select>
                 <label>Rôle</label>
             </div>
+            <div class="input-field col s6 dependOnRegion" >
+                    <input type="text" name="region" value= "">
+                    <label for="region">Région</label>
+            </div>
+            <div class="input-field col s6">
+            </div>
             <div class="input-field col s6">
                 <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
                     <i class="material-icons right">person</i>
@@ -76,13 +85,32 @@
 </div>
 <?php
 require_once '../BLL/userManager.php';
-
+require_once '../BLL/regionManager.php';
+require_once '../BLL/driverManager.php';
 const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will add a new client.
-if(isset($_GET['submit'])){
+if(isset($_POST['submit'])){
     $userManager = new UserManager();
-    $userManager->addUser($_GET['name'], $_GET['password'], $_GET['mail'], $_GET['phone'], $_GET['role']);
+    $regionManager = new RegionManager();
+    $userManager->addUser($_POST['name'], $_POST['password'], $_POST['mail'], $_POST['phone'], $_POST['role']);
+    $addedUser = $userManager->getUsersByNameAndRoleId($_POST['name'], $_POST['role']);
+    $listOfRolesAssignedToRegion = array('admin', 'driver');
+    $region = $_POST['region'];
+    switch($roleManager->getRoleById($addedUser->getRoleId())->getName()){
+        case 'admin':
+            $region = $regionManager->getRegionById($_POST['region']);
+            $region->setAdminId($addedUser->getId());
+            break;
+        case 'driver':
+            $region = $regionManager->getRegionById($_POST['region']);
+            $driverManager = new DriverManager();
+            $driverManager->addDriver($addedUser->getId(), $region->getId());
+            break;
+        default:
+
+            break;
+    }
 
 }
 

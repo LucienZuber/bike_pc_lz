@@ -20,7 +20,7 @@ class BookingRequest
     }
 
     public function insertBooking($departureStationId, $arrivalStationId, $nbrBike, $name, $mail, $phone, $departureHour, $arrivalHour){
-        //The query for inserting a new station
+        //The query for inserting a new booking
 
         try {
             $departureStationId = intval($departureStationId);

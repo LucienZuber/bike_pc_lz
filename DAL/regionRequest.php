@@ -23,7 +23,7 @@ class RegionRequest
 
     public function insertRegion($regionName, $adminId){
         //The query for inserting a new region, if the region already exists, we do not add it
-        if(empty($this->getRegion($regionName))) {
+        if(empty($this->getRegionByName($regionName))) {
             try {
                 $sth = $this->_dbh->prepare("INSERT INTO region (name, admin_id) VALUES (:name, :admin_id)");
                 $sth->bindParam(':name', $regionName);
@@ -38,7 +38,18 @@ class RegionRequest
             }
         }
     }
-    public function getRegion($regionName){
+    public function getRegionById($regionId){
+        //The query for getting one region
+        $query = "SELECT _id, name, admin_id FROM region WHERE _id = '$regionId'";
+
+        $result = $this->_dbh->query($query);
+        $returnedRegions = null;
+        while ($row = $result->fetch()) {
+            $returnedRegions= new Region($row['_id'], $row['name'], $row['admin_id']);
+        }
+        return $returnedRegions;
+    }
+    public function getRegionByName($regionName){
         //The query for getting one region
         $query = "SELECT _id, name, admin_id FROM region WHERE name = '$regionName'";
 
@@ -46,6 +57,18 @@ class RegionRequest
         $returnedRegions = null;
         while ($row = $result->fetch()) {
             $returnedRegions= new Region($row['_id'], $row['name'], $row['admin_id']);
+        }
+        return $returnedRegions;
+    }
+
+    public function getAllRegion(){
+        //The query for getting one region
+        $query = "SELECT _id, name, admin_id FROM region";
+
+        $result = $this->_dbh->query($query);
+        $returnedRegions = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedRegions, new Region($row['_id'], $row['name'], $row['admin_id']));
         }
         return $returnedRegions;
     }

@@ -24,7 +24,7 @@ class UserRequest
     //INSERT USER
     public function insertUser($userName, $userPassword, $userMail, $userPhone, $roleId){
         //The query for inserting a new user
-        if(empty($this->getUserByName($userName, $roleId))) {
+        if(empty($this->getUserByNameAndRoleId($userName, $roleId))) {
             try {
                 $sth = $this->_dbh->prepare("INSERT INTO user (name, password, mail, phone, role_id) VALUES (:name, :password, :mail, :phone, :role_id)");
                 $sth->bindParam(':name', $userName);
@@ -44,9 +44,10 @@ class UserRequest
     }
     public function modifyUser($userId, $userName, $userPassword, $userMail, $userPhone, $roleId){
         //The query for modifying an user
-        if(!empty($this->getUser($userId))) {
+        if(!empty($this->getUserById($userId))) {
             try {
-
+                $userId = intval($userId);
+                $roleId = intval($roleId);
                 $sth = $this->_dbh->prepare("UPDATE user SET name=:name, password=:password, mail=:mail, phone=:phone, role_id=:role_id WHERE _id = :user_id");
                 $sth->bindParam(':name', $userName);
                 $sth->bindParam(':password', $userPassword);
@@ -91,7 +92,7 @@ class UserRequest
         return $returnedUsers;
     }
 
-    public function getUserByName($userName, $roleId){
+    public function getUserByNameAndRoleId($userName, $roleId){
         //The query for getting one user by name and role
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND role_id = $roleId";

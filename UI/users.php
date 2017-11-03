@@ -60,8 +60,12 @@
                     </tr>
                 <?php
                 }
-
                 ?>
+                <tr>
+                    <th>Ajouter un utilisateur</th>
+                    <th></th>
+                    <th> <a class="btn-floating orange" href="userAdd.php"><i class="material-icons">add</i></a></th>
+                </tr>
                 </tbody>
             </table>
         </div>
