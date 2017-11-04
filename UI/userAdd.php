@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<div class="row">
+<div>
     <form class="col s12" action="#" method="post">
         <div class="row">
             <div class="input-field col s6">
@@ -69,11 +69,11 @@
                 </select>
                 <label>Rôle</label>
             </div>
-            <div class="input-field col s6">
-                <select class = "dependOnRegion" name="region">
+            <div class="input-field col s6 dependOnRegion">
+                <select class = "" name="region">
                     <option value="" disabled selected>Choisissez</option>
                     <?php
-                    require_once "../BLL/regionManager.php.php";
+                    require_once "../BLL/regionManager.php";
                     $regionManager = new RegionManager();
                     $regions = $regionManager->getAllRegion();
                     foreach ($regions as $region){
@@ -85,6 +85,7 @@
                 </select>
                 <label>Region</label>
             </div>
+
             <div class="input-field col s6">
             </div>
             <div class="input-field col s6">
@@ -106,23 +107,15 @@ if(isset($_POST['submit'])){
     $regionManager = new RegionManager();
     $userManager->addUser($_POST['name'], $_POST['password'], $_POST['mail'], $_POST['phone'], $_POST['role']);
     $addedUser = $userManager->getUsersByNameAndRoleId($_POST['name'], $_POST['role']);
-    $listOfRolesAssignedToRegion = array('admin', 'driver');
-    $region = $_POST['region'];
     switch($roleManager->getRoleById($addedUser->getRoleId())->getName()){
-        case 'admin':
-            $region = $regionManager->getRegionById($_POST['region']);
-            $region->setAdminId($addedUser->getId());
-            break;
         case 'driver':
             $region = $regionManager->getRegionById($_POST['region']);
             $driverManager = new DriverManager();
             $driverManager->addDriver($addedUser->getId(), $region->getId());
             break;
         default:
-
             break;
     }
-
 }
 
 ?>

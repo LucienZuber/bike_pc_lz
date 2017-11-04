@@ -4,13 +4,11 @@ $(document).ready(function () {
     $(".roleUser").change(function () {
         toggleFields();
     });
-
 });
 // this toggles the visibility of other server
 function toggleFields() {
-    selection = $(".roleUser option:selected" ).text();
+    selection = $(".roleUser option:selected").text();
     switch (selection){
-        case 'admin':
         case 'driver':
             $(".dependOnRegion").show();
             break;

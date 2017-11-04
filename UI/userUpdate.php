@@ -25,6 +25,7 @@
     <script src="../js/materialize.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/select.js"></script>
+    <script src="../js/displayUserRegion.js"></script>
 </head>
 <body>
 <?php include("menus.php");?>
@@ -64,28 +65,51 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <select name="roleId">
+                        <select class = "roleUser" name="role" required>
                             <?php
                             require_once "../BLL/roleManager.php";
                             $roleManager = new RoleManager();
                             $roles = $roleManager->getAllRole();
                             foreach ($roles as $role){
                                 ?>
-                                <option value="
-                                <?php echo $role->getId(); ?>
-                                "
+                                <option value="<?php echo $role->getId(); ?>"
                                 <?php
                                     if($role->getId() == $entryUser->getRoleId()) {
                                         echo " selected";
                                     }
                                 ?>
-                                >
-                                <?php echo $role->getName()?></option>
+                                ><?php echo $role->getName()?></option>
                                 <?php
                             }
                             ?>
                         </select>
                         <label>Rôle</label>
+                    </div>
+                    <div class="input-field col s6 dependOnRegion">
+                        <select name="region">
+                            <option value="" disabled selected>Choisissez</option>
+                            <?php
+                            require_once "../BLL/regionManager.php";
+                            $regionManager = new RegionManager();
+                            $regions = $regionManager->getAllRegion();
+                            foreach ($regions as $region){
+                                ?>
+                                <option value="<?php echo $region->getId(); ?>"
+                                <?php
+                                if($region->getId() == $entryUser->getRoleId()) {
+                                    echo " selected";
+                                }
+                                ?>
+                                ><?php echo $region->getName()?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <label>Region</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
                     </div>
                     <div class="input-field col s6">
                         <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
@@ -99,19 +123,14 @@
     <?php
 
     if(isset($_POST['submit'])){
-        $user = new User($_GET['userId'], $_POST['name'], $_POST['password'], $_POST['mail'], $_POST['phone'], $_POST['roleId']);
+        require_once "../BLL/driverManager.php";
+        $user = new User($_GET['userId'], $_POST['name'], $_POST['password'], $_POST['mail'], $_POST['phone'], $_POST['role']);
         $userManager->modifyUser($user);
-        $listOfRolesAssignedToRegion = array('admin', 'driver');
-        $region = $_POST['region'];
         switch($roleManager->getRoleById($user->getRoleId())->getName()){
-            case 'admin':
-                $region = $regionManager->getRegionById($_POST['region']);
-                $region->setAdminId($user->getId());
-                break;
             case 'driver':
                 $region = $regionManager->getRegionById($_POST['region']);
                 $driverManager = new DriverManager();
-                $driverManager->addDriver($user->getId(), $region->getId());
+                $driverManager->updateDriver($user->getId(), $region->getId());
                 break;
             default:
 

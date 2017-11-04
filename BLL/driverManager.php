@@ -21,4 +21,15 @@ class DriverManager
     public function addDriver($driverId, $regionId){
         $this->driverRequest->insertDriver($driverId, $regionId);
     }
+
+    public function updateDriver($driverId, $regionId){
+        var_dump($this->driverRequest->getDriverByDriverId($driverId));
+
+        if(is_null($this->driverRequest->getDriverByDriverId($driverId))){
+            $this->driverRequest->insertDriver($driverId, $regionId);
+        }
+        else{
+            $this->driverRequest->updateDriver($driverId, $regionId);
+        }
+    }
 }

@@ -21,8 +21,8 @@
     </div>
 </div>
 
-<div class="row">
-    <form class="col s12" action="#" method="get">
+<div>
+    <form class="col s12" action="#" method="post">
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="departure" class="autocomplete recherche" required>
@@ -55,8 +55,8 @@
             </div>
         </div>
         <div class="row">
-                <div class="input-field col s6">
-                </div>
+            <div class="input-field col s6">
+            </div>
             <div class="input-field col s6">
                 <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
                     <i class="material-icons right">directions_subway</i>
@@ -71,9 +71,9 @@ require_once '../BLL/importManager.php';
 const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
-if(isset($_GET['submit'])){
+if(isset($_POST['submit'])){
     $import = new ImportManager();
-    $import->read($_GET['departure'], $_GET['arrival'], $_GET['region'], $_GET['admin']);
+    $import->read($_POST['departure'], $_POST['arrival'], $_POST['region'], $_POST['admin']);
 }
 
 ?>

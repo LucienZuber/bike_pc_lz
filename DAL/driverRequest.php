@@ -6,10 +6,12 @@
  * Time: 11:55
  */
 
+require_once "../DTO/driver.php";
+
 class DriverRequest
 {
-    private $_dbh;
 
+    private $_dbh;
     public function __construct()
     {
         try {
@@ -33,6 +35,33 @@ class DriverRequest
                 echo "Ajout réussi !";
             } else {
                 echo "Ajout échoué !";
+            }
+
+        } catch (PDOException $e) {
+            die('Connection failed:' . $e->getMessage());
+        }
+    }
+    public function getDriverByDriverId($driverId){
+        $driverId = intval($driverId);
+        $query = "SELECT driver_id, region_id FROM drivers WHERE driver_id = '$driverId'";
+        $result = $this->_dbh->query($query);
+        $returnedDriver = null;
+        while ($row = $result->fetch()) {
+            $returnedDriver= new Driver($row['driver_id'], $row['region_id']);
+        }
+        return $returnedDriver;
+    }
+    public function updateDriver($driverId, $regionId){
+        try {
+            $driverId = intval($driverId);
+            $regionId = intval($regionId);
+            $sth = $this->_dbh->prepare("UPDATE drivers SET region_id=:region_id WHERE driver_id = :driver_id");
+            $sth->bindParam(':driver_id', $driverId);
+            $sth->bindParam(':region_id', $regionId);
+            if ($sth->execute()) {
+                echo "Update réussi !";
+            } else {
+                echo "Update échoué !";
             }
 
         } catch (PDOException $e) {

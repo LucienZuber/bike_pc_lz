@@ -31,30 +31,38 @@
             <table class="striped">
                 <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Trajet</th>
-                    <th>Vélo(s)</th>
+                    <th>Nom</th>
+                    <th>Admin</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                require_once "../DTO/region.php";
+                require_once "../DTO/user.php";
+                require_once "../BLL/userManager.php";
+                require_once "../BLL/regionManager.php";
+
+                $regionManager = new RegionManager();
+                $userManager = new UserManager();
+                $regions = $regionManager->getAllRegion();
+                foreach ($regions as $region){
+                    ?>
+                    <tr>
+                        <td><?php echo $region->getName()?></td>
+                        <td><?php echo $userManager->getUsersById($region->getAdminId())->getName()?></td>
+                        <td>
+                            <a class="btn-floating orange" href="userUpdate.php?userId=<?php echo $region->getId();?>"><i class="material-icons">create</i></a>
+                            <a class="btn-floating orange" href="userDelete.php?userId=<?php echo $region->getId();?>"><i class="material-icons">remove</i></a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
                 <tr>
-                    <td>4.11.2017</td>
-                    <td>Zinal - Sierre</td>
-                    <td>2</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
-                </tr>
-                <tr>
-                    <td>15.11.2017</td>
-                    <td>Ayer - Sierre</td>
-                    <td>8</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
-                </tr>
-                <tr>
-                    <td>20.11.2017</td>
-                    <td>Sierre - St-Luc</td>
-                    <td>1</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
+                    <th>Ajouter une région</th>
+                    <th></th>
+                    <th> <a class="btn-floating orange" href="regionAdd.php"><i class="material-icons">add</i></a></th>
                 </tr>
                 </tbody>
             </table>
