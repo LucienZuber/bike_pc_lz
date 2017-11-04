@@ -91,13 +91,13 @@
                 require_once "../BLL/stationManager.php";
 
                 $stationManager = new StationManager();
-                $stations = $stationManager->getAllStations();
+                $stations = $stationManager->getAllStationsByRegion($entryRegion->getId());
                 foreach ($stations as $station){
                     ?>
                     <tr>
                         <td><?php echo $station->getName()?></td>
                         <td>
-                            <a class="btn-floating orange" href="regionDelete.php?stationId=<?php echo $station->getId();?>"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating orange" href="stationDelete.php?stationId=<?php echo $station->getId();?>"><i class="material-icons">remove</i></a>
                         </td>
                     </tr>
                     <?php
@@ -105,7 +105,7 @@
                 ?>
                 <tr>
                     <th>Ajouter un trajet</th>
-                    <th> <a class="btn-floating orange" href="regionAddStations.php?regionId=<?php echo $entryRegion->getId();?>"><i class="material-icons">add</i></a></th>
+                    <th> <a class="btn-floating orange" href="stationAdd.php?regionId=<?php echo $entryRegion->getId();?>"><i class="material-icons">add</i></a></th>
                 </tr>
                 </tbody>
             </table>

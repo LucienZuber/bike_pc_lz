@@ -157,9 +157,10 @@
         <?php
         //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
         if(isset($_POST['book'])) {
-            $import = new BookingManager();
-            $departureStation = $import->stationByName($_POST['departureStation']);
-            $arrivalStation = $import->stationByName($_POST['arrivalStation']);
+            require_once "../BLL/stationManager.php";
+            $stationManager = new StationManager();
+            $departureStation = $stationManager->getStationByName($_POST['departureStation']);
+            $arrivalStation = $stationManager->getStationByName($_POST['arrivalStation']);
             $trip = new Trips($departureStation, $_POST['departureHour'], $arrivalStation, $_POST['arrivalHour']);
             $reservationDetail = new ReservationDetails($_POST['name'], $_POST['phone'], $_POST['mail'], $_POST['nbrBike']);
             $import->addBooking($trip, $reservationDetail);

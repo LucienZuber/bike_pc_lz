@@ -1,9 +1,10 @@
-/**
+<?php/**
  * Created by PhpStorm.
  * User: lucien
  * Date: 01.11.2017
  * Time: 10:24
  */
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,37 +26,50 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
-            <h1 class="header center deep-orange-text">Réservations</h1>
+            <h1 class="header center deep-orange-text">Liste Des réservations</h1>
             <br><br>
 
             <table class="striped">
                 <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Trajet</th>
-                    <th>Vélo(s)</th>
+                    <th>De</th>
+                    <th>A</th>
+                    <th>Nom</th>
+                    <th>Adresse mail</th>
+                    <th>numéro de téléphone</th>
+                    <th>Nombre de vélos</th>
                     <th></th>
                 </tr>
                 </thead>
-
                 <tbody>
+                <?php
+                require_once "../DTO/booking.php";
+                require_once "../BLL/bookingManager.php";
+                require_once "../BLL/stationManager.php";
+                $stationManager = new StationManager();
+                $bookingsManager = new BookingManager();
+                $bookings = $bookingsManager->getAllBooking();
+                foreach ($bookings as $booking) {
+                    ?>
+                    <tr>
+                        <td><?php echo $stationManager->getStationById($booking->getDepartureStation())." ".$booking->getDepartureHour() ?></td>
+                        <td><?php echo $stationManager->getStationById($booking->getArrivalStation())." ".$booking->getArrivalHour() ?></td>
+                        <td><?php echo $booking->getName()?></td>
+                        <td><?php echo $booking->getMail()?></td>
+                        <td><?php echo $booking->getPhone()?></td>
+                        <td><?php echo $booking->getNbrBike()?></td>
+                        <td>
+                            <a class="btn-floating orange" href="userUpdate.php?userId=<?php echo $booking->getId();?>"><i class="material-icons">create</i></a>
+                            <a class="btn-floating orange" href="bookingDelete.php?bookingId=<?php echo $booking->getId();?>"><i class="material-icons">remove</i></a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
                 <tr>
-                    <td>4.11.2017</td>
-                    <td>Zinal - Sierre</td>
-                    <td>2</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
-                </tr>
-                <tr>
-                    <td>15.11.2017</td>
-                    <td>Ayer - Sierre</td>
-                    <td>8</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
-                </tr>
-                <tr>
-                    <td>20.11.2017</td>
-                    <td>Sierre - St-Luc</td>
-                    <td>1</td>
-                    <td><a class="btn-floating orange"><i class="material-icons">create</i></a></td>
+                    <th>Ajouter une réservation</th>
+                    <th></th>
+                    <th> <a class="btn-floating orange" href="bookingAdd.php"><i class="material-icons">add</i></a></th>
                 </tr>
                 </tbody>
             </table>
@@ -63,9 +77,7 @@
     </div>
 </main>
 
-
 <?php include("footer.php"); ?>
-
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/materialize.js"></script>

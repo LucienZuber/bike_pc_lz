@@ -18,6 +18,13 @@ class StationManager
         $this->stationRequest = new StationRequest();
     }
 
+    public function getStationByName($stationName){
+        return $this->stationRequest->getStationByName($stationName);
+    }
+    public function getStationById($stationId){
+        return $this->stationRequest->getStationById($stationId);
+    }
+
     public function getStationLikeName($stationName)
     {
         $stations = $this->stationRequest->getStationLikeName($stationName);
@@ -30,8 +37,14 @@ class StationManager
     }
     public function addStation($name, $region){
         $this->stationRequest->insertStation($name, $region);
-}
+    }
+    public function removeStation($id){
+        $this->stationRequest->deleteStation($id);
+    }
     public function getAllStations(){
         return $this->stationRequest->getAllStations();
+    }
+    public function getAllStationsByRegion($region){
+        return $this->stationRequest->getAllStationByRegion($region);
     }
 }

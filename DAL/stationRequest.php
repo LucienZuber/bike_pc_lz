@@ -40,6 +40,21 @@ class StationRequest
             }
         }
     }
+    public function deleteStation($stationId){
+        //The query for removing a station
+        try{
+            $sth = $this->_dbh->prepare("DELETE FROM station WHERE _id = :stationId");
+            $sth->bindParam(':stationId', $stationId);
+
+            if ($sth->execute()) {
+                echo "suppression réussi !";
+            } else {
+                echo "suppresion échouée !";
+            }
+        } catch (PDOException $e) {
+            die('Connection failed:' . $e->getMessage());
+        }
+    }
     public function getStationByNameAndRegionId($stationName, $regionId){
         //The query for getting one station
         $regionId = intval($regionId);
@@ -54,7 +69,7 @@ class StationRequest
         return $returnedStations;
     }
     public function getStationByName($stationName){
-        //The query for getting one station
+        //The query for getting one station by its name
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name = '$stationName'";
 
@@ -65,10 +80,34 @@ class StationRequest
         }
         return $returnedStations;
     }
+    public function getStationById($stationId){
+        //The query for getting one station by its id
+        $stationId = intval($stationId);
+        $query = "SELECT _id, name, region_id FROM station WHERE name = $stationId";
+
+        $result = $this->_dbh->query($query);
+        $returnedStations = null;
+        while ($row = $result->fetch()) {
+            $returnedStations= new Station($row['_id'], $row['name'], $row['region_id']);
+        }
+        return $returnedStations;
+    }
     public function getStationLikeName($stationName){
-        //The query for getting one station
+        //The query for getting stations corresponding to the entry
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name LIKE '$stationName%'";
+
+        $result = $this->_dbh->query($query);
+        $returnedStations = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedStations, new Station($row['_id'], $row['name'], $row['region_id']));
+        }
+        return $returnedStations;
+    }
+    public function getAllStationByRegion($regionId){
+        //The query for getting one station
+        $regionId = intval($regionId);
+        $query = "SELECT _id, name, region_id FROM station WHERE region_id LIKE $regionId";
 
         $result = $this->_dbh->query($query);
         $returnedStations = array();

@@ -74,9 +74,6 @@ class BookingManager
         return $listOfTrips;
     }
 
-    public function stationByName($stationName){
-        return $this->stationRequest->getStationByName($stationName);
-    }
 
     public function addBooking($trip, $reservationDetail){
         $this->bookingRequest->insertBooking(
@@ -89,6 +86,19 @@ class BookingManager
             $trip->getDepartureDateTime(),
             $trip->getArrivalDateTime()
         );
+    }
+
+    public function getAllBooking(){
+        return $this->bookingRequest->getAllBooking();
+    }
+
+    public function modifyBooking($booking)
+    {
+        $this->bookingRequest->modifyBooking($booking->getId(), $booking->getDepartureStation(), $booking->getArrivalStation(), $booking->getNbrBike(), $booking->getName(), $booking->getMail(), $booking->getPhone(), $booking->getDepartureHour(), $booking->getArrivalHour());
+    }
+
+    public function deleteBooking($bookingId){
+        $this->bookingRequest->deleteBooking($bookingId);
     }
 
     public function checkIfStationExists($stationName){

@@ -12,7 +12,7 @@ class Booking
     private $_departureStation;
     private $_arrivalStation;
     private $_nbrBike;
-    private $_nom;
+    private $_name;
     private $_mail;
     private $_phone;
     private $_departureHour;
@@ -36,7 +36,7 @@ class Booking
         $this->_departureStation = $_departureStation;
         $this->_arrivalStation = $_arrivalStation;
         $this->_nbrBike = $_nbrBike;
-        $this->_nom = $_nom;
+        $this->_name = $_nom;
         $this->_mail = $_mail;
         $this->_phone = $_phone;
         $this->_departureHour = $_departureHour;
@@ -110,17 +110,17 @@ class Booking
     /**
      * @return mixed
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->_nom;
+        return $this->_name;
     }
 
     /**
-     * @param mixed $nom
+     * @param mixed $name
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->_nom = $nom;
+        $this->_name = $name;
     }
 
     /**
