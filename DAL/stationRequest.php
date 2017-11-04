@@ -42,6 +42,7 @@ class StationRequest
     }
     public function getStationByNameAndRegionId($stationName, $regionId){
         //The query for getting one station
+        $regionId = intval($regionId);
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name = '$stationName' AND region_id = $regionId";
 
@@ -68,6 +69,17 @@ class StationRequest
         //The query for getting one station
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name LIKE '$stationName%'";
+
+        $result = $this->_dbh->query($query);
+        $returnedStations = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedStations, new Station($row['_id'], $row['name'], $row['region_id']));
+        }
+        return $returnedStations;
+    }
+    public function getAllStations(){
+        //The query for getting all stations
+        $query = "SELECT _id, name, region_id FROM station";
 
         $result = $this->_dbh->query($query);
         $returnedStations = array();

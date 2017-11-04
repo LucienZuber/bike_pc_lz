@@ -52,8 +52,8 @@
                         <td><?php echo $region->getName()?></td>
                         <td><?php echo $userManager->getUsersById($region->getAdminId())->getName()?></td>
                         <td>
-                            <a class="btn-floating orange" href="userUpdate.php?userId=<?php echo $region->getId();?>"><i class="material-icons">create</i></a>
-                            <a class="btn-floating orange" href="userDelete.php?userId=<?php echo $region->getId();?>"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating orange" href="regionUpdate.php?regionId=<?php echo $region->getId();?>"><i class="material-icons">create</i></a>
+                            <a class="btn-floating orange" href="regionDelete.php?regionId=<?php echo $region->getId();?>"><i class="material-icons">remove</i></a>
                         </td>
                     </tr>
                     <?php

@@ -6,7 +6,6 @@
  * Time: 11:25
  */
 
-require_once "../DTO/region.php";
 require_once "../DAL/regionRequest.php";
 
 class RegionManager
@@ -21,7 +20,13 @@ class RegionManager
 
     public function addRegion($regionName, $adminId){
         $this->regionRequest->insertRegion($regionName, $adminId);
-        $this->region = $this->regionRequest->getRegionByName($regionName);
+    }
+    public function updateRegion($region){
+        $this->regionRequest->updateRegion($region->getId(), $region->getName(), $region->getAdminId());
+    }
+
+    public function deleteRegion($regionId){
+        $this->regionRequest->deleteRegion($regionId);
     }
 
     public function getAllRegion(){
@@ -29,5 +34,8 @@ class RegionManager
     }
     public function getRegionById($id){
         return $this->regionRequest->getRegionById($id);
+    }
+    public function getRegionByName($name){
+        return $this->regionRequest->getRegionByName($name);
     }
 }

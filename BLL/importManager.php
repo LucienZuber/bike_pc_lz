@@ -18,6 +18,7 @@ class ImportManager
     private $listOfStops;
     private $stationManager;
     private $regionManager;
+    private $_region;
     /**
      * Import constructor.
      * @param $region
@@ -34,7 +35,6 @@ class ImportManager
     public function read($departure, $arrival, $regionName, $adminId){
 
         $this->regionManager->addRegion($regionName, $adminId);
-
         $param = array (
             'from' => $departure,
             'to' => $arrival,
@@ -61,16 +61,16 @@ class ImportManager
                 }
             }
         }
-        $this->readAddedStations();
+        $this->readAddedStations($this->regionManager->getRegionByName($regionName));
     }
     //Read the id and the name of a JSonObject
     private function readIdName($jsonObject){
         $this->listOfStops[$jsonObject['stopid']] = $jsonObject['name'];
     }
 
-    public function readAddedStations(){
+    public function readAddedStations($region){
         foreach ($this->listOfStops as $key => $value){
-            $this->stationManager->addStation($value);
+            $this->stationManager->addStation($value, $region->getId());
 //            echo "$key : $value <br>";
         }
     }

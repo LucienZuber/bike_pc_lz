@@ -16,7 +16,7 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text">Importer de nouvelles zones</h1>
+        <h1 class="header left deep-orange-text">Importer de nouvelles stations à une région existante</h1>
         <br><br>
     </div>
 </div>
@@ -35,29 +35,6 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="region" required>
-                <label for="region">Région</label>
-            </div>
-            <div class="input-field col s6">
-                <select name="admin">
-                    <option value="" disabled selected>Choisissez</option>
-                    <?php
-                    require_once "../BLL/userManager.php";
-                    require_once "../BLL/roleManager.php";
-                    $roleManager = new RoleManager();
-                    $userManager = new UserManager();
-                    foreach ($userManager->getAllUsersByRole($roleManager->getRoleByName('Admin')->getId()) as $row){
-                        $id = $row->getId();
-                        $name = $row->getName();
-                        echo "<option value=\"$id\">$name</option>";
-                    }
-                    ?>
-                </select>
-                <label>Admin</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
             </div>
             <div class="input-field col s6">
                 <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
@@ -69,13 +46,16 @@
 </div>
 <?php
 require_once '../BLL/importManager.php';
+require_once '../BLL/regionManager.php';
 
 const ACCEPTED_TRANSPORT_TYPE = array('post');
 
 //once the client click on the submit button, we will query the SBB API to get every stop between the two stations.
 if(isset($_POST['submit'])){
     $import = new ImportManager();
-    $import->read($_POST['departure'], $_POST['arrival'], $_POST['region'], $_POST['admin']);
+    $regionManager = new RegionManager();
+    $oldRegion = $regionManager->getRegionById($_GET['regionId']);
+    $import->read($_POST['departure'], $_POST['arrival'], $oldRegion->getName(), $oldRegion->getAdminId());
 }
 
 ?>

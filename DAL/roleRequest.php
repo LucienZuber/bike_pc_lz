@@ -32,6 +32,17 @@ class RoleRequest
         }
         return $returnedRole;
     }
+
+    public function getRoleByName($name){
+        $query = "SELECT _id, name FROM role WHERE name = '$name'";
+
+        $result = $this->_dbh->query($query);
+        $returnedRole = null;
+        while ($row = $result->fetch()) {
+            $returnedRole = new Role($row['_id'], $row['name']);
+        }
+        return $returnedRole;
+    }
     public function getAllRoleById(){
         //The query for getting one user
 

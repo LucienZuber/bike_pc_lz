@@ -22,4 +22,7 @@ class RoleManager
     public function getAllRole(){
         return $this->_roleRequest->getAllRoleById();
     }
+    public function getRoleByName($name){
+        return $this->_roleRequest->getRoleByName($name);
+    }
 }

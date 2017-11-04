@@ -28,7 +28,10 @@ class StationManager
 
         return $returnedValue;
     }
-    public function addStation($name){
-        $this->stationRequest->insertStation($name, (int)$this->region->getId());
+    public function addStation($name, $region){
+        $this->stationRequest->insertStation($name, $region);
+}
+    public function getAllStations(){
+        return $this->stationRequest->getAllStations();
     }
 }

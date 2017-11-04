@@ -61,7 +61,8 @@ class RegionRequest
         return $returnedRegions;
     }
 
-    public function getAllRegion(){
+    public function getAllRegion()
+    {
         //The query for getting one region
         $query = "SELECT _id, name, admin_id FROM region";
 
@@ -71,5 +72,40 @@ class RegionRequest
             array_push($returnedRegions, new Region($row['_id'], $row['name'], $row['admin_id']));
         }
         return $returnedRegions;
+    }
+    public function updateRegion($regionId, $regionName, $regionAdminId){
+        //The query for modifying an user
+        $regionId = intval($regionId);
+        $regionAdminId = intval($regionAdminId);
+        if(!empty($this->getRegionById($regionId))) {
+            try {
+                $sth = $this->_dbh->prepare("UPDATE region SET name=:name, admin_id=:admin_id WHERE _id = :region_id");
+                $sth->bindParam(':region_id', $regionId);
+                $sth->bindParam(':name', $regionName);
+                $sth->bindParam(':admin_id', $regionAdminId);
+                if ($sth->execute()) {
+                    echo "update réussi !";
+                } else {
+                    echo "update échouée !";
+                }
+            } catch (PDOException $e) {
+                die('Connection failed:' . $e->getMessage());
+            }
+        }
+    }
+    public function deleteRegion($regionId){
+        //The query for removing a Region
+        try{
+            $sth = $this->_dbh->prepare("DELETE FROM `region` WHERE _id = :regionId");
+            $sth->bindParam(':regionId', $regionId);
+
+            if ($sth->execute()) {
+                echo "suppression réussi !";
+            } else {
+                echo "suppresion échouée !";
+            }
+        } catch (PDOException $e) {
+            die('Connection failed:' . $e->getMessage());
+        }
     }
 }

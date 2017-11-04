@@ -44,9 +44,9 @@ class UserRequest
     }
     public function modifyUser($userId, $userName, $userPassword, $userMail, $userPhone, $roleId){
         //The query for modifying an user
+        $userId = intval($userId);
         if(!empty($this->getUserById($userId))) {
             try {
-                $userId = intval($userId);
                 $roleId = intval($roleId);
                 $sth = $this->_dbh->prepare("UPDATE user SET name=:name, password=:password, mail=:mail, phone=:phone, role_id=:role_id WHERE _id = :user_id");
                 $sth->bindParam(':name', $userName);

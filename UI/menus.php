@@ -4,7 +4,7 @@
             <li><a href="regionAdd.php">Importations</a></li>
             <li><a href="bookingAdd.php">Réserver</a></li>
             <li><a href="bookings.php">Réservations</a></li>
-            <li><a href="regions.php">Gestion de zones</a></li>
+            <li><a href="regions.php">Gestion de régions</a></li>
             <li><a href="users.php">Gestion d'utilisateurs</a></li>
             <li><a href="connection.php">Connection</a></li>
         </ul>
