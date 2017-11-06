@@ -11,8 +11,27 @@
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<?php include("menus.php");?>
+<?php include("menus.php");
 
+require_once "../BLL/userManager.php";
+require_once "../BLL/roleManager.php";
+
+$userManager = new UserManager();
+$roleManager = new RoleManager();
+
+$acceptedRoles = array();
+array_push($acceptedRoles, 'superadmin');
+
+if(!isset($_SESSION['userId'])) {
+    header('Location: '."/bike_pc_lz/UI/index.php");
+}
+
+$role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
+
+if(!in_array($role->getName(), $acceptedRoles)){
+    header('Location: '."/bike_pc_lz/UI/index.php");
+}
+?>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>

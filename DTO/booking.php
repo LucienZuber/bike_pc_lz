@@ -24,19 +24,19 @@ class Booking
      * @param $_departureStation
      * @param $_arrivalStation
      * @param $_nbrBike
-     * @param $_nom
+     * @param $_name
      * @param $_mail
      * @param $_phone
      * @param $_departureHour
      * @param $_arrivalHour
      */
-    public function __construct($_id, $_departureStation, $_arrivalStation, $_nbrBike, $_nom, $_mail, $_phone, $_departureHour, $_arrivalHour)
+    public function __construct($_id, $_departureStation, $_arrivalStation, $_nbrBike, $_name, $_mail, $_phone, $_departureHour, $_arrivalHour)
     {
         $this->_id = $_id;
         $this->_departureStation = $_departureStation;
         $this->_arrivalStation = $_arrivalStation;
         $this->_nbrBike = $_nbrBike;
-        $this->_name = $_nom;
+        $this->_name = $_name;
         $this->_mail = $_mail;
         $this->_phone = $_phone;
         $this->_departureHour = $_departureHour;

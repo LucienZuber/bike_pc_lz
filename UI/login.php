@@ -12,7 +12,14 @@
 </head>
 <body>
 
-<?php include("menus.php");?>
+<?php include("menus.php");
+
+if(isset($_SESSION['userId'])) {
+    header('Location: '."/bike_pc_lz/UI/index.php");
+}
+
+
+?>
 <main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -23,11 +30,11 @@
 </div>
 
 <div class="row">
-    <form class="col s12" action="#" method="get">
+    <form class="col s12" action="#" method="post">
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" name="nom"required>
-                <label for="nom">Nom</label>
+                <input type="text" name="name"required>
+                <label for="name">Nom</label>
             </div>
             <div class="input-field col s6">
                 <input type="password" name="password" required>
@@ -46,7 +53,17 @@
         </div>
     </form>
 </div>
-
+    <?php
+    require_once "../BLL/userManager.php";
+    $userManager = new UserManager();
+    if(isset($_POST['submit'])){
+        $user = $userManager->getUsersByNameAndPassword($_POST['name'], $_POST['password']);
+        if(!is_null($user)){
+            $_SESSION['userId'] = $user->getId();
+            header('Location: '."/bike_pc_lz/UI/index.php");
+        }
+    }
+    ?>
 </main>
 <?php include("footer.php"); ?>
 

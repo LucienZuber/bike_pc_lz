@@ -92,6 +92,10 @@ class BookingManager
         return $this->bookingRequest->getAllBooking();
     }
 
+    public function getBookingById($bookingId){
+        return $this->bookingRequest->getBookingById($bookingId);
+    }
+
     public function modifyBooking($booking)
     {
         $this->bookingRequest->modifyBooking($booking->getId(), $booking->getDepartureStation(), $booking->getArrivalStation(), $booking->getNbrBike(), $booking->getName(), $booking->getMail(), $booking->getPhone(), $booking->getDepartureHour(), $booking->getArrivalHour());

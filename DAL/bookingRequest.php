@@ -90,7 +90,20 @@ class BookingRequest
         }
     }
 
-    public function deleteBooking($bookingId){
+    public function getBookingById($bookingId)
+    {
+        $bookingId = intval($bookingId);
+        $query = "SELECT _id, departure_id, arrival_id, nbr_bike, name, mail, phone, departure_hour, arrival_hour FROM drivers WHERE _id = '$bookingId'";
+        $result = $this->_dbh->query($query);
+        $returnedBooking = null;
+        while ($row = $result->fetch()) {
+            $returnedBooking= new Booking($row['_id'], $row['departure_id'], $row['arrival_id'], $row['nbr_bike'], $row['name'], $row['mail'], $row['phone'], $row['departure_hour'], $row['arrival_hour']);
+        }
+        return $returnedBooking;
+
+    }
+
+        public function deleteBooking($bookingId){
         //The query for removing a User
         $bookingId = intval($bookingId);
         try{

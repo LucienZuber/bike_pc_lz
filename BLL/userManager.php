@@ -44,6 +44,10 @@ class UserManager
         return $this->userRequest->getUserByNameAndRoleId($name, $roleId);
     }
 
+    public function getUsersByNameAndPassword($name, $password){
+        return $this->userRequest->getUsersByNameAndPassword($name, $password);
+    }
+
     public function getAllUsers(){
         return $this->userRequest->getAllUser();
     }

@@ -66,6 +66,19 @@ class UserRequest
         }
     }
 
+    public function getUsersByNameAndPassword($userName, $userPassword){
+        //The query for getting one user by name and role
+
+        $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND password = '$userPassword'";
+
+        $result = $this->_dbh->query($query);
+        $returnedUser = null;
+        while ($row = $result->fetch()) {
+            $returnedUser= new User($row['_id'], $row['name'], $row['password'], $row['mail'], $row['phone'], $row['role_id']);
+        }
+        return $returnedUser;
+    }
+
     public function getUserById($userId){
         //The query for getting one user
 

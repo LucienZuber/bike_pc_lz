@@ -1,4 +1,5 @@
-<?php/**
+<?php
+/**
  * Created by PhpStorm.
  * User: lucien
  * Date: 01.11.2017
@@ -21,7 +22,29 @@
 
 </head>
 <body>
-<?php include("menus.php");?>
+<?php include("menus.php");
+
+require_once "../BLL/userManager.php";
+require_once "../BLL/roleManager.php";
+
+$userManager = new UserManager();
+$roleManager = new RoleManager();
+
+$acceptedRoles = array();
+array_push($acceptedRoles, 'superadmin');
+array_push($acceptedRoles, 'admin');
+array_push($acceptedRoles, 'driver');
+
+if(!isset($_SESSION['userId'])) {
+    header('Location: '."/bike_pc_lz/UI/index.php");
+}
+
+$role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
+
+if(!in_array($role->getName(), $acceptedRoles)){
+    header('Location: '."/bike_pc_lz/UI/index.php");
+}
+?>
 <main>
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
@@ -59,8 +82,16 @@
                         <td><?php echo $booking->getPhone()?></td>
                         <td><?php echo $booking->getNbrBike()?></td>
                         <td>
-                            <a class="btn-floating orange" href="userUpdate.php?userId=<?php echo $booking->getId();?>"><i class="material-icons">create</i></a>
-                            <a class="btn-floating orange" href="bookingDelete.php?bookingId=<?php echo $booking->getId();?>"><i class="material-icons">remove</i></a>
+                            <?php
+                            $acceptedRolesDeletion = array();
+                            array_push($acceptedRolesDeletion, 'superadmin');
+                            array_push($acceptedRolesDeletion, 'admin');
+                            if(in_array($role->getName(), $acceptedRolesDeletion)){
+                                ?>
+                                <a class="btn-floating orange" href="bookingDelete.php?bookingId=<?php echo $booking->getId();?>"><i class="material-icons">remove</i></a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php
@@ -68,6 +99,10 @@
                 ?>
                 <tr>
                     <th>Ajouter une réservation</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                     <th> <a class="btn-floating orange" href="bookingAdd.php"><i class="material-icons">add</i></a></th>
                 </tr>
