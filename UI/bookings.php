@@ -31,7 +31,7 @@ $userManager = new UserManager();
 $roleManager = new RoleManager();
 
 $acceptedRoles = array();
-array_push($acceptedRoles, 'superadmin');
+array_push($acceptedRoles, 'superAdmin');
 array_push($acceptedRoles, 'admin');
 array_push($acceptedRoles, 'driver');
 
@@ -84,7 +84,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                         <td>
                             <?php
                             $acceptedRolesDeletion = array();
-                            array_push($acceptedRolesDeletion, 'superadmin');
+                            array_push($acceptedRolesDeletion, 'superAdmin');
                             array_push($acceptedRolesDeletion, 'admin');
                             if(in_array($role->getName(), $acceptedRolesDeletion)){
                                 ?>

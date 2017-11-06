@@ -20,7 +20,7 @@ $userManager = new UserManager();
 $roleManager = new RoleManager();
 
 $acceptedRoles = array();
-array_push($acceptedRoles, 'superadmin');
+array_push($acceptedRoles, 'superAdmin');
 
 if(!isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");

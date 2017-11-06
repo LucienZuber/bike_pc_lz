@@ -9,6 +9,7 @@
 <nav class="amber accent-3" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Resabike</a>
         <ul class="right hide-on-med-and-down">
+            <li><a href="bookingAdd.php">Réserver</a></li>
             <?php
             if(isset($_SESSION['userId'])){
                 $currentUser = $userManager->getUsersById($_SESSION['userId']);
@@ -30,8 +31,12 @@
                     case 'driver';
                     ?>
                         <li><a href="bookings.php">Réservations</a></li>
-                        <li><a href="logout.php">Déconnection</a></li>
                     <?php
+                    default:
+                        ?>
+                        <li><a href="logout.php">Déconnection</a></li>
+                        <li><?php echo $currentUser->getName() ?></li>
+                        <?php
                 }
             }
             else{
@@ -40,7 +45,6 @@
             <?php
             }
             ?>
-            <li><a href="bookingAdd.php">Réserver</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -64,9 +68,14 @@
                     case 'driver';
                         ?>
                         <li><a href="bookings.php">Réservations</a></li>
+                        <?php
+                    default:
+                    ?>
                         <li><a href="logout.php">Déconnection</a></li>
+                        <li><?php echo $currentUser->getName() ?></li>
                         <?php
                 }
+
             }
             else{
                 ?>

@@ -37,7 +37,7 @@ $userManager = new UserManager();
 $roleManager = new RoleManager();
 
 $acceptedRoles = array();
-array_push($acceptedRoles, 'superadmin');
+array_push($acceptedRoles, 'superAdmin');
 
 if(!isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");
@@ -156,6 +156,11 @@ if(!in_array($role->getName(), $acceptedRoles)){
 
                 break;
         }
+        ?>
+        <script type="text/javascript">
+        window.location = "/bike_pc_lz/UI/users.php";
+        </script>
+        <?php
     }
     ?>
 </main>

@@ -8,11 +8,14 @@
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $userManager = new UserManager();
 $roleManager = new RoleManager();
 
 $acceptedRoles = array();
-array_push($acceptedRoles, 'superadmin');
+array_push($acceptedRoles, 'superAdmin');
 
 if(!isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");
@@ -25,5 +28,5 @@ if(!in_array($role->getName(), $acceptedRoles)){
 }
 
 $userManager->deleteUser($_GET['userId']);
-header('Location: '."/bike_pc_lz/UI/index.php");
+header('Location: '."/bike_pc_lz/UI/users.php");
 ?>
