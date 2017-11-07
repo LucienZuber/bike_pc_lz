@@ -24,18 +24,18 @@ include_once  '../BLL/changeLanguage.php';
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center deep-orange-text"><?php echo $lang['MENU_BOOK'];?></h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang['BOOK_NOW'];?></h1>
         <br><br>
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">people</i>
-                    <input type="text" name="departure" class="rechercheDB" required>
+                    <input type="text" name="departure" class="autocomplete rechercheDB" required>
                     <label for="departure"><?php echo $lang['START'];?></label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">location_on</i>
-                    <input type="text" name="arrival" class="rechercheDB" required>
+                    <input type="text" name="arrival" class="autocomplete rechercheDB" required>
                     <label for="arrival"><?php echo $lang['END'];?></label>
                 </div>
             </div>
@@ -126,7 +126,7 @@ include_once  '../BLL/changeLanguage.php';
                                     </div>
                                     <div class="input-field col s6">
                                         <input type="number" name="nbrBike" min="1" , max="20" class="" required>
-                                        <label for="nbrBike">n<?php echo $lang['NB_BIKE'];?></label>
+                                        <label for="nbrBike"><?php echo $lang['NB_BIKE'];?></label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -170,7 +170,6 @@ include_once  '../BLL/changeLanguage.php';
         }
         ?>
     </div>
-</div>
 </main>
 
 

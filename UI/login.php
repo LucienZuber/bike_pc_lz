@@ -24,8 +24,6 @@ if(isset($_SESSION['userId'])) {
         <br><br>
         <h1 class="header center deep-orange-text"><?php echo $lang['CONNECT'];?></h1>
         <br><br>
-    </div>
-    <div class="row">
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
@@ -39,7 +37,6 @@ if(isset($_SESSION['userId'])) {
             </div>
             <div class="row">
                 <div class="input-field col s6">
-
                 </div>
                 <div class="input-field col s6">
                     <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['LOGIN'];?>

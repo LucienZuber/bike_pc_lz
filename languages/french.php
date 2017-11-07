@@ -35,14 +35,15 @@ $lang['CHOOSE'] = 'Choisir';
 $lang['ADMIN'] = 'Administrateur';
 $lang['IMPORT_REGION'] = 'Importer une région';
 $lang['ADD_REGION'] = 'Ajouter une région';
-$lang['LIST_USERS'] = 'Listes des utilisateurs';
+$lang['LIST_USERS'] = 'Liste des utilisateurs';
 $lang['ROLE'] = 'Rôle';
 $lang['STATION'] = 'Station';
 $lang['ADD_TRIP'] = 'Ajouter un trajet';
 $lang['IMPORT_STATION_REGION'] = 'Importer de nouvelles stations à une région existante';
 $lang['ADD_USER'] = 'Ajouter un utilisateur';
 $lang['SEARCH'] = 'Rechercher';
-$lang['NEW_BOOK'] = 'Réserver rapidement votre voyage';
+$lang['NEW_BOOK'] = 'Réserver rapidement votre voyage.';
+$lang['BOOK_NOW'] = 'Réserver maintenant !';
 $lang['HOME'] = 'Accueil';
 
 $lang['CONNECT_FAIL'] = 'Connexion échouée :';
@@ -58,7 +59,7 @@ $lang['MENU_MANAGE_USERS'] = 'Gestion des utilisateurs';
 $lang['MENU_MANAGE_REGIONS'] = 'Gestion des régions';
 
 // Footer
-$lang['FOOTER_CREDITS'] = 'Fait avec ❤︎ par Patrick Clivaz & Lucien Zuber.';
+$lang['FOOTER_CREDITS'] = 'Fait avec ❤ par Patrick Clivaz & Lucien Zuber.';
 $lang['FOOTER_LANGUAGES'] = 'Changer de langue';
 $lang['LANG_DEFAULT'] = 'Anglais';
 $lang['LANG_FRENCH'] = 'Français';

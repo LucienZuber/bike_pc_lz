@@ -34,60 +34,59 @@ if(!in_array($role->getName(), $acceptedRoles)){
     header('Location: '."/bike_pc_lz/UI/index.php");
 }
 ?>
+<main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text"><?php echo $lang['IMPORT_ZONES'];?></h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang['IMPORT_ZONES'];?></h1>
         <br><br>
+        <form class="col s12" action="#" method="post">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="departure" class="autocomplete recherche" required>
+                    <label for="departure"><?php echo $lang['START'];?></label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="arrival" class="autocomplete recherche" required>
+                    <label for="arrival"><?php echo $lang['END'];?></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="region" required>
+                    <label for="region"><?php echo $lang['REGION'];?></label>
+                </div>
+                <div class="input-field col s6">
+                    <select name="admin">
+                        <option value="" disabled selected><?php echo $lang['CHOOSE'];?></option>
+                        <?php
+                        require_once "../BLL/userManager.php";
+                        require_once "../BLL/roleManager.php";
+                        $roleManager = new RoleManager();
+                        $userManager = new UserManager();
+                        foreach ($userManager->getAllUsersByRole($roleManager->getRoleByName('admin')->getId()) as $row){
+                            $id = $row->getId();
+                            $name = $row->getName();
+                            echo "<option value=\"$id\">$name</option>";
+                        }
+                        ?>
+                    </select>
+                    <label><?php echo $lang['ADMIN'];?></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                </div>
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
+                        <i class="material-icons right">directions_subway</i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
-<div>
-    <form class="col s12" action="#" method="post">
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" name="departure" class="autocomplete recherche" required>
-                <label for="departure"><?php echo $lang['START'];?></label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" name="arrival" class="autocomplete recherche" required>
-                <label for="arrival"><?php echo $lang['END'];?></label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" name="region" required>
-                <label for="region"><?php echo $lang['REGION'];?></label>
-            </div>
-            <div class="input-field col s6">
-                <select name="admin">
-                    <option value="" disabled selected><?php echo $lang['CHOOSE'];?></option>
-                    <?php
-                    require_once "../BLL/userManager.php";
-                    require_once "../BLL/roleManager.php";
-                    $roleManager = new RoleManager();
-                    $userManager = new UserManager();
-                    foreach ($userManager->getAllUsersByRole($roleManager->getRoleByName('Admin')->getId()) as $row){
-                        $id = $row->getId();
-                        $name = $row->getName();
-                        echo "<option value=\"$id\">$name</option>";
-                    }
-                    ?>
-                </select>
-                <label><?php echo $lang['ADMIN'];?></label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-            </div>
-            <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
-                    <i class="material-icons right">directions_subway</i>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
 <?php
 require_once '../BLL/importManager.php';
 
@@ -100,6 +99,7 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+
 </main>
 <?php include("footer.php"); ?>
 <!--Scripts-->
