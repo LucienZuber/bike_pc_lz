@@ -7,11 +7,10 @@
  */
 ?>
 <!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Réservations</title>
+    <title><?php echo $lang['MENU_BOOKINGS'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,6 +31,7 @@
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
+include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -53,7 +53,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
-            <h1 class="header center deep-orange-text">Liste D'utilisateurs</h1>
+            <h1 class="header center deep-orange-text"><?php echo $lang['LIST_USERS'];?></h1>
             <br><br>
 
             <form class="col s12" action="#" method="post">
@@ -66,7 +66,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 <div class="row">
                     <div class="input-field col s4">
                         <input type="text" name="name" value="<?php echo $entryRegion->getName()?>" required>
-                        <label for="name">Nom</label>
+                        <label for="name"><?php echo $lang['NAME'];?></label>
                     </div>
                     <div class="input-field col s4">
                         <select name="admin" required>
@@ -89,10 +89,10 @@ if(!in_array($role->getName(), $acceptedRoles)){
                             }
                             ?>
                         </select>
-                        <label>Rôle</label>
+                        <label><?php echo $lang['ROLE'];?></label>
                     </div>
                     <div class="input-field col s4">
-                        <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
+                        <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
                             <i class="material-icons right">person</i>
                         </button>
                     </div>
@@ -101,7 +101,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
             <table class="striped">
                 <thead>
                 <tr>
-                    <th>Station</th>
+                    <th><?php echo $lang['STATION'];?></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -124,7 +124,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 }
                 ?>
                 <tr>
-                    <th>Ajouter un trajet</th>
+                    <th><?php echo $lang['ADD_TRIP'];?></th>
                     <th> <a class="btn-floating orange" href="stationAdd.php?regionId=<?php echo $entryRegion->getId();?>"><i class="material-icons">add</i></a></th>
                 </tr>
                 </tbody>

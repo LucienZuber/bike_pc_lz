@@ -6,9 +6,9 @@ include_once '../BLL/changeLanguage.php';
             <div class="men">
                 <h5 class="white-text"><?php echo $lang['FOOTER_LANGUAGES'];?></h5>
                 <ul>
-                    <li><a class="white-text" href="?lang=default">English</a></li>
-                    <li><a class="white-text" href="?lang=french">Français</a></li>
-                    <li><a class="white-text" href="?lang=german">Deutsch</a></li>
+                    <li><a class="white-text" href="?lang=en"><?php echo $lang['LANG_DEFAULT'];?></a></li>
+                    <li><a class="white-text" href="?lang=fr"><?php echo $lang['LANG_FRENCH'];?></a></li>
+                    <li><a class="white-text" href="?lang=de"><?php echo $lang['LANG_GERMAN'];?></a></li>
                 </ul>
             </div>
         </div>

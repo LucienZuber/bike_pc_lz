@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Add a User</title>
+    <title><?php echo $lang['ADD_USER'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,6 +23,7 @@
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
+include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -44,7 +44,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text">Ajouter un nouvel utilisateur</h1>
+        <h1 class="header left deep-orange-text"><?php echo $lang['ADD_USER'];?></h1>
         <br><br>
     </div>
 </div>
@@ -54,27 +54,27 @@ if(!in_array($role->getName(), $acceptedRoles)){
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="name"required>
-                <label for="name">Nom</label>
+                <label for="name"><?php echo $lang['NAME'];?></label>
             </div>
             <div class="input-field col s6">
                 <input type="password" name="password" required>
-                <label for="password">Mot de passe</label>
+                <label for="password"><?php echo $lang['PASSWORD'];?></label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="mail" required>
-                <label for="mail">E-mail</label>
+                <label for="mail"><?php echo $lang['MAIL'];?></label>
             </div>
             <div class="input-field col s6">
                 <input type="text" name="phone" required>
-                <label for="phone">Téléphone</label>
+                <label for="phone"><?php echo $lang['PHONE'];?></label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <select class = "roleUser" name="role" required>
-                    <option value="" disabled selected>Choisissez</option>
+                    <option value="" disabled selected><?php echo $lang['CHOOSE'];?></option>
                     <?php
                     require_once "../BLL/roleManager.php";
                     $roleManager = new RoleManager();
@@ -86,11 +86,11 @@ if(!in_array($role->getName(), $acceptedRoles)){
                     }
                     ?>
                 </select>
-                <label>Rôle</label>
+                <label><?php echo $lang['ROLE'];?></label>
             </div>
             <div class="input-field col s6 dependOnRegion">
                 <select class = "" name="region">
-                    <option value="" disabled selected>Choisissez</option>
+                    <option value="" disabled selected><?php echo $lang['CHOOSE'];?></option>
                     <?php
                     require_once "../BLL/regionManager.php";
                     $regionManager = new RegionManager();
@@ -102,13 +102,13 @@ if(!in_array($role->getName(), $acceptedRoles)){
                     }
                     ?>
                 </select>
-                <label>Region</label>
+                <label><?php echo $lang['REGION'];?></label>
             </div>
 
             <div class="input-field col s6">
             </div>
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Confirmer
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
                     <i class="material-icons right">person</i>
                 </button>
             </div>

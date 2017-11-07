@@ -28,19 +28,19 @@ else if(isSet($_COOKIE['lang']))
 }
 else
 {
-    $lang = 'default';
+    $lang = 'en';
 }
 
 switch ($lang) {
-    case 'default':
+    case 'en':
         $lang_file = 'default.php';
         break;
 
-    case 'french':
+    case 'fr':
         $lang_file = 'french.php';
         break;
 
-    case 'german':
+    case 'de':
         $lang_file = 'german.php';
         break;
 

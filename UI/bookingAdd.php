@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Réservations</title>
+    <title><?php echo $lang['MENU_BOOKINGS'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,40 +18,41 @@
     require_once "../Model/reservationDetails.php";
     require_once '../BLL/bookingManager.php';
     require_once '../Model/Trips.php';
+    include_once  '../BLL/changeLanguage.php';
 ?>
 <main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center deep-orange-text">Réserver</h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang['MENU_BOOK'];?></h1>
         <br><br>
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" name="departure" class="rechercheDB" required>
-                    <label for="departure">Départ</label>
+                    <label for="departure"><?php echo $lang['START'];?></label>
                 </div>
                 <div class="input-field col s6">
                     <input type="text" name="arrival" class="rechercheDB" required>
-                    <label for="arrival">Arrivée</label>
+                    <label for="arrival"><?php echo $lang['END'];?></label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">date_range</i>
                     <input type="text" class="datepicker" name ="date" required>
-                    <label for="icon_telephone">Date</label>
+                    <label for="icon_telephone"><?php echo $lang['DATE'];?></label>
                 </div>
                 <div class="input-field col s6">
                     <input type="text" class="timepicker" name="time" required>
-                    <label for="fa fa-clock-o">Time</label>
+                    <label for="fa fa-clock-o"><?php echo $lang['TIME'];?></label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                 </div>
                 <div class="input-field col s6">
-                    <button class="btn waves-effect waves-light orange" type="submit" name="submit">Valider
+                    <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
                         <i class="material-icons right">directions_subway</i>
                     </button>
                 </div>
@@ -73,10 +73,10 @@
         <table class=\"striped\">
             <thead>
             <tr>
-                <th>Départ</th>
-                <th>Heure de départ</th>
-                <th>Arrivée</th>
-                <th>Heure d'arrivée</th>
+                <th><?php echo $lang['START'];?></th>
+                <th><?php echo $lang['START_TIME'];?></th>
+                <th><?php echo $lang['END'];?></th>
+                <th><?php echo $lang['END_TIME'];?></th>
                 <th></th>
             </tr>
             </thead>
@@ -98,18 +98,18 @@
                 <!-- Modal Structure -->
                 <div id="makeABook<?php echo $count; ?>" class="modal">
                     <div class="modal-content">
-                        <h4>Faire une réservation</h4>
+                        <h4><?php echo $lang['COMPLETE_RESERVATION'];?></h4>
 
                         <div class="row">
                             <form class="col s12" action="#" method="post">
                                 <div class="row modal-form-row">
                                     <div class="input-field col s6">
                                         <input type="text" name="name" class="" required>
-                                        <label for="name">Nom</label>
+                                        <label for="name"><?php echo $lang['NAME'];?></label>
                                     </div>
                                     <div class="input-field col s6">
                                         <input type="text" name="phone" class="" required>
-                                        <label for="phone">téléphone</label>
+                                        <label for="phone"><?php echo $lang['PHONE'];?></label>
                                     </div>
                                 </div>
                                 <input type="hidden" name="departureStation" value="<?php echo $trip->getDepartureStation()->getName()?>">
@@ -119,22 +119,22 @@
                                 <div class="row modal-form-row">
                                     <div class="input-field col s6">
                                         <input type="email" name="mail" class="" required>
-                                        <label for="mail">adresse mail</label>
+                                        <label for="mail"><?php echo $lang['MAIL'];?></label>
                                     </div>
                                     <div class="input-field col s6">
                                         <input type="number" name="nbrBike" min="1" , max="20" class="" required>
-                                        <label for="nbrBike">nombre de vélos</label>
+                                        <label for="nbrBike">n<?php echo $lang['NB_BIKE'];?></label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="input-field col s6">
                                     </div>
                                     <div class="input-field col s6">
-                                        <a class=" modal-action modal-close btn waves-effect waves-light orange">Annuler
+                                        <a class=" modal-action modal-close btn waves-effect waves-light orange"><?php echo $lang['CANCEL'];?>
                                             <i class="material-icons right">remove</i>
                                         </a>
                                         <button class="btn waves-effect waves-light orange" type="submit" name="book">
-                                            Réserver
+                                            <?php echo $lang['MENU_BOOK'];?>
                                             <i class="material-icons right">done</i>
                                         </button>
                                     </div>

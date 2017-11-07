@@ -7,11 +7,10 @@
  */
 ?>
 <!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Réservations</title>
+    <title><?php echo $lang['MENU_BOOKINGS'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,6 +25,7 @@
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
+include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -49,18 +49,18 @@ if(!in_array($role->getName(), $acceptedRoles)){
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
-            <h1 class="header center deep-orange-text">Liste Des réservations</h1>
+            <h1 class="header center deep-orange-text"><?php echo $lang['LIST_BOOKINGS'];?></h1>
             <br><br>
 
             <table class="striped">
                 <thead>
                 <tr>
-                    <th>De</th>
-                    <th>A</th>
-                    <th>Nom</th>
-                    <th>Adresse mail</th>
-                    <th>numéro de téléphone</th>
-                    <th>Nombre de vélos</th>
+                    <th><?php echo $lang['FROM'];?></th>
+                    <th><?php echo $lang['TO'];?></th>
+                    <th><?php echo $lang['NAME'];?></th>
+                    <th><?php echo $lang['MAIL'];?></th>
+                    <th><?php echo $lang['PHONE'];?></th>
+                    <th><?php echo $lang['NB_BIKE'];?></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -111,7 +111,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 }
                 ?>
                 <tr>
-                    <th>Ajouter une réservation</th>
+                    <th><?php echo $lang['ADD_RESERVATION'];?></th>
                     <th></th>
                     <th></th>
                     <th></th>
