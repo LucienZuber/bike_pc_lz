@@ -41,7 +41,15 @@ $lang['STATION'] = 'Station';
 $lang['ADD_TRIP'] = 'Add a trip';
 $lang['IMPORT_STATION_REGION'] = 'Import new stations to an existing region';
 $lang['ADD_USER'] = 'Add a User';
+$lang['SEARCH'] = 'Search';
+$lang['NEW_BOOK'] = 'Book quickly now';
+$lang['HOME'] = 'Home';
 
+$lang['CONNECT_FAIL'] = 'Connection failed:';
+$lang['ERROR_ADD'] = 'Added Failed!';
+$lang['ERROR_DELETE'] = 'Failed Deletion!';
+$lang['MESSAGE_MAIL'] = 'If you want to cancel your booking, simply send an email to resabikepclz@gmail.com.';
+$lang['THANKS_MAIL'] = 'Thank you for using our reservation system. Here is your confirmation:';
 
 // Menu
 $lang['MENU_BOOK'] = 'Book';

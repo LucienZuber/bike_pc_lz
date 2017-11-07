@@ -1,12 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: lucien
- * Date: 01.11.2017
- * Time: 10:24
- */
-?>
 <!DOCTYPE html>
+<?php
+include_once "../BLL/changeLanguage.php";
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -14,10 +9,8 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
 <body>
@@ -25,7 +18,6 @@
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
-include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -133,8 +125,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
 <?php include("footer.php"); ?>
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="../js/init.js"></script>
 <script src="../js/datepicker.js"></script>
 <script src="../js/timepicker.js"></script>

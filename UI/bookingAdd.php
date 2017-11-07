@@ -1,24 +1,24 @@
 <!DOCTYPE html>
+<?php
+require_once "../Model/reservationDetails.php";
+require_once '../BLL/bookingManager.php';
+require_once '../Model/Trips.php';
+include_once  '../BLL/changeLanguage.php';
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title><?php echo $lang['MENU_BOOKINGS'];?></title>
+    <title><?php echo $lang['MENU_BOOK'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <?php session_start(); ?>
 </head>
 <body>
 <?php
     include("menus.php");
-    require_once "../Model/reservationDetails.php";
-    require_once '../BLL/bookingManager.php';
-    require_once '../Model/Trips.php';
-    include_once  '../BLL/changeLanguage.php';
 ?>
 <main>
 <div class="section no-pad-bot" id="index-banner">
@@ -29,10 +29,12 @@
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">people</i>
                     <input type="text" name="departure" class="rechercheDB" required>
                     <label for="departure"><?php echo $lang['START'];?></label>
                 </div>
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">location_on</i>
                     <input type="text" name="arrival" class="rechercheDB" required>
                     <label for="arrival"><?php echo $lang['END'];?></label>
                 </div>
@@ -44,6 +46,7 @@
                     <label for="icon_telephone"><?php echo $lang['DATE'];?></label>
                 </div>
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">timer</i>
                     <input type="text" class="timepicker" name="time" required>
                     <label for="fa fa-clock-o"><?php echo $lang['TIME'];?></label>
                 </div>
@@ -53,7 +56,7 @@
                 </div>
                 <div class="input-field col s6">
                     <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
-                        <i class="material-icons right">directions_subway</i>
+                        <i class="material-icons right">search</i>
                     </button>
                 </div>
             </div>
@@ -175,8 +178,7 @@
 
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="../js/init.js"></script>
 <script src="../js/datepicker.js"></script>
 <script src="../js/timepicker.js"></script>

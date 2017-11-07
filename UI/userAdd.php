@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include_once "../BLL/changeLanguage.php";
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -9,21 +12,12 @@
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <!--Scripts-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../js/materialize.js"></script>
-    <script src="../js/init.js"></script>
-    <script src="../js/select.js"></script>
-    <script src="../js/displayUserRegion.js"></script>
 </head>
 <body>
 <?php include("menus.php");
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
-include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -142,5 +136,13 @@ if(isset($_POST['submit'])){
 </main>
 <?php include("footer.php"); ?>
 
+<!--Scripts-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<script src="../js/init.js"></script>
+<script src="../js/select.js"></script>
+<script src="../js/displayUserRegion.js"></script>
 </body>
 </html>

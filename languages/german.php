@@ -41,7 +41,8 @@ $lang['STATION'] = 'Station';
 $lang['ADD_TRIP'] = 'Add a trip';
 $lang['IMPORT_STATION_REGION'] = 'Import new stations to an existing region';
 $lang['ADD_USER'] = 'Add a User';
-
+$lang['SEARCH'] = 'Search';
+$lang['HOME'] = 'Home';
 
 // Menu
 $lang['MENU_BOOK'] = 'Book';

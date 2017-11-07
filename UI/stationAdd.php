@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include_once "../BLL/changeLanguage.php";
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -6,7 +9,7 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -14,7 +17,6 @@
 
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
-include_once "../BLL/changeLanguage.php";
 
 $userManager = new UserManager();
 $roleManager = new RoleManager();
@@ -82,7 +84,7 @@ if(isset($_POST['submit'])){
 <?php include("footer.php"); ?>
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="../js/materialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="../js/init.js"></script>
 <script src="../js/select.js"></script>
 <script src="../js/autocompleteCFF.js"></script>

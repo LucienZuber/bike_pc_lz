@@ -9,7 +9,7 @@
 ?>
 
 <nav class="amber accent-3" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Resabike</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo"><i class="material-icons">train</i>Resabike</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="bookingAdd.php"><?php echo $lang['MENU_BOOK'];?></a></li>
             <?php
