@@ -13,6 +13,7 @@
 <body>
 
 <?php include("menus.php");
+    include_once "../BLL/changeLanguage.php";
 
 if(isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");
@@ -24,9 +25,7 @@ if(isset($_SESSION['userId'])) {
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center deep-orange-text"><?php
-            require_once "../BLL/changeLanguage.php";
-            translate('connect'); ?></h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang[CONNECT];?></h1>
         <br><br>
     </div>
 </div>
@@ -36,15 +35,11 @@ if(isset($_SESSION['userId'])) {
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="name"required>
-                <label for="name"><?php
-                                    require_once "../BLL/changeLanguage.php";
-                                    translate('name'); ?></label>
+                <label for="name"><?php echo $lang[NAME];?></label>
             </div>
             <div class="input-field col s6">
                 <input type="password" name="password" required>
-                <label for="password"><?php
-                    require_once "../BLL/changeLanguage.php";
-                    translate('password'); ?></label>
+                <label for="password"><?php echo $lang[PASSWORD];?></label>
             </div>
         </div>
         <div class="row">
@@ -52,9 +47,7 @@ if(isset($_SESSION['userId'])) {
 
             </div>
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php
-                    require_once "../BLL/changeLanguage.php";
-                    translate('login'); ?>
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang[LOGIN];?>
                     <i class="material-icons right">check</i>
                 </button>
             </div>

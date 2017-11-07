@@ -5,50 +5,49 @@
  * Date: 07.11.17
  * Time: 13:16
  */
-function translate($key, $return = false)
+
+//session_start();
+//header('Cache-control: private'); // IE 6 FIX
+
+if(isSet($_GET['lang']))
 {
-    // Langue par défaut
-    $currentlang = 'default';
-    // Si aucune langue n'est sélectionnée, on sélectionne la langue par défaut
-    //$currentlang = (isset($_SESSION['lang'])) ? strtolower($_SESSION['lang']) : $currentlang;
+    $lang = $_GET['lang'];
 
-    // Chemin vers le fichier de langues
-    $path = '../languages/' . $currentlang . '.json';
+// register the session and set the cookie
+    $_SESSION['lang'] = $lang;
 
-    // Récupération du contenu du fichier
-    $a = file_get_contents($path);
-    $lang = json_decode($a, true);
-
-    // Si le fichier n'existe pas ou que le mot clé n'est pas encore traduit
-    if(empty($lang) || !array_key_exists($key, $lang)) {
-
-        // Si la langue actuelle est par défaut
-        if($currentlang == 'default')
-        {
-            // Création du mot clé avec la traduction
-            $lang[$key] = $key;
-            // Ajout dans le fichier
-            file_put_contents($path, json_encode($lang));
-        }
-        else
-        {
-            // Affichage du mot en anglais entouré de crochets
-            return returnOrEcho('[' . $key . ']', $return);
-        }
-    }
-    // Affichage de la traduction
-    return returnOrEcho($lang[$key], $return);
+    setcookie('lang', $lang, time() + (3600 * 24 * 30));
+}
+else if(isSet($_SESSION['lang']))
+{
+    $lang = $_SESSION['lang'];
+}
+else if(isSet($_COOKIE['lang']))
+{
+    $lang = $_COOKIE['lang'];
+}
+else
+{
+    $lang = 'default';
 }
 
-function returnOrEcho($value, $isReturn)
-{
-    if($isReturn) {
-        return $value;
-    }
-    else {
-        echo $value;
-    }
-    return '';
+switch ($lang) {
+    case 'default':
+        $lang_file = 'default.php';
+        break;
+
+    case 'french':
+        $lang_file = 'french.php';
+        break;
+
+    case 'german':
+        $lang_file = 'german.php';
+        break;
+
+    default:
+        $lang_file = 'default.php';
+
 }
 
+include_once '../languages/'.$lang_file;
 ?>
