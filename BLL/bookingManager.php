@@ -118,6 +118,14 @@ class BookingManager
         $this->bookingRequest->modifyBooking($booking->getId(), $booking->getDepartureStation(), $booking->getArrivalStation(), $booking->getNbrBike(), $booking->getName(), $booking->getMail(), $booking->getPhone(), $booking->getDepartureHour(), $booking->getArrivalHour());
     }
 
+    public function deleteBookingIfOutOfDate($booking){
+        $arrivalHour = $booking->getArrivalHour();
+        if(date('Y-m-d h:i:s') > $arrivalHour){
+            return true;
+        }
+        return false;
+    }
+
     public function deleteBooking($bookingId){
         $this->bookingRequest->deleteBooking($bookingId);
     }

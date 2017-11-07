@@ -86,28 +86,33 @@ if(!in_array($role->getName(), $acceptedRoles)){
                         $bookings = $bookingsManager->getAllBooking();
                         break;
                 }
-                foreach ($bookings as $booking) {?>
-                    <tr>
-                        <td><?php echo $stationManager->getStationById($booking->getDepartureStation())." ".$booking->getDepartureHour() ?></td>
-                        <td><?php echo $stationManager->getStationById($booking->getArrivalStation())." ".$booking->getArrivalHour() ?></td>
-                        <td><?php echo $booking->getName()?></td>
-                        <td><?php echo $booking->getMail()?></td>
-                        <td><?php echo $booking->getPhone()?></td>
-                        <td><?php echo $booking->getNbrBike()?></td>
-                        <td>
-                            <?php
-                            $acceptedRolesDeletion = array();
-                            array_push($acceptedRolesDeletion, 'superAdmin');
-                            array_push($acceptedRolesDeletion, 'admin');
-                            if(in_array($role->getName(), $acceptedRolesDeletion)){
+                foreach ($bookings as $booking) {
+                    if(!$bookingsManager->deleteBookingIfOutOfDate($booking)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $stationManager->getStationById($booking->getDepartureStation()) . " " . $booking->getDepartureHour() ?></td>
+                            <td><?php echo $stationManager->getStationById($booking->getArrivalStation()) . " " . $booking->getArrivalHour() ?></td>
+                            <td><?php echo $booking->getName() ?></td>
+                            <td><?php echo $booking->getMail() ?></td>
+                            <td><?php echo $booking->getPhone() ?></td>
+                            <td><?php echo $booking->getNbrBike() ?></td>
+                            <td>
+                                <?php
+                                $acceptedRolesDeletion = array();
+                                array_push($acceptedRolesDeletion, 'superAdmin');
+                                array_push($acceptedRolesDeletion, 'admin');
+                                if (in_array($role->getName(), $acceptedRolesDeletion)) {
+                                    ?>
+                                    <a class="btn-floating orange"
+                                       href="bookingDelete.php?bookingId=<?php echo $booking->getId(); ?>"><i
+                                                class="material-icons">remove</i></a>
+                                    <?php
+                                }
                                 ?>
-                                <a class="btn-floating orange" href="bookingDelete.php?bookingId=<?php echo $booking->getId();?>"><i class="material-icons">remove</i></a>
-                            <?php
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <?php
+                            </td>
+                        </tr>
+                        <?php
+                    }
                 }
                 ?>
                 <tr>
