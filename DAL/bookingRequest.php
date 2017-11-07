@@ -38,7 +38,7 @@ class BookingRequest
             $sth->bindParam(':departure_hour', $departureHour);
             $sth->bindParam(':arrival_hour', $arrivalHour);
             if ($sth->execute()) {
-                echo "Ajout réussi !";
+
             } else {
                 echo "Ajout échoué !";
             }
@@ -51,7 +51,7 @@ class BookingRequest
     public function getAllBooking(){
         //The query for getting one user
 
-        $query = "SELECT _id, departure_id, arrival_id, nbr_bike, name, mail, phone, departure_hour, arrival_hour FROM booking";
+        $query = "SELECT _id, departure_id, arrival_id, nbr_bike, name, mail, phone, departure_hour, arrival_hour FROM booking ORDER BY departure_hour";
 
         $result = $this->_dbh->query($query);
         $returnedBookings = array();
@@ -80,7 +80,7 @@ class BookingRequest
             $sth->bindParam(':departure_hour', $departureHour);
             $sth->bindParam(':arrival_hour', $arrivalHour);
             if ($sth->execute()) {
-                echo "Ajout réussi !";
+
             } else {
                 echo "Ajout échoué !";
             }
@@ -92,7 +92,7 @@ class BookingRequest
 
     public function getBookingByRegion($regionId){
         $regionId = intval($regionId);
-        $query = "SELECT B._id, B.departure_id, B.arrival_id, B.nbr_bike, B.name, B.mail, B.phone, B.departure_hour, B.arrival_hour FROM booking B, station S, region R WHERE B.departure_id = S._id AND S.region_id = R._id AND R._id = $regionId";
+        $query = "SELECT B._id, B.departure_id, B.arrival_id, B.nbr_bike, B.name, B.mail, B.phone, B.departure_hour, B.arrival_hour FROM booking B, station S, region R WHERE B.departure_id = S._id AND S.region_id = R._id AND R._id = $regionId ORDER BY B.departure_hour";
 
         $result = $this->_dbh->query($query);
         $returnedBookings = array();
@@ -123,7 +123,7 @@ class BookingRequest
             $sth->bindParam(':bookingId', $bookingId);
 
             if ($sth->execute()) {
-                echo "suppression réussi !";
+
             } else {
                 echo "suppresion échouée !";
             }

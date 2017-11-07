@@ -31,7 +31,7 @@ class StationRequest
                 $sth->bindParam(':name', $stationName);
                 $sth->bindParam(':region_id', $regionId);
                 if ($sth->execute()) {
-                    echo "Ajout réussi !";
+
                 } else {
                     echo "Ajout échoué !";
                 }
@@ -47,7 +47,7 @@ class StationRequest
             $sth->bindParam(':stationId', $stationId);
 
             if ($sth->execute()) {
-                echo "suppression réussi !";
+
             } else {
                 echo "suppresion échouée !";
             }

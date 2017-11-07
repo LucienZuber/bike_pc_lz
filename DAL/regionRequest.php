@@ -29,7 +29,7 @@ class RegionRequest
                 $sth->bindParam(':name', $regionName);
                 $sth->bindParam(':admin_id', $adminId);
                 if ($sth->execute()) {
-                    echo "Ajout réussi !";
+
                 } else {
                     echo "Ajout échoué !";
                 }
@@ -97,7 +97,7 @@ class RegionRequest
                 $sth->bindParam(':name', $regionName);
                 $sth->bindParam(':admin_id', $regionAdminId);
                 if ($sth->execute()) {
-                    echo "update réussi !";
+
                 } else {
                     echo "update échouée !";
                 }
@@ -113,7 +113,7 @@ class RegionRequest
             $sth->bindParam(':regionId', $regionId);
 
             if ($sth->execute()) {
-                echo "suppression réussi !";
+
             } else {
                 echo "suppresion échouée !";
             }

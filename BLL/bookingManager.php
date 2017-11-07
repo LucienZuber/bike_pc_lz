@@ -6,6 +6,7 @@
  * Time: 18:43
  */
 
+require_once "mailManager.php";
 require_once '../DTO/booking.php';
 require_once '../DTO/station.php';
 require_once '../DAL/stationRequest.php';
@@ -86,6 +87,18 @@ class BookingManager
             $trip->getDepartureDateTime(),
             $trip->getArrivalDateTime()
         );
+        $mailManager = new MailManager();
+
+        $mailManager->sendMailBookings("Réservation",
+            "Merci d'avoir utiliser notre système de réservation. les détails sont: ", "lucienzuber@gmail.com",
+            $reservationDetail->getName(),
+            $reservationDetail->getNumberBike(),
+            $reservationDetail->getMail(),
+            $trip->getDepartureStation()->getName(),
+            $trip->getArrivalStation()->getName(),
+            $trip->getDepartureDateTime(),
+            $trip->getArrivalDateTime(),
+            $reservationDetail->getPhone());
     }
 
     public function getBookingByRegion($regionId){
@@ -103,6 +116,14 @@ class BookingManager
     public function modifyBooking($booking)
     {
         $this->bookingRequest->modifyBooking($booking->getId(), $booking->getDepartureStation(), $booking->getArrivalStation(), $booking->getNbrBike(), $booking->getName(), $booking->getMail(), $booking->getPhone(), $booking->getDepartureHour(), $booking->getArrivalHour());
+    }
+
+    public function deleteBookingIfOutOfDate($booking){
+        $arrivalHour = $booking->getArrivalHour();
+        if(date('Y-m-d h:i:s') > $arrivalHour){
+            return true;
+        }
+        return false;
     }
 
     public function deleteBooking($bookingId){

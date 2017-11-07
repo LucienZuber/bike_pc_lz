@@ -32,7 +32,7 @@ class DriverRequest
             $sth->bindParam(':driver_id', $driverId);
             $sth->bindParam(':region_id', $regionId);
             if ($sth->execute()) {
-                echo "Ajout réussi !";
+
             } else {
                 echo "Ajout échoué !";
             }
@@ -68,7 +68,7 @@ class DriverRequest
             $sth->bindParam(':driver_id', $driverId);
             $sth->bindParam(':region_id', $regionId);
             if ($sth->execute()) {
-                echo "Update réussi !";
+
             } else {
                 echo "Update échoué !";
             }
