@@ -24,7 +24,9 @@ if(isset($_SESSION['userId'])) {
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center deep-orange-text">Connectez-vous</h1>
+        <h1 class="header center deep-orange-text"><?php
+            require_once "../BLL/changeLanguage.php";
+            translate('connect'); ?></h1>
         <br><br>
     </div>
 </div>
@@ -34,11 +36,15 @@ if(isset($_SESSION['userId'])) {
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" name="name"required>
-                <label for="name">Nom</label>
+                <label for="name"><?php
+                                    require_once "../BLL/changeLanguage.php";
+                                    translate('name'); ?></label>
             </div>
             <div class="input-field col s6">
                 <input type="password" name="password" required>
-                <label for="password">Mot de passe</label>
+                <label for="password"><?php
+                    require_once "../BLL/changeLanguage.php";
+                    translate('password'); ?></label>
             </div>
         </div>
         <div class="row">
@@ -46,7 +52,9 @@ if(isset($_SESSION['userId'])) {
 
             </div>
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit">Connexion
+                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php
+                    require_once "../BLL/changeLanguage.php";
+                    translate('login'); ?>
                     <i class="material-icons right">check</i>
                 </button>
             </div>
