@@ -6,8 +6,8 @@
  * Time: 13:16
  */
 
-//session_start();
-//header('Cache-control: private'); // IE 6 FIX
+session_start();
+header('Cache-control: private'); // Internet Explorer 6 fix
 
 if(isSet($_GET['lang']))
 {
