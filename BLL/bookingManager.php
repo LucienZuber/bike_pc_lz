@@ -6,6 +6,7 @@
  * Time: 18:43
  */
 
+require_once "mailManager.php";
 require_once '../DTO/booking.php';
 require_once '../DTO/station.php';
 require_once '../DAL/stationRequest.php';
@@ -86,39 +87,18 @@ class BookingManager
             $trip->getDepartureDateTime(),
             $trip->getArrivalDateTime()
         );
+        $mailManager = new MailManager();
 
-
-
-        require_once "../_lib/class.phpmailer.php";
-
-        $mail = new PHPMailer;
-
-        $mail->IsSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.mandrillapp.com';                 // Specify main and backup server
-        $mail->Port = 587;                                    // Set the SMTP port
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'lucienzuber@gmail.com';                // SMTP username
-        $mail->Password = 'JDG66611lz';                  // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-
-        $mail->From = 'lucienzuber@gmail.com';
-        $mail->FromName = 'Lucien Zuber';
-        $mail->AddAddress($reservationDetail->getMail());  // Add a recipient
-
-        $mail->IsHTML(true);                                  // Set email format to HTML
-
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <strong>in bold!</strong>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-        if(!$mail->Send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-            exit;
-        }
-
-        echo 'Message has been sent';
-
+        $mailManager->sendMailBookings("Réservation",
+            "Merci d'avoir utiliser notre système de réservation. les détails sont: ", "lucienzuber@gmail.com",
+            $reservationDetail->getName(),
+            $reservationDetail->getNumberBike(),
+            $reservationDetail->getMail(),
+            $trip->getDepartureStation()->getName(),
+            $trip->getArrivalStation()->getName(),
+            $trip->getDepartureDateTime(),
+            $trip->getArrivalDateTime(),
+            $reservationDetail->getPhone());
     }
 
     public function getBookingByRegion($regionId){
