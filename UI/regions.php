@@ -74,7 +74,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 }
                 ?>
                 <tr>
-                    <th><?php echo $lang['ADD_REGION'];?></th>
+                    <th><?php echo $lang['IMPORT_REGION'];?></th>
                     <th></th>
                     <th> <a class="btn-floating orange" href="regionAdd.php"><i class="material-icons">add</i></a></th>
                 </tr>

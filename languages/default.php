@@ -34,7 +34,6 @@ $lang['REGION'] = 'Region';
 $lang['CHOOSE'] = 'Choose';
 $lang['ADMIN'] = 'Administrator';
 $lang['IMPORT_REGION'] = 'Import a region';
-$lang['ADD_REGION'] = 'Add a region';
 $lang['LIST_USERS'] = 'List of Users';
 $lang['ROLE'] = 'Role';
 $lang['STATION'] = 'Station';
