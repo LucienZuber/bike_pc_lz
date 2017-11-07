@@ -33,7 +33,7 @@ class UserRequest
                 $sth->bindParam(':phone', $userPhone);
                 $sth->bindParam(':role_id', $roleId);
                 if ($sth->execute()) {
-                    echo "Ajout réussi !";
+
                 } else {
                     echo "Ajout échoué !";
                 }
@@ -56,7 +56,7 @@ class UserRequest
                 $sth->bindParam(':role_id', $roleId);
                 $sth->bindParam(':user_id', $userId);
                 if ($sth->execute()) {
-                    echo "update réussi !";
+
                 } else {
                     echo "update échouée !";
                 }
@@ -124,7 +124,7 @@ class UserRequest
             $sth->bindParam(':userId', $userId);
 
             if ($sth->execute()) {
-                echo "suppression réussi !";
+
             } else {
                 echo "suppresion échouée !";
             }

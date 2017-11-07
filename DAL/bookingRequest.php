@@ -38,7 +38,7 @@ class BookingRequest
             $sth->bindParam(':departure_hour', $departureHour);
             $sth->bindParam(':arrival_hour', $arrivalHour);
             if ($sth->execute()) {
-                echo "Ajout réussi !";
+
             } else {
                 echo "Ajout échoué !";
             }
@@ -80,7 +80,7 @@ class BookingRequest
             $sth->bindParam(':departure_hour', $departureHour);
             $sth->bindParam(':arrival_hour', $arrivalHour);
             if ($sth->execute()) {
-                echo "Ajout réussi !";
+
             } else {
                 echo "Ajout échoué !";
             }
@@ -123,7 +123,7 @@ class BookingRequest
             $sth->bindParam(':bookingId', $bookingId);
 
             if ($sth->execute()) {
-                echo "suppression réussi !";
+
             } else {
                 echo "suppresion échouée !";
             }
