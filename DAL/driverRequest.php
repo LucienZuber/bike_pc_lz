@@ -41,6 +41,15 @@ class DriverRequest
             die('Connection failed:' . $e->getMessage());
         }
     }
+
+    /**
+     * @param mixed $dbh
+     */
+    public function setDbh($dbh)
+    {
+        $this->_dbh = $dbh;
+    }
+
     public function getDriverByDriverId($driverId){
         $driverId = intval($driverId);
         $query = "SELECT driver_id, region_id FROM drivers WHERE driver_id = '$driverId'";

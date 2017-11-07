@@ -18,6 +18,10 @@ class DriverManager
         $this->driverRequest = new DriverRequest();
     }
 
+    public function getRegionByDriver($driverId){
+        return $this->driverRequest->getDriverByDriverId($driverId)->getRegionId();
+    }
+
     public function addDriver($driverId, $regionId){
         $this->driverRequest->insertDriver($driverId, $regionId);
     }

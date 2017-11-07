@@ -90,6 +90,18 @@ class BookingRequest
         }
     }
 
+    public function getBookingByRegion($regionId){
+        $regionId = intval($regionId);
+        $query = "SELECT B._id, B.departure_id, B.arrival_id, B.nbr_bike, B.name, B.mail, B.phone, B.departure_hour, B.arrival_hour FROM booking B, station S, region R WHERE B.departure_id = S._id AND S.region_id = R._id AND R._id = $regionId";
+
+        $result = $this->_dbh->query($query);
+        $returnedBookings = array();
+        while ($row = $result->fetch()) {
+            array_push($returnedBookings, new Booking($row['_id'], $row['departure_id'], $row['arrival_id'], $row['nbr_bike'], $row['name'], $row['mail'], $row['phone'], $row['departure_hour'], $row['arrival_hour']));
+        }
+        return $returnedBookings;
+    }
+
     public function getBookingById($bookingId)
     {
         $bookingId = intval($bookingId);

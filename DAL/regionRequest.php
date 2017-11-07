@@ -49,6 +49,19 @@ class RegionRequest
         }
         return $returnedRegions;
     }
+    public function getRegionByAdminId($adminId){
+        //The query for getting one region
+        $adminId = intval($adminId);
+        $query = "SELECT _id, name, admin_id FROM region WHERE admin_id = $adminId";
+
+        $result = $this->_dbh->query($query);
+        $returnedRegions = null;
+        while ($row = $result->fetch()) {
+            $returnedRegions= new Region($row['_id'], $row['name'], $row['admin_id']);
+        }
+        return $returnedRegions;
+    }
+
     public function getRegionByName($regionName){
         //The query for getting one region
         $query = "SELECT _id, name, admin_id FROM region WHERE name = '$regionName'";

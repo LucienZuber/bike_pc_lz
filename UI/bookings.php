@@ -38,8 +38,8 @@ array_push($acceptedRoles, 'driver');
 if(!isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");
 }
-
-$role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
+$user = $userManager->getUsersById(intval($_SESSION['userId']));
+$role = $roleManager->getRoleById($user->getRoleId());
 
 if(!in_array($role->getName(), $acceptedRoles)){
     header('Location: '."/bike_pc_lz/UI/index.php");
@@ -71,9 +71,22 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 require_once "../BLL/stationManager.php";
                 $stationManager = new StationManager();
                 $bookingsManager = new BookingManager();
-                $bookings = $bookingsManager->getAllBooking();
-                foreach ($bookings as $booking) {
-                    ?>
+                switch ($role->getName()){
+                    case 'admin':
+                        require_once "../BLL/regionManager.php";
+                        $regionManager = new RegionManager();
+                        $bookings = $bookingsManager->getBookingByRegion($regionManager->getRegionByAdmin($user->getId())->getId());
+                        break;
+                    case 'driver':
+                        require_once "../BLL/driverManager.php";
+                        $driverManager = new DriverManager();
+                        $bookings = $bookingsManager->getBookingByRegion($driverManager->getRegionByDriver($user->getId())->getId());
+                        break;
+                    case 'superAdmin':
+                        $bookings = $bookingsManager->getAllBooking();
+                        break;
+                }
+                foreach ($bookings as $booking) {?>
                     <tr>
                         <td><?php echo $stationManager->getStationById($booking->getDepartureStation())." ".$booking->getDepartureHour() ?></td>
                         <td><?php echo $stationManager->getStationById($booking->getArrivalStation())." ".$booking->getArrivalHour() ?></td>

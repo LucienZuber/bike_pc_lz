@@ -38,4 +38,7 @@ class RegionManager
     public function getRegionByName($name){
         return $this->regionRequest->getRegionByName($name);
     }
+    public function getRegionByAdmin($adminId){
+        return $this->regionRequest->getRegionByAdminId($adminId);
+    }
 }

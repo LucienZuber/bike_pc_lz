@@ -88,6 +88,10 @@ class BookingManager
         );
     }
 
+    public function getBookingByRegion($regionId){
+        return $this->bookingRequest->getBookingByRegion($regionId);
+    }
+
     public function getAllBooking(){
         return $this->bookingRequest->getAllBooking();
     }
