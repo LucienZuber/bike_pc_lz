@@ -41,7 +41,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center deep-orange-text"><?php echo $lang['IMPORT_ZONES'];?></h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang['IMPORT_REGION'];?></h1>
         <br><br>
         <form class="col s12" action="#" method="post">
             <div class="row">
@@ -82,7 +82,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                 </div>
                 <div class="input-field col s6">
                     <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
-                        <i class="material-icons right">directions_subway</i>
+                        <i class="material-icons right">import_export</i>
                     </button>
                 </div>
             </div>

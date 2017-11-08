@@ -12,7 +12,7 @@ include_once "../BLL/changeLanguage.php";
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -37,37 +37,36 @@ if(!in_array($role->getName(), $acceptedRoles)){
     header('Location: '."/bike_pc_lz/UI/index.php");
 }
 ?>
+<main>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header left deep-orange-text"><?php echo $lang['IMPORT_STATION_REGION'];?></h1>
+        <h1 class="header center deep-orange-text"><?php echo $lang['IMPORT_STATION_REGION'];?></h1>
         <br><br>
+        <form class="col s12" action="#" method="post">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="departure" class="autocomplete recherche" required>
+                    <label for="departure"><?php echo $lang['START'];?></label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="arrival" class="autocomplete recherche" required>
+                    <label for="arrival"><?php echo $lang['END'];?></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                </div>
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
+                        <i class="material-icons right">directions_subway</i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
-<div>
-    <form class="col s12" action="#" method="post">
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" name="departure" class="autocomplete recherche" required>
-                <label for="departure"><?php echo $lang['START'];?></label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" name="arrival" class="autocomplete recherche" required>
-                <label for="arrival"><?php echo $lang['END'];?></label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-            </div>
-            <div class="input-field col s6">
-                <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>
-                    <i class="material-icons right">directions_subway</i>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
 <?php
 require_once '../BLL/importManager.php';
 require_once '../BLL/regionManager.php';
