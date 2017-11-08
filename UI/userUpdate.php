@@ -8,7 +8,7 @@ include_once "../BLL/changeLanguage.php";
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title><?php echo $lang['MENU_BOOKINGS'];?></title>
+    <title><?php echo $lang['EDIT_USER'];?></title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,7 +42,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
-            <h1 class="header center deep-orange-text"><?php echo $lang['LIST_USERS'];?></h1>
+            <h1 class="header center deep-orange-text"><?php echo $lang['EDIT_USER'];?></h1>
             <br><br>
 
         <form class="col s10" action="#" method="post">

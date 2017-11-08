@@ -38,14 +38,16 @@ $lang['ADMIN'] = 'Administrator';
 $lang['IMPORT_REGION'] = 'Import a region';
 $lang['LIST_USERS'] = 'List of Users';
 $lang['ROLE'] = 'Role';
-$lang['STATION'] = 'Station';
-$lang['ADD_TRIP'] = 'Add a trip';
-$lang['IMPORT_STATION_REGION'] = 'Import new stations to an existing region';
+$lang['STATION'] = 'Stations';
+$lang['ADD_STATION'] = 'Add stations';
+$lang['IMPORT_STATION_REGION'] = 'Import a new station to an existing region';
 $lang['ADD_USER'] = 'Add an User';
 $lang['SEARCH'] = 'Search';
 $lang['NEW_BOOK'] = 'Book your trip quickly.';
 $lang['BOOK_NOW'] = 'Book now!';
 $lang['HOME'] = 'Home';
+$lang['EDIT_REGION'] = 'Edit a region';
+$lang['EDIT_USER'] = 'Add an user';
 
 // Menu
 $lang['MENU_BOOK'] = 'Book';
