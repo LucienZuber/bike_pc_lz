@@ -93,8 +93,7 @@ class BookingManager
         );
         $mailManager = new MailManager();
         //this send an email
-        $mailManager->sendMailBookings("Réservation",
-            "Merci d'avoir utiliser notre système de réservation. les détails sont: ",
+        $mailManager->sendMailBookings(
             $reservationDetail->getMail(),
             $reservationDetail->getName(),
             $reservationDetail->getNumberBike(),

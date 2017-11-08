@@ -48,8 +48,6 @@ $lang['HOME'] = 'Startseite';
 $lang['CONNECT_FAIL'] = 'Verbindung fehlgeschlagen:';
 $lang['ERROR_ADD'] = 'Hinzufügen fehlgeschlagen!';
 $lang['ERROR_DELETE'] = 'Fehlgeschlagene Löschung!';
-$lang['MESSAGE_MAIL'] = 'Wenn Sie Ihre Buchung stornieren möchten, senden Sie einfach eine e-Mail an resabikepclz@gmail.com.';
-$lang['THANKS_MAIL'] = 'Vielen Dank für die Verwendung unseres Reservierungssystem. Hier ist Ihre Bestätigung :';
 
 // Menu
 $lang['MENU_BOOK'] = 'Buch';

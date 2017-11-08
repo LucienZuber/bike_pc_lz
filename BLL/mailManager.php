@@ -10,24 +10,56 @@ require_once '../_lib/PHPMailer.php';
 require_once '../_lib/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 class MailManager
 {
-    function sendMailBookings($subject, $intro, $to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
+    function sendMailBookings($to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
     {
-        $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, $subject);
+        $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, 'Confimation/Bestätigung');
         $mail->Body = '
-        <p>' . $intro . '</p>
+        <p>Thank you for using our reservation system. Here is your confirmation:</p>
         <ul>
+            <li>Name : ' . $sender . '</li>
+            <li>Phone: ' . $phone . '</li>
+            <li>Mail: ' . $email . '</li>
+            <li>Number of Bikes: ' . $nbBikes . '</li>
+            <li>Departure: ' . $startStation . '</li>
+            <li>Arrival: ' . $endStation . '</li>
+            <li>Departure Time: ' . $startDate . '</li>
+            <li>Arrival Time: ' . $endDate . '</li>
+        </ul>
+        <p>If you want to cancel your booking, simply send an email to resabikepclz@gmail.com.</p>
+        
+        <p>---------------------------------------------------------------------------------------------------------</p>
+        
+        <p>Merci d\'avoir utilisé notre système de réservation. Voici votre confirmation :</p>
+            <ul>
             <li>Nom : ' . $sender . '</li>
+            <li>Téléphone : ' . $phone . '</li>
+            <li>Mail : ' . $email . '</li>
             <li>Nombre de vélos : ' . $nbBikes . '</li>
             <li>Départ : ' . $startStation . '</li>
-            <li>Arrivée : ' . $endStation . '</li>
-            <li>Heure de départ : ' . $startDate . '</li>
-            <li>Heure de départ : ' . $endDate . '</li>
-            <li>Adresse e-mail : ' . $email . '</li>
-            <li>N° de téléphone : ' . $phone . '</li>
-        </ul>';
-        $mail->Body .= '<p>Si vous désirez annuler votre réservation, il vous suffit d\'envoyer un mail à resabikepclz@gmail.com</p>';
+            <li>Arrivéee : ' . $endStation . '</li>
+            <li>Heure de départ: ' . $startDate . '</li>
+            <li>Heure d\'arrivée: ' . $endDate . '</li>
+
+        </ul>
+        <p>Si vous désirez annuler votre réservation, il vous suffit d\'envoyer un mail à resabikepclz@gmail.com.</p>
+        
+        <p>---------------------------------------------------------------------------------------------------------</p>
+        
+        <p>Vielen Dank für die Verwendung unseres Reservierungssystem. Hier ist Ihre Bestätigung :</p>
+            <ul>
+            <li>Name : ' . $sender . '</li>
+            <li>Telefon : ' . $phone . '</li>
+            <li>Mail: ' . $email . '</li>
+            <li>Anzahl Fahrräder : ' . $nbBikes . '</li>
+            <li>Abreise : ' . $startStation . '</li>
+            <li>Ankunft : ' . $endStation . '</li>
+            <li>Abreise Zeit : ' . $startDate . '</li>
+            <li>Ankunftszeit : ' . $endDate . '</li>
+        </ul>
+        <p>Wenn Sie Ihre Buchung stornieren möchten, senden Sie einfach eine e-Mail an resabikepclz@gmail.com.</p>';
 
         $this->sendMail($mail);
         $mail->SmtpClose();

@@ -48,8 +48,6 @@ $lang['HOME'] = 'Accueil';
 $lang['CONNECT_FAIL'] = 'Connexion échouée :';
 $lang['ERROR_ADD'] = 'Ajout échoué !';
 $lang['ERROR_DELETE'] = 'Suppression échouée !';
-$lang['MESSAGE_MAIL'] = 'Si vous désirez annuler votre réservation, il vous suffit d\'envoyer un mail à resabikepclz@gmail.com.';
-$lang['THANKS_MAIL'] = 'Merci d\'avoir utilisé notre système de réservation. Voici votre confirmation :';
 
 // Menu
 $lang['MENU_BOOK'] = 'Réserver';
