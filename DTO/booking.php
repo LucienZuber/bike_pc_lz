@@ -6,6 +6,8 @@
  * Time: 16:08
  */
 
+//This class define the model booking
+
 class Booking
 {
     private $_id;

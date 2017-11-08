@@ -25,7 +25,7 @@ class RoleManager
 
     //This function return a list of all roles
     public function getAllRole(){
-        return $this->_roleRequest->getAllRoleById();
+        return $this->_roleRequest->getAllRole();
     }
 
     //This function return a role by its name

@@ -9,6 +9,7 @@
 require_once 'mySQLConnection.php';
 require_once '../DTO/user.php';
 
+//This class contain sql queries for the user
 class UserRequest
 {
     private $_dbh;
@@ -67,7 +68,7 @@ class UserRequest
     }
 
     public function getUsersByNameAndPassword($userName, $userPassword){
-        //The query for getting one user by name and role
+        //The query for getting one user by name and password
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND password = '$userPassword'";
 
@@ -80,7 +81,7 @@ class UserRequest
     }
 
     public function getUserById($userId){
-        //The query for getting one user
+        //The query for getting one user by id
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE _id = $userId";
 
@@ -106,7 +107,7 @@ class UserRequest
     }
 
     public function getUserByNameAndRoleId($userName, $roleId){
-        //The query for getting one user by name and role
+        //The query for getting user by name and role
 
         $query = "SELECT _id, name, password, mail, phone, role_id FROM user WHERE name = '$userName' AND role_id = $roleId";
 

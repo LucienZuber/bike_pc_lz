@@ -5,6 +5,7 @@
  * Date: 28.09.2017
  * Time: 10:30
  */
+//This is the class containing the informations for the sql connection
 class MySQLConn{
     const HOST = "localhost";
     const PORT = "3306";
@@ -25,6 +26,7 @@ class MySQLConn{
         }
     }
 
+    //This function is used to get a singleton of this class
     public static function getInstance(){
         if(!isset(self::$_instance) || is_null(self::$_instance)){
             $c = __CLASS__;

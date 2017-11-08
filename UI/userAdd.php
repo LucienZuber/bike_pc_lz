@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 include_once "../BLL/changeLanguage.php";
+
+//This page is used to add a user
+
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

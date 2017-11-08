@@ -9,6 +9,7 @@
 require_once 'mySQLConnection.php';
 require_once '../DTO/station.php';
 
+//a class containing the request concerning a station
 class StationRequest
 {
     private $_dbh;
@@ -56,7 +57,7 @@ class StationRequest
         }
     }
     public function getStationByNameAndRegionId($stationName, $regionId){
-        //The query for getting one station
+        //The query for getting one station by its name and region
         $regionId = intval($regionId);
         $stationName = str_replace("'", "\'", $stationName);
         $query = "SELECT _id, name, region_id FROM station WHERE name = '$stationName' AND region_id = $regionId";
@@ -105,7 +106,7 @@ class StationRequest
         return $returnedStations;
     }
     public function getAllStationByRegion($regionId){
-        //The query for getting one station
+        //The query for getting all stations of a region
         $regionId = intval($regionId);
         $query = "SELECT _id, name, region_id FROM station WHERE region_id LIKE $regionId";
 

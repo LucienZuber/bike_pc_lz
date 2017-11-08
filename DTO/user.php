@@ -6,6 +6,8 @@
  * Time: 16:08
  */
 
+//This class define the user model
+
 class User{
     private $_id;
     private $_name;

@@ -6,6 +6,8 @@
  * Time: 10:45
  */
 
+//THis class is the model for the reservation details
+
 class ReservationDetails
 {
     private $_name;

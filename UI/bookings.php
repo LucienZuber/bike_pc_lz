@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once "../BLL/changeLanguage.php";
+//This is the page used to display all bookings
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

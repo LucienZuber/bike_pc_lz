@@ -1,3 +1,6 @@
+/*
+This script is used to autocomplete locally
+ */
 $(document).ready(function() {
     $('.rechercheDB').on("input",function (error) {
         var stations = {};

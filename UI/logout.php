@@ -1,10 +1,11 @@
+<?php
 /**
  * Created by PhpStorm.
  * User: uadmin
  * Date: 04.11.2017
  * Time: 13:57
  */
-<?php
+    //This page is used for logging out
 include_once "../BLL/changeLanguage.php";
 ?>
 <!DOCTYPE html>

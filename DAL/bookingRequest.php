@@ -8,6 +8,8 @@
 
 require_once "../DTO/booking.php";
 
+//This class regroup the sql request for the booking
+
 class BookingRequest
 {
     private $_dbh;
@@ -21,8 +23,8 @@ class BookingRequest
         }
     }
 
+    //This function is used to insert a new booking
     public function insertBooking($departureStationId, $arrivalStationId, $nbrBike, $name, $mail, $phone, $departureHour, $arrivalHour){
-        //The query for inserting a new booking
 
         try {
             $departureStationId = intval($departureStationId);
@@ -48,8 +50,8 @@ class BookingRequest
         }
     }
 
+    //This function return a list of all bookings
     public function getAllBooking(){
-        //The query for getting one user
 
         $query = "SELECT _id, departure_id, arrival_id, nbr_bike, name, mail, phone, departure_hour, arrival_hour FROM booking ORDER BY departure_hour";
 
@@ -61,8 +63,8 @@ class BookingRequest
         return $returnedBookings;
     }
 
+    //This function upudate a booking
     public function updateBooking($bookingId, $departureStationId, $arrivalStationId, $nbrBike, $name, $mail, $phone, $departureHour, $arrivalHour){
-        //The query for inserting a new booking
 
         try {
             $bookingId = intval($bookingId);
@@ -90,6 +92,7 @@ class BookingRequest
         }
     }
 
+    //this function return a list of the bookings by a region
     public function getBookingByRegion($regionId){
         $regionId = intval($regionId);
         $query = "SELECT B._id, B.departure_id, B.arrival_id, B.nbr_bike, B.name, B.mail, B.phone, B.departure_hour, B.arrival_hour FROM booking B, station S, region R WHERE B.departure_id = S._id AND S.region_id = R._id AND R._id = $regionId ORDER BY B.departure_hour";
@@ -102,6 +105,7 @@ class BookingRequest
         return $returnedBookings;
     }
 
+    //This function return a booking by its id
     public function getBookingById($bookingId)
     {
         $bookingId = intval($bookingId);
@@ -115,9 +119,10 @@ class BookingRequest
 
     }
 
-        public function deleteBooking($bookingId){
-        //The query for removing a User
-        $bookingId = intval($bookingId);
+    //This function delete a booking
+    public function deleteBooking($bookingId){
+    //The query for removing a User
+    $bookingId = intval($bookingId);
         try{
             $sth = $this->_dbh->prepare("DELETE FROM booking WHERE _id = :bookingId");
             $sth->bindParam(':bookingId', $bookingId);
@@ -128,7 +133,7 @@ class BookingRequest
                 echo "suppresion échouée !";
             }
         } catch (PDOException $e) {
-            die('Connection failed:' . $e->getMessage());
+        die('Connection failed:' . $e->getMessage());
         }
     }
 

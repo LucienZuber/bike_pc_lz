@@ -9,6 +9,8 @@ require_once "../BLL/bookingManager.php";
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
 
+//This is the page used to delete booking
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

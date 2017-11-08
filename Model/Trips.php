@@ -6,6 +6,8 @@
  * Time: 12:29
  */
 
+//This class is the model for the trips
+
 class Trips
 {
     private $_departureStation;
