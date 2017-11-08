@@ -12,10 +12,8 @@ class MySQLConn{
     const DATABASE = "bike_pc_lz";
     const USER = "root";
     const PWD = "";
-
     private $_conn;
     private static $_instance;
-
     private function __construct()
     {
         try{
@@ -25,7 +23,6 @@ class MySQLConn{
             die('Connection failed:'.$e->getMessage());
         }
     }
-
     //This function is used to get a singleton of this class
     public static function getInstance(){
         if(!isset(self::$_instance) || is_null(self::$_instance)){
@@ -34,9 +31,7 @@ class MySQLConn{
         }
         return self::$_instance;
     }
-
     public static function getConn(){
         return self::getInstance()->_conn;
     }
-
 }
