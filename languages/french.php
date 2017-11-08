@@ -48,6 +48,15 @@ $lang['HOME'] = 'Accueil';
 $lang['EDIT_REGION'] = 'Modifier une région';
 $lang['EDIT_USER'] = 'Modifier un utilisateur';
 
+//HOME
+$lang['HOME_FAST'] = 'Rapide';
+$lang['HOME_GROUP'] = 'Futé';
+$lang['HOME_CONTACT'] = 'Facile';
+
+$lang['HOME_FAST_TEXT'] = 'Réservez votre voyage sans vous inscrire et en seulement quelques cliques.';
+$lang['HOME_GROUP_TEXT'] = 'Nos bus sont conçus spécialement pour les vélos et parfait pour les groupes.';
+$lang['HOME_CONTACT_TEXT'] = 'Modifiez ou annulez votre réservation à tout moment par e-mail.';
+
 // Menu
 $lang['MENU_BOOK'] = 'Réserver';
 $lang['MENU_BOOKINGS'] = 'Réservations';
@@ -57,6 +66,8 @@ $lang['MENU_MANAGE_REGIONS'] = 'Gestion des régions';
 // Footer
 $lang['FOOTER_CREDITS'] = 'Fait avec ❤ par Patrick Clivaz & Lucien Zuber.';
 $lang['FOOTER_LANGUAGES'] = 'Changer de langue';
+$lang['FOOTER_CONTACT'] = 'Contactez nous';
+$lang['FOOTER_CONTACT_TEXT'] = 'Si vous désirez annuler votre réservation ou vous avez des questions, il vous suffit d\'envoyer un mail à';
 $lang['LANG_DEFAULT'] = 'Anglais';
 $lang['LANG_FRENCH'] = 'Français';
 $lang['LANG_GERMAN'] = 'Allemand';

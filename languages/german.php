@@ -48,6 +48,15 @@ $lang['HOME'] = 'Startseite';
 $lang['EDIT_REGION'] = 'Bearbeiten einer Region';
 $lang['EDIT_USER'] = 'Bearbeiten eines Benutzersr';
 
+//HOME
+$lang['HOME_FAST'] = 'Schnell';
+$lang['HOME_GROUP'] = 'Intelligente';
+$lang['HOME_CONTACT'] = 'Einfach';
+
+$lang['HOME_FAST_TEXT'] = 'Buchen Sie Ihre Reise ohne Anmeldung in ein paar Mausklicks.';
+$lang['HOME_GROUP_TEXT'] = 'Unsere Busse sind speziell für Fahrräder ausgerüstet und eignen sich hervorragend für Gruppen.';
+$lang['HOME_CONTACT_TEXT'] = 'Ändern oder stornieren Sie Ihre Reservierung zu jeder Zeit, indem Sie uns per e-Mail.';
+
 // Menu
 $lang['MENU_BOOK'] = 'Buch';
 $lang['MENU_BOOKINGS'] = 'Reservierungen';
@@ -57,6 +66,8 @@ $lang['MENU_MANAGE_REGIONS'] = 'Verwalten von Regionen';
 // Footer
 $lang['FOOTER_CREDITS'] = 'Mit ❤ bei Patrick Clivaz & Lucien Zuber gemacht.';
 $lang['FOOTER_LANGUAGES'] = 'Sprache ändern';
+$lang['FOOTER_CONTACT'] = 'Kontaktieren Sie uns';
+$lang['FOOTER_CONTACT_TEXT'] = 'Wenn Sie Ihre Reservierung stornieren oder Fragen haben möchten, senden Sie einfach eine e-Mail an';
 $lang['LANG_DEFAULT'] = 'Englisch';
 $lang['LANG_FRENCH'] = 'Französisch';
 $lang['LANG_GERMAN'] = 'Deutsch';

@@ -48,6 +48,15 @@ $lang['HOME'] = 'Home';
 $lang['EDIT_REGION'] = 'Edit a region';
 $lang['EDIT_USER'] = 'Add an user';
 
+//HOME
+$lang['HOME_FAST'] = 'Fast';
+$lang['HOME_GROUP'] = 'Smart';
+$lang['HOME_CONTACT'] = 'Easy';
+
+$lang['HOME_FAST_TEXT'] = 'Book your trip without sign up in a few clicks.';
+$lang['HOME_GROUP_TEXT'] = 'Our buses are specially equipped for bikes and perfect for groups.';
+$lang['HOME_CONTACT_TEXT'] = 'Change or cancel your reservation at any time by contacting us by email.';
+
 // Menu
 $lang['MENU_BOOK'] = 'Book';
 $lang['MENU_BOOKINGS'] = 'Bookings';
@@ -57,6 +66,8 @@ $lang['MENU_MANAGE_REGIONS'] = 'Manage Regions';
 // Footer
 $lang['FOOTER_CREDITS'] = 'Made with ❤ by Patrick Clivaz & Lucien Zuber.';
 $lang['FOOTER_LANGUAGES'] = 'Change Language';
+$lang['FOOTER_CONTACT'] = 'Contact us';
+$lang['FOOTER_CONTACT_TEXT'] = 'If you want to cancel your booking or you have questions, simply send an email to';
 $lang['LANG_DEFAULT'] = 'English';
 $lang['LANG_FRENCH'] = 'French';
 $lang['LANG_GERMAN'] = 'German';
