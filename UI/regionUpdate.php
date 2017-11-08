@@ -75,7 +75,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                             }
                             ?>
                         </select>
-                        <label><?php echo $lang['ROLE'];?></label>
+                        <label><?php echo $lang['ADMIN'];?></label>
                     </div>
                     <div class="input-field col s4">
                         <button class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['CONFIRM'];?>

@@ -13,6 +13,7 @@ require_once '../DAL/stationRequest.php';
 require_once '../DAL/bookingRequest.php';
 require_once '../Model/reservationDetails.php';
 require_once '../Model/Trips.php';
+require_once 'changeLanguage.php';
 
 class BookingManager
 {
@@ -37,8 +38,9 @@ class BookingManager
             'from' => $departure,
             'to' => $arrival,
             'date' => $date,
-            'time' => $time
-        );
+            'time' => $time,
+            'time_type' => 'depart'
+    );
         //We build the query
 
         $this->query = self::URI.'?'.http_build_query($param);

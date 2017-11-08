@@ -58,7 +58,7 @@ $lang['MENU_MANAGE_USERS'] = 'Verwalten von Benutzern';
 $lang['MENU_MANAGE_REGIONS'] = 'Verwalten von Regionen';
 
 // Footer
-$lang['FOOTER_CREDITS'] = 'Made with ❤ von Patrick Clivaz & Lucien Zuber.';
+$lang['FOOTER_CREDITS'] = 'Mit ❤ bei Patrick Clivaz & Lucien Zuber gemacht.';
 $lang['FOOTER_LANGUAGES'] = 'Sprache ändern';
 $lang['LANG_DEFAULT'] = 'Englisch';
 $lang['LANG_FRENCH'] = 'Französisch';
