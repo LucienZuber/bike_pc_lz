@@ -8,6 +8,7 @@
 
 require_once "../DTO/driver.php";
 
+//This class contain the sql queries for the driver
 class DriverRequest
 {
 
@@ -22,8 +23,9 @@ class DriverRequest
         }
 
     }
+
+    //This function insert a new driver
     public function insertDriver($driverId, $regionId){
-        //The query for inserting a new driver
 
         try {
             $driverId = intval($driverId);
@@ -42,14 +44,7 @@ class DriverRequest
         }
     }
 
-    /**
-     * @param mixed $dbh
-     */
-    public function setDbh($dbh)
-    {
-        $this->_dbh = $dbh;
-    }
-
+    //This function return a driver by its id
     public function getDriverByDriverId($driverId){
         $driverId = intval($driverId);
         $query = "SELECT driver_id, region_id FROM drivers WHERE driver_id = '$driverId'";
@@ -60,6 +55,8 @@ class DriverRequest
         }
         return $returnedDriver;
     }
+
+    //This function update a driver
     public function updateDriver($driverId, $regionId){
         try {
             $driverId = intval($driverId);

@@ -10,6 +10,8 @@ require_once "../BLL/stationManager.php";
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
 
+//This page is used to delete a station
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

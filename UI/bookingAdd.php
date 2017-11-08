@@ -4,7 +4,13 @@ require_once "../Model/reservationDetails.php";
 require_once '../BLL/bookingManager.php';
 require_once '../Model/Trips.php';
 include_once  '../BLL/changeLanguage.php';
+
+//This is the page used to add a new booking
+
 ?>
+
+
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>

@@ -6,6 +6,9 @@
     include_once  "../BLL/changeLanguage.php";
 
     $userManager = new UserManager();
+
+    //this file display all the menus
+
 ?>
 
 <nav class="amber accent-3" role="navigation">

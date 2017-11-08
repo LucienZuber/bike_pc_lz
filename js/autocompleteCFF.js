@@ -1,3 +1,6 @@
+/*
+this script is used to make the autocompletion with search API
+ */
 $(document).ready(function() {
     $('.recherche').on("input",function (error) {
         var list = {};

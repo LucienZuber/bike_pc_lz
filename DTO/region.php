@@ -6,6 +6,8 @@
  * Time: 16:08
  */
 
+//This class define the region model
+
 class Region
 {
     private $_id;

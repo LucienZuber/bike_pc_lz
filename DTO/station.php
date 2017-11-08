@@ -6,6 +6,8 @@
  * Time: 16:08
  */
 
+//This class define the station model
+
 class Station implements JsonSerializable
 {
     private $_id;

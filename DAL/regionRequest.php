@@ -8,6 +8,8 @@
 require_once 'mySQLConnection.php';
 require_once '../DTO/region.php';
 
+
+//This class regroup the sql request for the regions
 class RegionRequest
 {
     private $_dbh;
@@ -39,7 +41,7 @@ class RegionRequest
         }
     }
     public function getRegionById($regionId){
-        //The query for getting one region
+        //The query for getting one region by its id
         $query = "SELECT _id, name, admin_id FROM region WHERE _id = '$regionId'";
 
         $result = $this->_dbh->query($query);
@@ -50,7 +52,7 @@ class RegionRequest
         return $returnedRegions;
     }
     public function getRegionByAdminId($adminId){
-        //The query for getting one region
+        //The query for getting one region by its admin id
         $adminId = intval($adminId);
         $query = "SELECT _id, name, admin_id FROM region WHERE admin_id = $adminId";
 
@@ -63,7 +65,7 @@ class RegionRequest
     }
 
     public function getRegionByName($regionName){
-        //The query for getting one region
+        //The query for getting one region by its name
         $query = "SELECT _id, name, admin_id FROM region WHERE name = '$regionName'";
 
         $result = $this->_dbh->query($query);
@@ -76,7 +78,7 @@ class RegionRequest
 
     public function getAllRegion()
     {
-        //The query for getting one region
+        //The query for getting all region
         $query = "SELECT _id, name, admin_id FROM region";
 
         $result = $this->_dbh->query($query);
@@ -87,7 +89,7 @@ class RegionRequest
         return $returnedRegions;
     }
     public function updateRegion($regionId, $regionName, $regionAdminId){
-        //The query for modifying an user
+        //The query for modifying a region
         $regionId = intval($regionId);
         $regionAdminId = intval($regionAdminId);
         if(!empty($this->getRegionById($regionId))) {

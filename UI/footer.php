@@ -1,5 +1,8 @@
 <?php
 include_once '../BLL/changeLanguage.php';
+
+//This is the footer of our website
+
 ?>
 <footer class="page-footer deep-orange darken-4">
     <div class="container">

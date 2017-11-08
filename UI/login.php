@@ -4,6 +4,9 @@ include_once "../BLL/changeLanguage.php";
 if(isset($_SESSION['userId'])) {
     header('Location: '."/bike_pc_lz/UI/index.php");
 }
+
+//This page is used for the login
+
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

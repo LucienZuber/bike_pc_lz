@@ -6,6 +6,8 @@
  * Time: 16:08
  */
 
+//This class define the role model
+
 class Role{
     private $_id;
     private $_name;

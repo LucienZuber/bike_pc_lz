@@ -6,6 +6,8 @@
  * Time: 10:51
  */
 
+//This class define the model driver
+
 class Driver
 {
     private $_driverId;

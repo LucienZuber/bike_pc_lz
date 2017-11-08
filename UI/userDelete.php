@@ -8,6 +8,8 @@
 require_once "../BLL/userManager.php";
 require_once "../BLL/roleManager.php";
 
+//This page is used to delete a user
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

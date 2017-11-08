@@ -1,3 +1,6 @@
+/*
+This class is used to initialize materialize
+ */
 (function($){
   $(function(){
 

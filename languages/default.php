@@ -6,6 +6,8 @@
  * Time: 15:02
  */
 
+//This page is used for the english translation
+
 $lang = array();
 
 $lang['CONNECT'] = 'Connection';

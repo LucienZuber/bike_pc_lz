@@ -11,9 +11,11 @@ require_once '../_lib/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+//this class use phpmailer to send an email
 class MailManager
 {
-    function sendMailBookings($to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
+    //the structure of the mail
+    function sendMailBookings($subject, $intro, $to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
     {
         $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, 'Confimation/Bestätigung');
         $mail->Body = '
@@ -66,12 +68,13 @@ class MailManager
         unset($mail);
     }
 
+    //This function send the mail
     function sendMail($mail)
     {
         if (!$mail->Send()) // Teste le return code de la fonction
             echo $mail->ErrorInfo; // Affiche le message d'erreur
     }
-
+    //This function prepare the headers of the mail
     function initializePHPMailer($from, $to, $subject)
     {
         $mail = new PHPMailer();

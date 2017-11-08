@@ -7,6 +7,8 @@
  */
 require_once "../DTO/role.php";
 require_once "mySQLConnection.php";
+
+//The class concerning the sql queries for the role
 class RoleRequest
 {
     private $_dbh;
@@ -20,6 +22,7 @@ class RoleRequest
         }
     }
 
+    //The function to return a role by its id
     public function getRoleById($id){
         //The query for getting one user
 
@@ -33,6 +36,7 @@ class RoleRequest
         return $returnedRole;
     }
 
+    //The function to return a role by its name
     public function getRoleByName($name){
         $query = "SELECT _id, name FROM role WHERE name = '$name'";
 
@@ -43,7 +47,9 @@ class RoleRequest
         }
         return $returnedRole;
     }
-    public function getAllRoleById(){
+
+    //The function to return a list of all roles
+    public function getAllRole(){
         //The query for getting one user
 
         $query = "SELECT _id, name FROM role";

@@ -6,6 +6,8 @@
  * Time: 15:24
  */
 
+//This page is used for the french translations
+
 $lang = array();
 
 $lang['CONNECT'] = 'Se connecter';
