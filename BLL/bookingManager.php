@@ -57,13 +57,17 @@ class BookingManager
             $from = $this->stationManager->checkIfStationExists($departure);
             $to = $this->stationManager->checkIfStationExists($arrival);
             if(is_null($from)||is_null($to)){
-                echo "Please enter an existing station";
+                echo "Please enter an existing station !";
+                echo "<br>Veuillez entrer une station existante!";
+                echo "<br>Bitte geben Sie eine existierende Station ein !";
                 return null;
             }
             if($from->getRegionId()!=$to->getRegionId()){
                 if(is_null($this->stationRequest->getStationByNameAndRegionId($from->getName(), $to->getRegionId()))){
                     if(is_null($this->stationRequest->getStationByNameAndRegionId($to->getName(), $from->getRegionId()))){
-                        echo "Merci de choisir une arrivée et un départ dans la même région !";
+                        echo "Please choose an arrival and departure in the same area!";
+                        echo "<br>Choisissez une arrivée et un départ dans la même région !";
+                        echo "<br>Bitte wählen Sie eine Anreise und Abreise in der gleichen Gegend! !";
                         return null;
                     }
                     else{

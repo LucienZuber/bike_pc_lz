@@ -6,7 +6,8 @@
  * Time: 13:16
  */
 
-header('Cache-control: private'); // Internet Explorer 6 fix
+// Internet Explorer 6 fix
+header('Cache-control: private');
 
 if(isSet($_GET['lang']))
 {
@@ -30,6 +31,7 @@ else
     $lang = 'en';
 }
 
+// choose the language depending the user select on the footer
 switch ($lang) {
     case 'en':
         $lang_file = 'default.php';

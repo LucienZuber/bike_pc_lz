@@ -6,7 +6,7 @@
  * Time: 15:02
  */
 
-//This page is used for the english translation
+//This page is used for the english translation (default language)
 
 $lang = array();
 
@@ -46,10 +46,6 @@ $lang['SEARCH'] = 'Search';
 $lang['NEW_BOOK'] = 'Book your trip quickly.';
 $lang['BOOK_NOW'] = 'Book now!';
 $lang['HOME'] = 'Home';
-
-$lang['CONNECT_FAIL'] = 'Connection failed:';
-$lang['ERROR_ADD'] = 'Add Failed!';
-$lang['ERROR_DELETE'] = 'Failed Deletion!';
 
 // Menu
 $lang['MENU_BOOK'] = 'Book';

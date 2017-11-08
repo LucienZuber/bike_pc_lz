@@ -17,7 +17,7 @@ class MailManager
     //the structure of the mail
     function sendMailBookings($subject, $intro, $to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
     {
-        $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, 'Confimation/Bestätigung');
+        $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, 'Confirmation/Bestätigung');
         $mail->Body = '
         <p>Thank you for using our reservation system. Here is your confirmation:</p>
         <ul>

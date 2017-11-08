@@ -47,10 +47,6 @@ $lang['NEW_BOOK'] = 'Réserver rapidement votre voyage.';
 $lang['BOOK_NOW'] = 'Réserver maintenant !';
 $lang['HOME'] = 'Accueil';
 
-$lang['CONNECT_FAIL'] = 'Connexion échouée :';
-$lang['ERROR_ADD'] = 'Ajout échoué !';
-$lang['ERROR_DELETE'] = 'Suppression échouée !';
-
 // Menu
 $lang['MENU_BOOK'] = 'Réserver';
 $lang['MENU_BOOKINGS'] = 'Réservations';

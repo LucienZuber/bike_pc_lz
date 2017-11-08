@@ -11,7 +11,7 @@ class MySQLConn{
     const PORT = "3306";
     const DATABASE = "bike_pc_lz";
     const USER = "root";
-    const PWD = "";
+    const PWD = "root";
 
     private $_conn;
     private static $_instance;

@@ -14,7 +14,7 @@ $_dbh = null;
         $dbh = MySQLConn::getConn();
 
     }catch (PDOException $e){
-        die('Connection failed:'.$e->getMessage());
+        die('Connection failed/Connexion échouée/Verbindung fehlgeschlagen:'.$e->getMessage());
     }
 //if there is a term given, we try to query the db
 if (isset($_GET['term'])){

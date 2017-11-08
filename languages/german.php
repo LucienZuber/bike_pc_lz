@@ -47,10 +47,6 @@ $lang['NEW_BOOK'] = 'Buchen Sie Ihre Reise schnell.';
 $lang['BOOK_NOW'] = 'Jetzt buchen!';
 $lang['HOME'] = 'Startseite';
 
-$lang['CONNECT_FAIL'] = 'Verbindung fehlgeschlagen:';
-$lang['ERROR_ADD'] = 'Hinzufügen fehlgeschlagen!';
-$lang['ERROR_DELETE'] = 'Fehlgeschlagene Löschung!';
-
 // Menu
 $lang['MENU_BOOK'] = 'Buch';
 $lang['MENU_BOOKINGS'] = 'Reservierungen';

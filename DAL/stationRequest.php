@@ -19,7 +19,7 @@ class StationRequest
             $this->_dbh = MySQLConn::getConn();
 
         }catch (PDOException $e){
-            die('Connection failed:'.$e->getMessage());
+            die('Connection failed/Connexion échouée/Verbindung fehlgeschlagen:'.$e->getMessage());
         }
     }
 
@@ -34,10 +34,10 @@ class StationRequest
                 if ($sth->execute()) {
 
                 } else {
-                    echo "Ajout échoué !";
+                    echo "Add Failed/Ajout échoué/Hinzufügen fehlgeschlagen!";
                 }
             } catch (PDOException $e) {
-                die('Connection failed:' . $e->getMessage());
+                die('Connection failed/Connexion échouée/Verbindung fehlgeschlagen:' . $e->getMessage());
             }
         }
     }
@@ -50,10 +50,10 @@ class StationRequest
             if ($sth->execute()) {
 
             } else {
-                echo "suppresion échouée !";
+                echo "Failed Deletion/Suppresion échouée/Fehlgeschlagene Löschung!";
             }
         } catch (PDOException $e) {
-            die('Connection failed:' . $e->getMessage());
+            die('Connection failed/Connexion échouée/Verbindung fehlgeschlagen:' . $e->getMessage());
         }
     }
     public function getStationByNameAndRegionId($stationName, $regionId){

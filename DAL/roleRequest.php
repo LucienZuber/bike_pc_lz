@@ -18,7 +18,7 @@ class RoleRequest
             $this->_dbh = MySQLConn::getConn();
 
         }catch (PDOException $e){
-            die('Connection failed:'.$e->getMessage());
+            die('Connection failed/Connexion échouée/Verbindung fehlgeschlagen:'.$e->getMessage());
         }
     }
 
