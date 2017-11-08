@@ -79,7 +79,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                         break;
                 }
                 foreach ($bookings as $booking) {
-                    if(!$bookingsManager->deleteBookingIfOutOfDate($booking)) {
+                    if(!$bookingsManager->isBookingIfOutOfDate($booking)) {
                         ?>
                         <tr>
                             <td><?php echo $stationManager->getStationById($booking->getDepartureStation()) . " " . $booking->getDepartureHour() ?></td>

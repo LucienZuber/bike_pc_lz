@@ -27,8 +27,7 @@ class MailManager
             <li>Adresse e-mail : ' . $email . '</li>
             <li>N° de téléphone : ' . $phone . '</li>
         </ul>';
-        if ($token != null)
-            $mail->Body .= '<p>Si vous désirez annuler votre réservation, il vous suffit d\'envoyer un mail à resabikepclz@gmail.com</p>';
+        $mail->Body .= '<p>Si vous désirez annuler votre réservation, il vous suffit d\'envoyer un mail à resabikepclz@gmail.com</p>';
 
         $this->sendMail($mail);
         $mail->SmtpClose();

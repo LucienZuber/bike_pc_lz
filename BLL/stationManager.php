@@ -9,6 +9,7 @@
 require_once '../DAL/stationRequest.php';
 require_once '../DTO/station.php';
 
+//This class regroup all action concerning the stations
 class StationManager
 {
     private $stationRequest;
@@ -46,5 +47,13 @@ class StationManager
     }
     public function getAllStationsByRegion($region){
         return $this->stationRequest->getAllStationByRegion($region);
+    }
+    //This function check if a station exists
+    public function checkIfStationExists($stationName){
+        $station = $this->stationRequest->getStationByName($stationName);
+        if(!is_null($station)){
+            return $station;
+        }
+        return null;
     }
 }

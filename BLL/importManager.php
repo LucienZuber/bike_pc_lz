@@ -9,6 +9,7 @@ require_once 'stationManager.php';
 require_once 'regionManager.php';
 require_once '../DTO/station.php';
 
+//This class regroup functions about the importation process: querying the api
 class ImportManager
 {
     const URI = "https://timetable.search.ch/api/route.en.json";
@@ -68,10 +69,10 @@ class ImportManager
         $this->listOfStops[$jsonObject['stopid']] = $jsonObject['name'];
     }
 
+    //this function add the stations to the given region
     public function readAddedStations($region){
         foreach ($this->listOfStops as $key => $value){
             $this->stationManager->addStation($value, $region->getId());
-//            echo "$key : $value <br>";
         }
     }
 }

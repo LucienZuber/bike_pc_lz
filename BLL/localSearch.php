@@ -7,6 +7,8 @@
  */
 
 require_once "../DAL/mySQLConnection.php";
+//This page is used for the local search
+//we connect to the db
 $_dbh = null;
     try{
         $dbh = MySQLConn::getConn();
@@ -14,7 +16,7 @@ $_dbh = null;
     }catch (PDOException $e){
         die('Connection failed:'.$e->getMessage());
     }
-
+//if there is a term given, we try to query the db
 if (isset($_GET['term'])){
     $return_arr = array();
 
