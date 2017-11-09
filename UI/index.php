@@ -25,7 +25,7 @@ include_once "../BLL/changeLanguage.php";
                 <br><br>
                 <h1 class="header center light-grey-text"><?php echo $lang['NEW_BOOK'];?></h1>
                 <div class="row center">
-                    <button onclick="location.href='bookingAdd.php'" class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['SEARCH'];?>
+                    <button onclick="location.href='./bookingAdd.php'" class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['SEARCH'];?>
                         <i class="material-icons right">search</i>
                     </button>
                 </div>

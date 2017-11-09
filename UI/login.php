@@ -2,7 +2,7 @@
 <?php
 include_once "../BLL/changeLanguage.php";
 if(isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 
 //This page is used for the login
@@ -60,7 +60,7 @@ if(isset($_SESSION['userId'])) {
         $user = $userManager->getUsersByNameAndPassword($_POST['name'], $_POST['password']);
         if(!is_null($user)){
             $_SESSION['userId'] = $user->getId();
-            header('Location: '."/bike_pc_lz/UI/index.php");
+            header('Location: '."./index.php");
         }
     }
     ?>

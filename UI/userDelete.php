@@ -20,15 +20,15 @@ $acceptedRoles = array();
 array_push($acceptedRoles, 'superAdmin');
 
 if(!isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 
 $role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
 
 if(!in_array($role->getName(), $acceptedRoles)){
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 
 $userManager->deleteUser($_GET['userId']);
-header('Location: '."/bike_pc_lz/UI/users.php");
+header('Location: '."./users.php");
 ?>

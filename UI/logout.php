@@ -24,7 +24,7 @@ include_once "../BLL/changeLanguage.php";
 <?php include("menus.php");
 
 if(!isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 
 ?>
@@ -32,7 +32,7 @@ if(!isset($_SESSION['userId'])) {
     <?php
     session_unset();
     session_destroy();
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
     ?>
 </main>
 <?php include("footer.php"); ?>

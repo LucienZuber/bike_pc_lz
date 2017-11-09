@@ -5,7 +5,6 @@
  * Date: 07.11.17
  * Time: 13:16
  */
-
 // Internet Explorer 6 fix
 header('Cache-control: private');
 

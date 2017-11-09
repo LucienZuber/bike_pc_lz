@@ -29,13 +29,13 @@ array_push($acceptedRoles, 'admin');
 array_push($acceptedRoles, 'driver');
 
 if(!isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 $user = $userManager->getUsersById(intval($_SESSION['userId']));
 $role = $roleManager->getRoleById($user->getRoleId());
 
 if(!in_array($role->getName(), $acceptedRoles)){
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 ?>
 <main>

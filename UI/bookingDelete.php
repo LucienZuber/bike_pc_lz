@@ -27,9 +27,9 @@ if(!isset($_SESSION['userId'])) {
 }
 
 if(!in_array($acceptedRoles, $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId())->getName())){
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 $bookingManager = new BookingManager();
 $bookingManager->deleteBooking($_GET['bookingId']);
-header('Location: '."/bike_pc_lz/UI/bookings.php");
+header('Location: '."./bookings.php");
 ?>

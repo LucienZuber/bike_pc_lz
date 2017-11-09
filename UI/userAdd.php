@@ -25,11 +25,11 @@ $roleManager = new RoleManager();
 $acceptedRoles = array();
 array_push($acceptedRoles, 'superAdmin');
 if(!isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 $role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
 if(!in_array($role->getName(), $acceptedRoles)){
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 ?>
 <main>
@@ -127,7 +127,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
         }
     ?>
     <script type="text/javascript">
-        window.location = "/bike_pc_lz/UI/users.php";
+        window.location = "./users.php";
     </script>
     <?php
     }

@@ -29,13 +29,13 @@ $acceptedRoles = array();
 array_push($acceptedRoles, 'superAdmin');;
 
 if(!isset($_SESSION['userId'])) {
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 
 $role = $roleManager->getRoleById($userManager->getUsersById(intval($_SESSION['userId']))->getRoleId());
 
 if(!in_array($role->getName(), $acceptedRoles)){
-    header('Location: '."/bike_pc_lz/UI/index.php");
+    header('Location: '."./index.php");
 }
 ?>
 <main>
@@ -125,12 +125,6 @@ if(!in_array($role->getName(), $acceptedRoles)){
     if(isset($_POST['submit'])){
         $region = new Region($_GET['regionId'], $_POST['name'], $_POST['admin']);
         $regionManager->updateRegion($region);
-        echo "HELLO";
-        ?>
-        <script type="text/javascript">
-            window.location = "/bike_pc_lz/UI/regions.php";
-        </script>
-        <?php
     }
     ?>
 </main>
