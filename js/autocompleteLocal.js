@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 function getData(input, stations) {
     $.ajax({
-        url: '/bike_pc_lz/UI/getStation.php?input='+input,
+        url: '../UI/getStation.php?input='+input,
         type: 'GET',
         dataType: 'json',
         success: function(result){
