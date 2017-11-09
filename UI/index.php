@@ -23,7 +23,7 @@ include_once "../BLL/changeLanguage.php";
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h1 class="header center lime-text"><?php echo $lang['NEW_BOOK'];?></h1>
+                <h1 class="header center light-grey-text"><?php echo $lang['NEW_BOOK'];?></h1>
                 <div class="row center">
                     <button onclick="location.href='bookingAdd.php'" class="btn waves-effect waves-light orange" type="submit" name="submit"><?php echo $lang['SEARCH'];?>
                         <i class="material-icons right">search</i>
