@@ -48,8 +48,8 @@ if(!in_array($role->getName(), $acceptedRoles)){
             <table class="striped">
                 <thead>
                 <tr>
-                    <th><?php echo $lang['FROM'];?></th>
-                    <th><?php echo $lang['TO'];?></th>
+                    <th><?php echo $lang['START_TIME'];?></th>
+                    <th><?php echo $lang['END_TIME'];?></th>
                     <th><?php echo $lang['NAME'];?></th>
                     <th><?php echo $lang['MAIL'];?></th>
                     <th><?php echo $lang['PHONE'];?></th>
