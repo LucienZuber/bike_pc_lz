@@ -106,7 +106,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                     <tr>
                         <td><?php echo $station->getName()?></td>
                         <td>
-                            <a class="btn-floating orange" href="stationDelete.php?stationId=<?php echo $station->getId();?>"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating orange" href="stationDelete.php?stationId=<?php echo $station->getId();?>&regionId=<?php echo $entryRegion->getId();?>"><i class="material-icons">remove</i></a>
                         </td>
                     </tr>
                     <?php

@@ -15,7 +15,7 @@ use PHPMailer\PHPMailer\Exception;
 class MailManager
 {
     //the structure of the mail
-    function sendMailBookings($subject, $intro, $to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone, $token = '-')
+    function sendMailBookings($to, $sender, $nbBikes, $email, $startStation, $endStation, $startDate, $endDate, $phone)
     {
         $mail = $this->initializePHPMailer('resabikepclz@gmail.com', $to, 'Confirmation/Bestätigung');
         $mail->Body = '

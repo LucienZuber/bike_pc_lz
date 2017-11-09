@@ -34,6 +34,5 @@ if(!in_array($role->getName(), $acceptedRoles)){
 
 $stationManager = new StationManager();
 $stationManager->removeStation($_GET['stationId']);
-header('Location: '."/bike_pc_lz/UI/regions.php");
-
+header('Location: '."/bike_pc_lz/UI/regionUpdate.php?regionId=".$_GET['regionId']);
 ?>

@@ -79,6 +79,11 @@ if(isset($_POST['submit'])){
     $regionManager = new RegionManager();
     $oldRegion = $regionManager->getRegionById($_GET['regionId']);
     $import->read($_POST['departure'], $_POST['arrival'], $oldRegion->getName(), $oldRegion->getAdminId());
+    ?>
+    <script type="text/javascript">
+        window.location = "/bike_pc_lz/UI/regionUpdate.php?regionId=<?php echo $_GET['regionId'] ;?>";
+    </script>
+    <?php
 }
 
 ?>

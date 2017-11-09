@@ -125,6 +125,11 @@ if(!in_array($role->getName(), $acceptedRoles)){
             default:
                 break;
         }
+    ?>
+    <script type="text/javascript">
+        window.location = "/bike_pc_lz/UI/users.php";
+    </script>
+    <?php
     }
     ?>
 
