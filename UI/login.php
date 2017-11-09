@@ -30,10 +30,12 @@ if(isset($_SESSION['userId'])) {
         <form class="col s12" action="#" method="post">
             <div class="row">
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">person</i>
                     <input type="text" name="name"required>
                     <label for="name"><?php echo $lang['NAME'];?></label>
                 </div>
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">lock</i>
                     <input type="password" name="password" required>
                     <label for="password"><?php echo $lang['PASSWORD'];?></label>
                 </div>

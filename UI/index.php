@@ -75,7 +75,7 @@ include_once "../BLL/changeLanguage.php";
 
 
     <div class="parallax-container valign-wrapper">
-        <div class="parallax"><img src="../UI/Images/background2.jpg" alt="Unsplashed background img 2"></div>
+        <div class="parallax"><img src="Images/background2.jpg" alt="Unsplashed background img 2"></div>
     </div>
 
 
