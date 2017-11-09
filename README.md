@@ -1,6 +1,6 @@
 # bike_pc_lz
 This is a PHP project done during the module 645-1 of the HEG of Sierre
-##General
+## General
 This project has been made for the entreprise ResaBike, it is used to book a place
 for your bike on a postal car.
 <br>
@@ -12,7 +12,7 @@ teachers: Alexandre Cotting, Pierre-Yves Guex and Jean-Pierre Rey
 The project has been developped using:
 - HTML 5
 - CSS 3
-- Materialize
+- Materialize CSS
 - PHP 7.0
 - MySql
 - PHPMailer
