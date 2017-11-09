@@ -23,3 +23,4 @@ The encoding of the project is made in UTF-8 and the DB is encoded in latin1
 To run our website, you first need to deploy it in a xamp/wamp/mamp/lamp environnment, you need to set it in PHP 7.0.
 the basics credentiel for accessing the DB are located into
 BLL/mySqlConnection.php. By default they are kept with username = root and no password
+You can run bike_pc_lz.sql on your sql server to create the db on your local machine.
