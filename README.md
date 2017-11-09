@@ -8,7 +8,7 @@ students: Lucien Zuber and Patrick Clivaz
 <br>
 teachers: Alexandre Cotting, Pierre-Yves Guex and Jean-Pierre Rey
 
-##Technical details
+## Technical details
 The project has been developped using:
 - HTML 5
 - CSS 3
@@ -19,7 +19,7 @@ The project has been developped using:
 
 The encoding of the project is made in UTF-8 and the DB is encoded in latin1
 
-##Running requirements
+## Running requirements
 To run our website, you first need to deploy it in a xamp/wamp/mamp/lamp environnment, you need to set it in PHP 7.0.
 the basics credentiel for accessing the DB are located into
 BLL/mySqlConnection.php. By default they are kept with username = root and no password
