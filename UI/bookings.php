@@ -73,7 +73,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
                     case 'driver':
                         require_once "../BLL/driverManager.php";
                         $driverManager = new DriverManager();
-                        $bookings = $bookingsManager->getBookingByRegion($driverManager->getRegionByDriver($user->getId())->getId());
+                        $bookings = $bookingsManager->getBookingByRegion($driverManager->getRegionByDriver($user->getId())->getRegionId());
                         break;
                     case 'superAdmin':
                         $bookings = $bookingsManager->getAllBooking();

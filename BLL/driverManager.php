@@ -21,7 +21,7 @@ class DriverManager
 
     //This class regroup the region by its driver
     public function getRegionByDriver($driverId){
-        return $this->driverRequest->getDriverByDriverId($driverId)->getRegionId();
+        return $this->driverRequest->getDriverByDriverId($driverId);
     }
 
     //this function add a driver to a region
