@@ -57,7 +57,7 @@ if(!in_array($role->getName(), $acceptedRoles)){
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" name="region" required>
-                    <label for="region"><?php echo $lang['REGION'];?></label>
+                    <label for="region"><?php echo $lang['NAME'];?></label>
                 </div>
                 <div class="input-field col s6">
                     <select name="admin">

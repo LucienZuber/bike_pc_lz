@@ -1,12 +1,12 @@
 # bike_pc_lz
-This is a PHP project done during the module 645-1 of the HEG of Sierre
+This is a PHP project done during the module 645-1 Software Development Projects in HES-SO Sierre.
 ## General
-This project has been made for the entreprise ResaBike, it is used to book a place
-for your bike on a postal car.
+This project has been developped for the entreprise Sierre-Anniviers-Régions Sàrl, it is used to book a place
+for your bike on a bus.
 <br>
-students: Lucien Zuber and Patrick Clivaz
+Students: Lucien Zuber and Patrick Clivaz
 <br>
-teachers: Alexandre Cotting, Pierre-Yves Guex and Jean-Pierre Rey
+Teacher: Alexandre Cotting
 
 ## Technical details
 The project has been developped using:
@@ -14,13 +14,13 @@ The project has been developped using:
 - CSS 3
 - Materialize CSS
 - PHP 7.0
-- MySql
+- phpMyAdmin
 - PHPMailer
 
 The encoding of the project is made in UTF-8 and the DB is encoded in latin1
 
 ## Running requirements
-To run our website, you first need to deploy it in a xamp/wamp/mamp/lamp environnment, you need to set it in PHP 7.0.
+To run our website, you first need to deploy it in a xampp/wamp/mamp/lamp environnment, you need to set it in PHP 7.0.
 the basics credentiel for accessing the DB are located into
 BLL/mySqlConnection.php. By default they are kept with username = root and no password
 You can run bike_pc_lz.sql on your sql server to create the db on your local machine.
