@@ -99,6 +99,11 @@ const ACCEPTED_TRANSPORT_TYPE = array('post');
 if(isset($_POST['submit'])){
     $import = new ImportManager();
     $import->read($_POST['departure'], $_POST['arrival'], $_POST['region'], $_POST['admin']);
+    ?>
+    <script type="text/javascript">
+        window.location = "./regionUpdate.php";
+    </script>
+    <?php
 }
 
 ?>

@@ -125,6 +125,11 @@ if(!in_array($role->getName(), $acceptedRoles)){
     if(isset($_POST['submit'])){
         $region = new Region($_GET['regionId'], $_POST['name'], $_POST['admin']);
         $regionManager->updateRegion($region);
+        ?>
+        <script type="text/javascript">
+            window.location = "./regions.php";
+        </script>
+        <?php
     }
     ?>
 </main>
